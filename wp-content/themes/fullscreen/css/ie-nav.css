@@ -1,0 +1,7 @@
+/* IE NAV */
+
+#searchform {margin:0;padding:0;height:1%;}
+#nav ul li.enhanced a.arrow { float: none;}
+#nav ul li ul, #searchform #s { left:0;top:0}
+.sf-menu ul { top: 29px !important; }
+.sf-menu ul ul { top: 0 !important; }

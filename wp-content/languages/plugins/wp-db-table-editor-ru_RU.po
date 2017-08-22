@@ -1,0 +1,99 @@
+# Translation of Development (trunk) in Russian
+# This file is distributed under the same license as the Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2016-05-27 11:28:38+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: GlotPress/2.1.0-alpha\n"
+"Project-Id-Version: Development (trunk)\n"
+
+#: db-table-editor.php:227
+msgid "New"
+msgstr "Новый"
+
+#: db-table-editor.php:158
+msgid "Are you sure you wish to remove this row"
+msgstr "Вы уверены, что хотите удалить эту строку"
+
+#: db-table-editor.php:213
+msgid "No Database Table Configured to Edit"
+msgstr "Не сконфигурирована таблица базы данных для редактирования"
+
+#: db-table-editor.php:226
+msgid "Save %s Changes"
+msgstr "Сохранить %s изменения"
+
+#: db-table-editor.php:228
+msgid "Undo"
+msgstr "Отменить"
+
+#: db-table-editor.php:159
+msgid "Delete this Row"
+msgstr "Удалить эту строчку"
+
+#: db-table-editor.php:250
+msgid "Loading data..."
+msgstr "Данные загружаются..."
+
+#: db-table-editor.php:252
+msgid "Clear Filters"
+msgstr "Очистить фильры"
+
+#: db-table-editor.php:253
+msgid "Showing 0 of 0 rows"
+msgstr "Показано 0 из 0 строк"
+
+#: db-table-editor.php:299 db-table-editor.php:300
+msgid "DB Table Editor"
+msgstr "Редактор Таблиц БД"
+
+#: db-table-editor.php:251
+msgid "Export to CSV"
+msgstr "Экспорт в формате CSV"
+
+#: db-table-editor.php:225
+msgid "There are %s unsaved changes"
+msgstr "%s несохраненных изменений"
+
+#: db-table-editor.php:254
+msgid "You have unsaved data, are you sure you want to quit"
+msgstr "Есть несохраненные данные, вы уверены что хотите выйти"
+
+#: db-table-editor.php:328
+msgid "Configured Database Tables"
+msgstr "Сконфигурированные таблицы базы данных"
+
+#. Description of the plugin/theme
+msgid "A plugin that adds \"tools\" pages to edit database tables"
+msgstr "Плагин, который добавляет страницы \"инструменты\" для редактирования таблиц баз данных "
+
+#. Plugin URI of the plugin/theme
+msgid "http://github.com/AcceleratioNet/wp-db-table-editor"
+msgstr "http://github.com/AcceleratioNet/wp-db-table-editor"
+
+#. Author of the plugin/theme
+msgid "Russ Tyndall @ Acceleration.net"
+msgstr "Russ Tyndall @ Acceleration.net"
+
+#. Author URI of the plugin/theme
+msgid "http://www.acceleration.net"
+msgstr "http://www.acceleration.net"
+
+#. Plugin Name of the plugin/theme
+msgid "DB-table-editor"
+msgstr "DB-table-editor"
+
+#: db-table-editor.php:325
+msgid "This plugin allows viewing, editing, and exporting of database tables in your wordpress database through the admin interface.  See the %sREADME.md%s for information on configuring this plugin."
+msgstr "Плагин позволяет просматривать, редактировать и экспортировать таблицы базы данных из вашей базе данных WordPress через интерфейс администратора. Смотрите %sREADME.md%s для получения информации о настройке этого плагина."
+
+#: db-table-editor.php:157
+msgid "Showing %d of %d rows - items with unsaved changes are not filtered"
+msgstr "Показано %d из %d строк - значений из несохраненных и не проверенных изменений"
+
+#: db-table-editor.php:75
+msgid "DB-Table-Editor Cannot READ DATA SOURCE"
+msgstr "DB-Table-Editor не может прочитать источник данных"

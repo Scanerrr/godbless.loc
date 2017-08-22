@@ -1,0 +1,407 @@
+@charset "UTF-8";
+/*---------------------------
+		Rem Calc
+---------------------------*/
+/*---------------------------
+		Typorgraphy
+---------------------------*/
+/*---------------------------
+		Colors
+---------------------------*/
+/*---------------------------
+	 Foundation Grid
+---------------------------*/
+/*---------------------------
+	Foundation Media Query
+---------------------------*/
+/** Micro clearfix, as per: http://cssmojo.com/latest_new_clearfix_so_far/ Extend the clearfix class with Sass to avoid the `.clearfix` class appearing over and over in your markup. */
+.comment-content:after, .clearfix:after { content: ""; display: table; clear: both; }
+
+h1, h2, h3, h4, h5, h6, ul, ol, dd, table, p, address, pre, hr { margin: 0 0 1.875rem; padding: 0; }
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/* Note: This file is updated by Sagar, To remove ducplication of styles. */
+/* HTML5 display definitions ========================================================================== */
+/** Correct `block` display not defined for any HTML5 element in IE 8/9. Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox. Correct `block` display not defined for `main` in IE 11. */
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary { display: block; }
+
+/** 1. Correct `inline-block` display not defined in IE 8/9. 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera. */
+audio, canvas, progress, video { display: inline-block; /* 1 */ vertical-align: baseline; /* 2 */ }
+
+/** Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices. */
+audio:not([controls]) { display: none; height: 0; }
+
+/** Address `[hidden]` styling not present in IE 8/9/10. Hide the `template` element in IE 8/9/10/11, Safari, and Firefox < 22. */
+[hidden], template { display: none; }
+
+/* Text-level semantics ========================================================================== */
+/** Address styling not present in IE 8/9/10/11, Safari, and Chrome. */
+abbr[title] { border-bottom: 1px dotted; }
+
+/** Address style set to `bolder` in Firefox 4+, Safari, and Chrome. */
+b, strong { font-weight: bold; }
+
+/** Address styling not present in Safari and Chrome. */
+dfn { font-style: italic; }
+
+/** Address styling not present in IE 8/9. */
+mark { background: #c2c2c2; color: #000000; }
+
+/** Address inconsistent and variable font size in all browsers. */
+small { font-size: 80%; }
+
+/** Prevent `sub` and `sup` affecting `line-height` in all browsers. */
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+
+sup { top: -0.5rem; }
+
+sub { bottom: -0.25rem; }
+
+/* Embedded content ========================================================================== */
+/** Correct overflow not hidden in IE 9/10/11. */
+svg:not(:root) { overflow: hidden; }
+
+/* Forms ========================================================================== */
+/** Known limitation: by default, Chrome and Safari on OS X allow very limited styling of `select`, unless a `border` property is set. */
+/** 1. Correct color not being inherited. Known issue: affects color of disabled elements. 2. Correct font properties not being inherited. 3. Address margins set differently in Firefox 4+, Safari, and Chrome. */
+button, input, optgroup, select, textarea { color: inherit; /* 1 */ font: inherit; /* 2 */ margin: 0; /* 3 */ }
+
+/** Address `overflow` set to `hidden` in IE 8/9/10/11. */
+button { overflow: visible; }
+
+/** Address inconsistent `text-transform` inheritance for `button` and `select`. All other form control elements do not inherit `text-transform` values. Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera. Correct `select` style inheritance in Firefox. */
+button, select { text-transform: none; }
+
+/** 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls. 2. Correct inability to style clickable `input` types in iOS. 3. Improve usability and consistency of cursor style between image-type `input` and others. */
+button, html input[type="button"], input[type="reset"], input[type="submit"] { -webkit-appearance: button; /* 2 */ cursor: pointer; /* 3 */ }
+
+/** Re-set default cursor for disabled elements. */
+button[disabled], html input[disabled] { cursor: default; }
+
+/** Remove inner padding and border in Firefox 4+. */
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+
+/** Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet. */
+input { line-height: normal; }
+
+/** It's recommended that you don't attempt to style these elements. Firefox's implementation doesn't respect box-sizing, padding, or width.  1. Address box sizing set to `content-box` in IE 8/9/10. 2. Remove excess padding in IE 8/9/10. */
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; /* 1 */ padding: 0; /* 2 */ }
+
+/** Fix the cursor style for Chrome's increment/decrement buttons. For certain `font-size` values of the `input`, it causes the cursor style of the decrement button to change from `default` to `text`. */
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { height: auto; }
+
+/** 1. Address `appearance` set to `searchfield` in Safari and Chrome. 2. Address `box-sizing` set to `border-box` in Safari and Chrome. */
+input[type="search"] { -webkit-appearance: textfield; }
+
+/** Remove inner padding and search cancel button in Safari and Chrome on OS X. Safari (but not Chrome) clips the cancel button when the search input has padding (and `textfield` appearance). */
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+/** Define consistent border, margin, and padding. */
+fieldset { border: 1px solid #c0c0c0; margin: 0 2px; padding: 0.35rem 0.625rem 0.75rem; }
+
+/** 1. Correct `color` not being inherited in IE 8/9/10/11. 2. Remove padding so people aren't caught out if they zero out fieldsets. */
+legend { border: 0; /* 1 */ padding: 0; /* 2 */ }
+
+/** Don't inherit the `font-weight` (applied by a rule above). NOTE: the default cannot safely be changed in Chrome and Safari on OS X. */
+optgroup { font-weight: bold; }
+
+/* Note: This file is updated by Sagar, To remove ducplication of styles. */
+figure { margin: 0; max-width: 100%; }
+
+/*------------------------------------*\ #HEADINGS
+\*------------------------------------*/
+h1, h2, h3, h4, h5, h6 { font-weight: 400; }
+
+h1 { font-size: 1.625rem; line-height: 1.15385; }
+
+h2 { font-size: 1.375rem; line-height: 1.36364; }
+
+h3 { font-size: 1.125rem; line-height: 1.66667; }
+
+h4 { font-size: 1rem; line-height: 1.875; }
+
+h5 { font-size: 0.75rem; line-height: 2.5; }
+
+h6 { font-size: 0.625rem; line-height: 3; }
+
+.site-title { font-size: 1.25rem; }
+
+ul, ol, dd { margin-left: 1.875rem; }
+
+li > ul, li > ol { margin-bottom: 0; }
+
+/** Crude table styles; tables are very difficult to keep on the baseline. */
+table { border-collapse: collapse; border-spacing: 0; width: 100%; }
+
+th, td { border-bottom: 1px solid #E1E1E1; padding: 15px; text-align: left; }
+th:first-child, td:first-child { padding-left: 0; }
+th:last-child, td:last-child { padding-right: 0; }
+
+.rthd-comment-content th, .rthd-comment-content td { vertical-align: top; }
+.rthd-comment-content th:first-child, .rthd-comment-content td:first-child { width: 18%; }
+
+/** Paragraphs */
+/** Not strictly a paragraph, but probably doesn't need its own section. */
+/** CODE */
+pre { background: #eeeeee; border: 1px solid #f1f1f1; max-width: 100%; overflow: auto; /* Contain overflow in all browsers. */ padding: 1rem; }
+pre code.bash, pre > code { background: transparent; border: 0; display: block; margin: 0; padding: 0; }
+pre code code.bash { font-size: inherit; }
+
+code { padding: 0.125rem 0.375rem; margin: 0 0.1875rem; font-size: 80%; background: #eeeeee; border: 1px solid #f1f1f1; border-radius: 3px; }
+
+/** 1. Fix an odd quirk whereby, without this, code blocks are rendered at a font-size smaller than 1em. */
+code, kbd, pre, samp { font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace; /* [1] */ }
+
+/** Set up quote marks on quoting elements. */
+q, blockquote { margin: 0 0 1.875rem 1.875rem; padding-left: 1rem; }
+
+/** HR */
+hr { background-color: #cccccc; border: 0; box-sizing: content-box; /* Address differences between Firefox and other browsers. Source- normalize.css */ height: 0.0625rem; }
+
+/*------------------------------------*\
+#Home Sections
+\*------------------------------------*/
+.lesse-hs-1-main-title { text-align: center; }
+
+.lesse-hs1-title { font-size: 1rem; font-weight: 400; margin-bottom: 0.625rem; text-transform: uppercase; }
+
+.lesse-hs1-description { font-size: 0.8125rem; }
+
+.lesse-hs-1-main-title, .lesse-hs3-main-title, .lesse-hs7-title { margin-bottom: 3.125rem; }
+
+.lesse-hs-1-main-title, .lesse-hs2-title, .lesse-hs3-main-title, .lesse-hs4-title, .lesse-hs5-title, .lesse-hs6-title, .lesse-hs7-title, .lesse-hs7-main-title { font-size: 2.25rem; text-transform: uppercase; }
+
+.lesse-hs4-title { margin-bottom: 0.3125rem; text-transform: uppercase; color: #ffffff; font-size: 1.125rem; }
+
+.lesse-hs5-title, .lesse-hs7-main-title { margin-bottom: 1.25rem; }
+
+.lesse-hs7-title { font-size: 1.25rem; margin-bottom: 0.625rem; }
+
+.lesse-hs10-title { font-size: 1rem; }
+
+.lesse-hs10-title { margin-bottom: 0; font-size: 1.125rem; font-weight: normal; }
+
+/** Widgets */
+.widget-title { text-transform: uppercase; letter-spacing: 0.125rem; font-size: 1.125rem; }
+
+h1, h2, h3, h4, h5, h6, .site-title, .lesse-hs-1-main-title, .lesse-hs1-title, .lesse-hs3-main-title, .lesse-hs3-title, .lesse-hs5-title, .lesse-hs7-title, .lesse-hs7-main-title, .lesse-main-navigation, .widget-title-sidebar, .entry-title, .reply, q, blockquote { color: #000000; }
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, .site-title a, .lesse-hs-1-main-title a, .lesse-hs1-title a, .lesse-hs3-main-title a, .lesse-hs3-title a, .lesse-hs5-title a, .lesse-hs7-title a, .lesse-hs7-main-title a, .lesse-main-navigation a, .widget-title-sidebar a, .entry-title a, .reply a, q a, blockquote a { color: #000000; }
+
+/** Posts & Pages */
+.entry-date-wrapper a, .entry-meta, .entry-meta a { color: #c2c2c2; }
+
+.lesse-banner-title, .lesse-wide-thumb-content .entry-title { color: #ffffff; text-transform: uppercase; letter-spacing: 0.125rem; font-weight: 100; font-size: 1.875rem; }
+
+.lesse-wide-thumb-content a, .lesse-wide-thumb-content, .lesse-wide-thumb-content .entry-meta, .lesse-wide-thumb-content .edit-link:before { color: #ffffff; }
+
+/*--------------------------------------------------------------
+# Common Classes
+--------------------------------------------------------------*/
+/*--------------------------- Accessiblity
+---------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text { clip: rect(1px, 1px, 1px, 1px); position: absolute !important; height: 1px; width: 1px; overflow: hidden; }
+.screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus { background-color: #f1f1f1; border-radius: 3px; box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6); clip: auto !important; color: #21759b; display: block; font-size: 0.05469rem; font-weight: bold; height: auto; left: 5px; line-height: normal; padding: 15px 23px 14px; text-decoration: none; top: 5px; width: auto; z-index: 100000; /* Above WP toolbar. */ }
+
+/*--------------------------- Alignments
+---------------------------*/
+.alignleft { display: inline; float: left; margin-right: 1.5em; }
+
+.alignright { display: inline; float: right; margin-left: 1.5em; }
+
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+.left { float: left; }
+
+.right { float: right; }
+
+/*--------------------------- Clearing
+---------------------------*/
+.clear-both { clear: both; }
+
+.clear-none { clear: none; }
+
+.clear-left { clear: left; }
+
+.clear-right { clear: right; }
+
+.overflow { overflow: hidden; }
+
+/*--------------------------- Others
+---------------------------*/
+.fontello:before, .lesse-customizer-preview-message:before, blockquote:before, .lesse-wide-thumb-content time:before, .fontello-after:after { font-family: "fontello"; font-style: normal; font-weight: normal; speak: none; display: inline-block; text-decoration: inherit; width: 1em; margin-right: .2em; text-align: center; font-variant: normal; text-transform: none; line-height: 1em; margin-left: .2em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.hide { display: none; }
+
+.row-container { padding-left: 0.9375rem; padding-right: 0.9375rem; max-width: 81.25rem; margin-left: auto; margin-right: auto; }
+
+.mt-10 { margin-top: 0.625rem; }
+
+.mt-20 { margin-top: 1.25rem; }
+
+.mr-10 { margin-right: 0.625rem; }
+
+.mr-20 { margin-right: 1.25rem; }
+
+.mb-10 { margin-bottom: 0.625rem; }
+
+.mb-20 { margin-bottom: 1.25rem; }
+
+.ml-10 { margin-left: 0.625rem; }
+
+.ml-20 { margin-left: 1.25rem; }
+
+/***/
+.pt-10 { padding-top: 0.625rem; }
+
+.pt-20 { padding-top: 1.25rem; }
+
+.pr-10 { padding-right: 0.625rem; }
+
+.pr-20 { padding-right: 1.25rem; }
+
+.pb-10 { padding-bottom: 0.625rem; }
+
+.pb-20 { padding-bottom: 1.25rem; }
+
+.pl-10 { padding-left: 0.625rem; }
+
+.pl-20 { padding-left: 1.25rem; }
+
+/***/
+.lh-1 { line-height: 1; }
+
+/*--------------------------- Fontello Icon
+---------------------------*/
+.fontello:before, .lesse-customizer-preview-message:before, blockquote:before, .lesse-wide-thumb-content time:before { font-family: "fontello"; font-style: normal; font-weight: normal; speak: none; display: inline-block; text-decoration: inherit; width: 1em; margin-right: .2em; text-align: center; font-variant: normal; text-transform: none; line-height: 1em; margin-left: .2em; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+/*--------------------------- Fontello Icon
+---------------------------*/
+.lesse-overlay { position: absolute; width: 100%; height: 100%; background: #000000; opacity: 0.4; left: 0; top: 0; -webkit-transition: 0.1s; transition: 0.1s; }
+
+.lesse-customize-preview { min-height: 500px; text-align: center; padding: 200px 10px; }
+
+.lesse-customizer-preview-message { padding: 10px; text-align: center; background-color: #999; color: #ffffff; width: 90%; margin: 0 auto; cursor: pointer; -webkit-transition: 0.3s; transition: 0.3s; clear: both; overflow: hidden; }
+.lesse-customizer-preview-message a { color: inherit; }
+.lesse-customizer-preview-message a:hover { color: inherit; }
+.lesse-customizer-preview-message:hover { background: #444444; }
+.lesse-customizer-preview-message:before { content: ""; }
+
+/* Aside */
+.blog .format-aside .entry-title, .archive .format-aside .entry-title { display: none; }
+
+/*--------------------------------------------------------------
+## Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley, .entry-content .wp-smiley, .comment-content .wp-smiley { border: none; margin-bottom: 0; margin-top: 0; padding: 0; }
+
+/* Make sure embeds and iframes fit their containers. */
+embed, iframe, object { max-width: 100%; }
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption { margin-bottom: 1.5rem; max-width: 100%; }
+.wp-caption img[class*="wp-image-"] { display: block; margin-left: auto; margin-right: auto; }
+.wp-caption .wp-caption-text { margin: 0.8075rem 0; }
+
+.wp-caption-text { text-align: center; }
+
+/*--------------------------------------------------------------
+## Galleries
+--------------------------------------------------------------*/
+.gallery { margin-bottom: 1.5rem; }
+
+.gallery-item { display: inline-block; text-align: center; vertical-align: top; width: 100%; }
+.gallery-columns-2 .gallery-item { max-width: 50%; }
+.gallery-columns-3 .gallery-item { max-width: 33.33%; }
+.gallery-columns-4 .gallery-item { max-width: 25%; }
+.gallery-columns-5 .gallery-item { max-width: 20%; }
+.gallery-columns-6 .gallery-item { max-width: 16.66%; }
+.gallery-columns-7 .gallery-item { max-width: 14.28%; }
+.gallery-columns-8 .gallery-item { max-width: 12.5%; }
+.gallery-columns-9 .gallery-item { max-width: 11.11%; }
+
+.gallery-caption { display: block; }
+
+/*---------------------------
+		Infinite Scroll
+---------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation, .infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */ display: none; }
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer { display: block; }
+
+/*---------------------------
+		Other
+---------------------------*/
+#tinymce.mce-content-body { font-size: 16px; font-style: normal; font-weight: 400; padding: 15px !important; }
+
+.hidden { display: none; }
+
+.invisible { visibility: hidden; }
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+html { box-sizing: border-box; -ms-text-size-adjust: 100%; /* [5] */ -webkit-text-size-adjust: 100%; /* [5] */ color: #757575; /* [additional] */ }
+
+*, *:before, *:after { /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */ box-sizing: inherit; }
+
+/** 1. Fallback for when there is no custom background color defined. [WordPress] 2. Remove default margin. [normalize.css] 3. Set the base elements `font-size` to the value of your choosing. 4. Work out the unitless `line-height` for your project based around your desired `line-height` (defined previously in pixels), and your projects base font size. */
+body { background: #ffffff; /* [1] */ background-size: 100% auto; margin: 0; /* [2] */ font-family: "Bitter", serif; color: #757575; font-size: 0.9375rem; line-height: 2; /* [3] */ /* [4] */ word-break: break-word; }
+
+p { color: #757575; }
+
+blockquote { border-top: 1px solid #f1f1f1; border-right: 1px solid #f1f1f1; border-bottom: 1px solid #f1f1f1; border-left: 5px solid #c2c2c2; color: #787875; padding: 0.9375rem; }
+blockquote:before { content: ""; }
+blockquote:before { color: #c2c2c2; font-size: 1.5625rem; vertical-align: -0.3125rem; margin: 0 0.9375rem 0 0; }
+blockquote p { display: inline; }
+
+img { height: auto; max-width: 100%; vertical-align: middle; }
+
+/* Default Links */
+a { outline: 0; text-decoration: none; -webkit-transition: 0.3s; transition: 0.3s; }
+a:hover { outline: 0; }
+
+/*--------------------------- Lists & Tables
+---------------------------*/
+li > ul, li > ol { margin-bottom: 0; margin-left: 1.5rem; }
+
+dt { font-weight: bold; }
+
+dd { margin: 0 1.5rem 1.5rem; }
+
+ul { list-style: disc; margin: 0; padding: 0; }
+
+/*--------------------------- Buttons
+---------------------------*/
+button, input[type="button"], input[type="reset"], input[type="submit"] { border: 0; color: #ffffff; line-height: 1; padding: 0.8125rem; font-family: inherit; -webkit-transition: 0.5s; -moz-transition: 0.5s; -o-transition: 0.5s; text-transform: uppercase; }
+button:active, button:focus, input[type="button"]:active, input[type="button"]:focus, input[type="reset"]:active, input[type="reset"]:focus, input[type="submit"]:active, input[type="submit"]:focus { background: #000000; outline: 0; }
+
+/*--------------------------- Fields
+---------------------------*/
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], textarea { color: #666666; border: 1px solid #cccccc; font-family: inherit; line-height: 1.5; -webkit-transition: 0.3s; transition: 0.3s; }
+input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, textarea:focus { color: #111111; border: 1px solid #000000; outline: 0; }
+
+textarea { padding: 0.625rem; }
+
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"] { padding: 0.625rem; }
+
+select { color: #757575; font-size: 1rem; max-width: 100%; }
+
+.nav-next a, .nav-previous a { color: inherit; }
+
+/*--------------------------- Post and Pages
+---------------------------*/
+.lesse-lite-pagination a { color: #000000; }
+
+.lesse-wide-thumb-content time:before { content: ""; }
+
+.moretag { display: block; }
+
+/*# sourceMappingURL=editor-style.css.map */

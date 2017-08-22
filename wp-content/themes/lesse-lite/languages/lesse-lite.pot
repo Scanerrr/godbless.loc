@@ -1,0 +1,798 @@
+# Copyright (C) 2016 Mahvash Fatima
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Lesse Lite 1.0.9\n"
+"Report-Msgid-Bugs-To: https://github.com/sayedwp/lesse-lite/issues\n"
+"POT-Creation-Date: 2016-10-11 09:41:19+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: supernovatheme <support@supernovathemes.com>\n"
+"Language-Team: Team <support@supernovathemes.com>\n"
+"X-Generator: grunt-wp-i18n 0.5.3\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
+"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: United States\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-Bookmarks: \n"
+"X-Textdomain-Support: yes\n"
+
+#: 404.php:12
+msgid "404 - Nothing to see here"
+msgstr ""
+
+#: 404.php:17
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:45
+msgid "Copyright Text"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:46
+msgid "Year will automatically change every year."
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:60
+msgid "What's in Pro?"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:69
+msgid "Lesse Pro Features"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:79
+msgid "Slider Settings"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:87
+msgid "Add Slides"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:88
+msgid ""
+"Featured images, titles and contents will be used from these post/pages for "
+"the slides."
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:95
+msgid "Start Typing Post Name"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:100
+msgid "Post Id"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:111
+msgid "Hide Title"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:113
+msgid "Only hides the title, however keeps it available for search engines."
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:121
+msgid "Hide Tagline"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:122
+msgid "Only hides the tag line, however keeps it available for search engines."
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:163
+msgid "Theme Skin"
+msgstr ""
+
+#: admin/lesse-customizer-settings.php:164
+msgid "Change color scheme."
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:12
+msgid "Unlimited Color Schemes"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:13
+msgid "Infinite Ajax-Scrolling, Load-More"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:14
+msgid "600+ Google Web Fonts"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:15
+msgid "More SEO Optimized"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:16
+msgid "More Options for Customization"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:17
+msgid "Home Page Template"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:18
+msgid "Show/Hide Sidebar for Each Post"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:19
+msgid "7 Home Sections"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:20
+msgid "Full Page Slider on Homepage"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:21
+msgid "Options to Add Social Links"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:22
+msgid "Show Full-Content/Excerpt"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:23
+msgid "Choose Excerpt Length"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:24
+msgid "Options for Ad Codes/Google-Adverts"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:25
+msgid "Add CSS/JS to Each Post"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:26
+msgid "No Developer Link"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:41
+msgid "See Pricing"
+msgstr ""
+
+#: admin/lesse-pro-features-template.php:47
+msgid "View Demo"
+msgstr ""
+
+#: comments.php:40 comments.php:62
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:43 comments.php:65
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:44 comments.php:66
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:79
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:34
+msgid "&copy %s "
+msgstr ""
+
+#: footer.php:44
+msgid "%1$s by %2$s"
+msgstr ""
+
+#: functions.php:79
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:137
+msgid "Sidebar"
+msgstr ""
+
+#: functions.php:147
+msgid "Footer"
+msgstr ""
+
+#: header.php:23
+msgid "Skip to content"
+msgstr ""
+
+#: inc/extras.php:123
+msgid "Posts by: "
+msgstr ""
+
+#: inc/extras.php:127
+msgid "Archive"
+msgstr ""
+
+#: inc/extras.php:130
+msgid "404 Page"
+msgstr ""
+
+#: inc/extras.php:132
+msgid "Search Results"
+msgstr ""
+
+#: inc/extras.php:147
+msgid "Read More.."
+msgstr ""
+
+#: inc/extras.php:173
+msgid ""
+"Checkout how <b>Lesse Pro</b> looks like. Click <a target=\"_blank\" "
+"href=\"http://supernovathemes.com/lesse-pro-pricing/\">here</a> to know "
+"more. | <a href=\"%1$s\">Hide</a>"
+msgstr ""
+
+#: inc/template-tags.php:73 inc/template-tags.php:106
+#. translators: used between list items, there is a space after the comma
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:75 inc/template-tags.php:108
+msgid "%1$s"
+msgstr ""
+
+#: inc/template-tags.php:82
+#. translators: %s: post title
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: inc/template-tags.php:89
+#. translators: %s: Name of current post
+msgid "Edit %s"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:104
+msgid "Background Color"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:105
+msgid "Background Image"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:106
+msgid "No Repeat"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:107
+msgid "Repeat All"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:108
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:109
+msgid "Repeat Vertically"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:110
+msgid "Inherit"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:111
+msgid "Background Repeat"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:112
+msgid "Cover"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:113
+msgid "Contain"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:114
+msgid "Background Size"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:115
+msgid "Fixed"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:116
+msgid "Scroll"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:117
+msgid "Background Attachment"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:118
+msgid "Left Top"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:119
+msgid "Left Center"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:120
+msgid "Left Bottom"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:121
+msgid "Right Top"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:122
+msgid "Right Center"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:123
+msgid "Right Bottom"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:124
+msgid "Center Top"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:125
+msgid "Center Center"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:126
+msgid "Center Bottom"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:127
+msgid "Background Position"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:128
+msgid "Background Opacity"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:129
+msgid "ON"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:130
+msgid "OFF"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:131
+msgid "All"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:132
+msgid "Cyrillic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:133
+msgid "Cyrillic Extended"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:134
+msgid "Devanagari"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:135
+msgid "Greek"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:136
+msgid "Greek Extended"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:137
+msgid "Khmer"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:138
+msgid "Latin"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:139
+msgid "Latin Extended"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:140
+msgid "Vietnamese"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:141
+msgid "Hebrew"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:142
+msgid "Arabic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:143
+msgid "Bengali"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:144
+msgid "Gujarati"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:145
+msgid "Tamil"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:146
+msgid "Telugu"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:147
+msgid "Thai"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:151
+msgid "Font Family"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:152
+msgid "Font Size"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:153
+msgid "Font Weight"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:154
+msgid "Line Height"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:155
+msgid "Font Style"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:156
+msgid "Letter Spacing"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:157
+msgid "Top"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:158
+msgid "Bottom"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:159
+msgid "Left"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:160
+msgid "Right"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:161
+msgid "Center"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:162
+msgid "Justify"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:163
+msgid "Color"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:164
+msgid "Add Image"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:165
+msgid "Change Image"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:166
+msgid "No Image Selected"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:167
+msgid "Add File"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:168
+msgid "Change File"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:169
+msgid "No File Selected"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:170
+msgid "Remove"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:171
+msgid "Select a font-family"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:172
+msgid "Variant"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:173
+msgid "Subset"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:174
+msgid "Size"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:175
+msgid "Height"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:176
+msgid "Spacing"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:177
+msgid "Ultra-Light 100"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:178
+msgid "Ultra-Light 100 Italic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:179
+msgid "Light 200"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:180
+msgid "Light 200 Italic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:181
+msgid "Book 300"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:182
+msgid "Book 300 Italic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:183
+msgid "Normal 400"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:184
+msgid "Normal 400 Italic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:185
+msgid "Medium 500"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:186
+msgid "Medium 500 Italic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:187
+msgid "Semi-Bold 600"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:188
+msgid "Semi-Bold 600 Italic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:189
+msgid "Bold 700"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:190
+msgid "Bold 700 Italic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:191
+msgid "Extra-Bold 800"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:192
+msgid "Extra-Bold 800 Italic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:193
+msgid "Ultra-Bold 900"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:194
+msgid "Ultra-Bold 900 Italic"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:195
+msgid "Invalid Value"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:196
+msgid "Add new"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:197
+msgid "row"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:198
+msgid "Limit: %s rows"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:199
+#: lesse-kirki/includes/sections/class-lesse-kirki-sections-hover-section.php:40
+msgid "Press return or enter to open this section"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:200
+#: lesse-kirki/includes/sections/class-lesse-kirki-sections-hover-section.php:46
+msgid "Back"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:201
+msgid "%s Reset"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:202
+msgid "Text Align"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:203
+msgid "Text Transform"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:204
+msgid "None"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:205
+msgid "Capitalize"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:206
+msgid "Uppercase"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:207
+msgid "Lowercase"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:208
+msgid "Initial"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:209
+msgid "Select a Page"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:210
+msgid "Open Editor"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:211
+msgid "Close Editor"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:212
+msgid "Switch Editor"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:213
+msgid "Hex Value"
+msgstr ""
+
+#: lesse-kirki/includes/controls/class-lesse-kirki-controls-repeater-control.php:323
+msgid "Create New Post"
+msgstr ""
+
+#: lesse-kirki/includes/controls/class-lesse-kirki-controls-repeater-control.php:324
+msgid ""
+"You do not need to refresh the customizer after creating a new post. Your "
+"new post will automatically become available in the search results."
+msgstr ""
+
+#: search.php:16
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:3
+msgid "Search For :"
+msgstr ""
+
+#: searchform.php:4
+msgid "Search..."
+msgstr ""
+
+#: searchform.php:4
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:6
+msgid "Search"
+msgstr ""
+
+#: template-parts/content-none.php:14
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content-none.php:21
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-none.php:25
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content-none.php:31
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/content-page.php:14 template-parts/content-search.php:43
+#: template-parts/content.php:41
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-page.php:21
+msgid "Edit"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Lesse Lite"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://supernovathemes.com/lesse"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Lesse Lite is a responsive multipurpose theme."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Mahvash Fatima"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://supernovathemes.com/"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Full Width Template"
+msgstr ""
+
+#. Template Name of the plugin/theme
+msgid "Home"
+msgstr ""
+
+#: comments.php:31
+msgctxt "comments title"
+msgid "One thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/template-tags.php:50
+msgctxt "post date"
+msgid "%s"
+msgstr ""
+
+#: inc/template-tags.php:66
+msgctxt "post author"
+msgid "%s"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:148
+msgctxt "font style"
+msgid "Serif"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:149
+msgctxt "font style"
+msgid "Sans Serif"
+msgstr ""
+
+#: lesse-kirki/includes/class-lesse-kirki-l10n.php:150
+msgctxt "font style"
+msgid "Monospace"
+msgstr ""

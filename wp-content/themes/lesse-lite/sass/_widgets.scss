@@ -1,0 +1,225 @@
+/*=================
+   SIDEBAR WIDGETS
+=================*/
+
+//Widget
+.widget_archive,
+.widget_recent_comments,
+.widget_categories,
+.widget_meta,
+.widget_pages,
+.widget_recent_entries,
+.widget_nav_menu
+{
+    ul {
+        list-style: none;
+    }
+    li {
+        margin-bottom: rem-calc(10);
+        @include fontello("\e804");
+        &:before {
+            margin-left: 0;
+            text-align: left;
+            color: $gray;
+        }
+    }
+}
+.widget-sidebar {
+    background: $white;
+    color: $color__primary;
+    padding-top: rem-calc(20);
+    padding-bottom: rem-calc(20);
+    margin-bottom: rem-calc(30);
+
+    //Widget Links
+    a {
+        color: $color__primary;
+    }
+}
+
+.lesse-lite-secondary {
+
+    //Widget Calendar
+    .widget_calendar {
+
+        th, td {
+            padding: 0;
+            border: 0;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        thead {
+            th {
+                border-right: 1px solid #E5E5E5;
+
+                &:last-child {
+                    border-right: 0;
+                }
+            }
+        }
+
+        caption {
+            margin-bottom: rem-calc(15);
+            padding: rem-calc(10 0);
+            text-align: left;
+        }
+
+        #today {
+            padding: rem-calc(5 0);
+            color: #ffffff;
+            a {
+                color: $white;
+            }
+        }
+
+        tfoot {
+            td {
+                text-align: left;
+            }
+        }
+
+        #next{
+            text-align: right;
+        }
+    }
+
+    //Widget Search
+    .widget_search {
+        input[type="search"] {
+            width: 100%;
+        }
+        .search-submit {
+            display: none;
+        }
+    }
+
+    //Widget Cloud
+    .widget_tag_cloud {
+        a {
+            padding: rem-calc(10);
+            display: inline-block;
+            margin: rem-calc(2 1);
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid $color__border-light;
+            text-transform: uppercase;
+            letter-spacing: rem-calc(1);
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+//Pages
+.widget_pages {
+    li > ul,
+    li > ol {
+        margin-bottom: initial;
+        margin-left: initial;
+        margin-top: rem-calc(10);
+    }
+}
+/*================
+   FOOTER WIDGETS
+=================*/
+
+.site-footer {
+    //Widget
+    .widget {
+        font-size: rem-calc(13);
+        color: $color__primary;
+        margin-bottom: rem-calc(30);
+        input {
+            background: #333333;
+            color: $white;
+            border: none;
+        }
+    }
+
+    //Widget Links
+    a {
+        color: #c5c5c5;
+    }
+
+    //Widget Title
+    .widget-title {
+        color: $white;
+        font-size: rem-calc(18);
+    }
+
+    .calendar_wrap {
+        background: #333333;
+        padding: rem-calc(0 15 1);
+    }
+
+    //Widget Calendar
+    .widget_calendar {
+        thead {
+            color: $gray;
+        }
+        th, td {
+            padding: 0;
+            border: 0;
+            text-align: center;
+        }
+
+        caption {
+            margin-bottom: rem-calc(15);
+            color: #c5c5c5;
+            padding: rem-calc(10 0);
+            text-align: left;
+        }
+
+        #today {
+            color: $white;
+            padding: rem-calc(5 0);
+            a {
+                color: $white;
+            }
+        }
+
+        tfoot {
+            td {
+                text-align: left;
+            }
+        }
+    }
+
+    //Widget Search
+    .widget_search {
+        margin: rem-calc(10 0);
+
+        .search-field {
+            border: none;
+            width: 100%;
+            outline: 0;
+        }
+
+        .search-submit {
+            display: none;
+        }
+    }
+
+    //Widget Cloud
+    .widget_tag_cloud {
+        a {
+            padding: rem-calc(5 10);
+            display: inline-block;
+            margin: rem-calc(2 1);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: rem-calc(1);
+            background: #333333;
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}

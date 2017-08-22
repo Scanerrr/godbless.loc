@@ -1,0 +1,174 @@
+/*==============================
+            Main Menu
+===============================*/
+.lesse-main-navigation-container {
+  margin-top: 18px;
+}
+
+.lesse-main-navigation.loading {
+  max-height: 40px;
+  overflow: hidden;
+}
+
+.lesse-main-navigation {
+  float: right;
+  background: $white;
+  text-transform: uppercase;
+  font-size: rem-calc(12);
+
+  ul {
+    list-style: none;
+  }
+
+  > div, > div > ul {
+    @extend .clearfix;
+    float: right;
+  }
+  ul:first-child > li > a {
+    padding: rem-calc(18 0);
+    margin: rem-calc(0 20);
+  }
+
+  a {
+    padding: rem-calc(0 25);
+    display: block;
+    letter-spacing: 1px;
+    color: inherit;
+  }
+
+  li {
+    float: left;
+    position: relative;
+
+    &:hover {
+      > ul {
+        display: inline-block;
+      }
+    }
+
+    > ul {
+      -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+      -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2);
+      background: $white;
+      padding: rem-calc(20 0);
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      top: rem-calc(60);
+      right: 0;
+      z-index: 9;
+
+      ul {
+        right: rem-calc(200);
+        top: 0;
+      }
+
+      li {
+        float: none;
+        width: rem-calc(200);
+        text-align: left;
+      }
+    }
+  }
+
+  .menu-item-has-children {
+    > a {
+
+      @include fontello-after("\e802");
+    }
+  }
+
+  .sub-menu, .flexMenu-popup {
+    a {
+      padding: rem-calc(10);
+      &:hover {
+        color: $white;
+      }
+    }
+    &:after, &:before {
+      bottom: 100%;
+      right: 20%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-bottom-color: $white;
+      border-width: 8px;
+      margin-left: -8px;
+    }
+    &:before {
+      border-color: rgba(204, 204, 204, 0);
+      border-bottom-color: $color__border-light;
+      border-width: 9px;
+      margin-left: -9px;
+    }
+  }
+
+  .flexMenu-viewMore {
+    > a {
+      @include fontello-after("\e802");
+    }
+  }
+}
+
+/*==============================
+          Small Menu
+===============================*/
+
+.menu-toggle, .lesse-main-navigation.toggled ul {
+  display: block;
+}
+
+.comment-navigation, .posts-navigation, .post-navigation {
+  .site-main & {
+    margin: 0 0 1.5rem;
+    overflow: hidden;
+  }
+
+  & .nav-previous {
+    float: left;
+    width: 50%;
+  }
+
+  & .nav-next {
+    float: right;
+    text-align: right;
+    width: 50%;
+  }
+}
+
+/**Sidr**/
+
+.mm-menu .mm-search input {
+  border-radius: 30px;
+  text-indent: 10px;
+}
+
+.menu-long-menu-container {
+  width: 100%;
+
+  li {
+    display: inline-block;
+    position: static;
+  }
+}
+.current-menu-item {
+  a {
+    color: $black;
+  }
+  .hvr-overline-reveal {
+    &:before {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    }
+  }
+}

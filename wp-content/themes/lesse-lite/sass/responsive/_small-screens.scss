@@ -1,0 +1,40 @@
+
+
+@media only screen and ( max-width: $small-end-point ){
+
+	//Fix of admin bar due to mmenu
+	html.mm-blocking{
+		margin-top: 0!Important;
+		.logged-in.admin-bar{
+			margin-top: 46px;
+		}
+	}
+
+	.error-404, .search-page{
+		.search-field{
+			min-width: auto;
+			width: 100%;
+		}
+	}
+
+	.site-description{
+		display: none !important;
+	}
+
+	//Slider
+	.lesse-slide-title {
+		font-size: rem-calc(22);
+	}
+	.lesse-slide-description {
+		font-size: rem-calc(11);
+	}
+
+}
+
+@media only screen and ( max-width: 782px ){
+	.lesse-super-slider{
+	    .admin-bar &{
+			margin-top:rem-calc(-46);
+	    }
+	}
+}

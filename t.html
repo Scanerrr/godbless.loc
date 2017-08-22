@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Checkboxradio - Product Selector</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+
+
+             // Initalize widgets
+            $( "input.merchant-toggle" ).checkboxradio();
+            $( ".merchant-toggles" ).controlgroup( {
+                direction: "vertical"
+            } );
+
+
+
+            // Set initial values
+
+        } );
+    </script>
+    <style>
+        .merchant-toggles {
+            width: 200px;
+        }
+        .merchant-toggle-wrap {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="merchant-toggle-wrap">
+        <div class="merchant-toggles">
+
+
+            <label for="merchant-toggle-1">Border</label>
+            <input class="merchant-toggle" type="checkbox" name="merchant-toggle[0]" id="merchant-toggle-1">
+
+            <label for="merchant-toggle-2">Background</label>
+            <input class="merchant-toggle" type="checkbox" name="merchant-toggle[1]" id="merchant-toggle-2" checked>
+
+
+        </div>
+    </div>
+
+
+
+</body>
+</html>

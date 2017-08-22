@@ -1,0 +1,180 @@
+ПРЕДЛОЖЕНИЯ ПОЛЬЗОВАТЕЛЯ
+
+___________________
+
+SELECT post_offer.ID, post_offer.post_title as offer_title,
+post_offer_meta_server.meta_value as server, post_offer_meta_currency.meta_value as currency,
+post_offer_meta_alliance.meta_value as alliance,  post_offer_meta_price.meta_value as price,
+post_offer_meta_website.meta_value as website,
+CONCAT ('<a href="http://897813.uy228250.web.hosting-test.net/redirect?id=', post_offer.ID, '&url=', post_offer_meta_website.meta_value, '">', post_offer_meta_website.meta_value, '</a>' ) as link,
+post_offer_meta_payment_systems.meta_value as payment_systems,
+post_offer_meta_game.meta_value as game_id, post_game.post_title as game_title ,
+CONCAT (
+'<a href="/edit_offer/?offer_id=', post_offer.ID, '">Редактировать', '</a><br>',
+'<a href="?action=delete&offer_id=', post_offer.ID, '">Удалить', '</a><br>',
+'<a href="?action=clone&offer_id=', post_offer.ID, '">Клонировать', '</a> '
+) as actions,
+CONCAT ('<input name="offer_id[', post_offer.ID , ']" type="checkbox">'
+
+) as select_offer,
+
+post_offer_clicks.clicks as clicks
+
+
+
+FROM wp_posts AS post_offer
+
+INNER JOIN wp_users AS posts_offer_author
+ON posts_offer_author.ID = post_offer.post_author AND post_offer.post_author = %CURRENT_USER_ID%
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_server
+ON post_offer.ID = post_offer_meta_server.post_id AND post_offer_meta_server.meta_key = 'server'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_currency
+ON post_offer.ID = post_offer_meta_currency.post_id AND post_offer_meta_currency.meta_key = 'currency'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_alliance
+ON post_offer.ID = post_offer_meta_alliance.post_id AND post_offer_meta_alliance.meta_key = 'alliance'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_price
+ON post_offer.ID = post_offer_meta_price.post_id AND post_offer_meta_price.meta_key = 'price'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_website
+ON post_offer.ID = post_offer_meta_website.post_id AND post_offer_meta_website.meta_key = 'website'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_payment_systems
+ON post_offer.ID = post_offer_meta_payment_systems.post_id AND post_offer_meta_payment_systems.meta_key = 'payment_systems'
+
+LEFT JOIN (SELECT count(*) as clicks, offer_id as clicks_offer_id
+FROM `wp_unfreeze_clicks` group by offer_id ) as post_offer_clicks
+on post_offer.ID = post_offer_clicks.clicks_offer_id
+
+INNER JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_game
+ON post_offer.ID = post_offer_meta_game.post_id
+   AND post_offer_meta_game.meta_key = 'game_id'
+
+LEFT JOIN (SELECT ID, post_title  FROM wp_posts WHERE post_type='game' ) as post_game
+ON post_game.ID = post_offer_meta_game.meta_value
+
+WHERE post_offer.post_type = 'offer' AND post_offer.post_status = 'publish'
+ORDER BY ID DESC
+
+
+________
+
+
+Последние предложения
+
+SELECT post_offer.ID, post_offer.post_title as offer_title,
+post_offer_meta_server.meta_value as server, post_offer_meta_currency.meta_value as currency,
+post_offer_meta_alliance.meta_value as alliance,  post_offer_meta_price.meta_value as price,
+post_offer_meta_website.meta_value as website,
+CONCAT ('<a href="/redirect?id=', post_offer.ID, '&url=', post_offer_meta_website.meta_value, '">', post_offer_meta_website.meta_value, '</a>' ) as link,
+post_offer_meta_payment_systems.meta_value as payment_systems,
+post_offer_meta_game.meta_value as game_id, post_game.post_title as game_title,
+CONCAT ('<a href="/?author=', posts_offer_author.ID, '">', posts_offer_author.user_login , '<a/>') as user_login,
+author_comments_meta.comments_count as comments_count,
+author_comments_meta_pozitive.comments_count as comments_count_pozitive,
+author_comments_meta_negative.comments_count as comments_count_negative,
+CONCAT (author_comments_meta_pozitive.comments_count, ' / ', author_comments_meta_negative.comments_count, ' / ' , author_comments_meta.comments_count) as comments_summary
+
+
+FROM wp_posts AS post_offer
+
+INNER JOIN wp_users AS posts_offer_author
+ON posts_offer_author.ID = post_offer.post_author
+
+-- все отзывы пользователя
+LEFT JOIN (SELECT `comment_author`, `comment_post_ID`, count(`comment_ID`) as comments_count FROM `wp_comments`
+INNER JOIN (
+SELECT comment_id as meta_comment_id, meta_value FROM `wp_commentmeta`
+WHERE meta_key = 'rating' AND (meta_value = 0 OR meta_value = 1 OR meta_value = 2)
+) as comment_meta ON wp_comments.comment_ID = comment_meta.meta_comment_id
+GROUP BY `comment_author`) as author_comments_meta
+ON  posts_offer_author.user_login = author_comments_meta.comment_author
+
+-- негативные отзывы пользователя
+LEFT JOIN (SELECT `comment_author`, `comment_post_ID`, count(`comment_ID`) as comments_count FROM `wp_comments`
+INNER JOIN (
+SELECT comment_id as meta_comment_id, meta_value FROM `wp_commentmeta`
+WHERE meta_key = 'rating' AND meta_value = 2
+) as comment_meta ON wp_comments.comment_ID = comment_meta.meta_comment_id
+GROUP BY `comment_author`) as author_comments_meta_negative
+ON  posts_offer_author.user_login = author_comments_meta_negative.comment_author
+
+-- позитивные отзывы пользователя
+LEFT JOIN (SELECT `comment_author`, `comment_post_ID`, count(`comment_ID`) as comments_count FROM `wp_comments`
+INNER JOIN (
+SELECT comment_id as meta_comment_id, meta_value FROM `wp_commentmeta`
+WHERE meta_key = 'rating' AND meta_value = 1
+) as comment_meta ON wp_comments.comment_ID = comment_meta.meta_comment_id
+GROUP BY `comment_author`) as author_comments_meta_pozitive
+ON  posts_offer_author.user_login = author_comments_meta_pozitive.comment_author
+
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_server
+ON post_offer.ID = post_offer_meta_server.post_id AND post_offer_meta_server.meta_key = 'server'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_currency
+ON post_offer.ID = post_offer_meta_currency.post_id AND post_offer_meta_currency.meta_key = 'currency'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_alliance
+ON post_offer.ID = post_offer_meta_alliance.post_id AND post_offer_meta_alliance.meta_key = 'alliance'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_price
+ON post_offer.ID = post_offer_meta_price.post_id AND post_offer_meta_price.meta_key = 'price'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_website
+ON post_offer.ID = post_offer_meta_website.post_id AND post_offer_meta_website.meta_key = 'website'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_payment_systems
+ON post_offer.ID = post_offer_meta_payment_systems.post_id AND post_offer_meta_payment_systems.meta_key = 'payment_systems'
+
+
+INNER JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_game
+ON post_offer.ID = post_offer_meta_game.post_id
+   AND post_offer_meta_game.meta_key = 'game_id'
+   AND post_offer_meta_game.meta_value='%VAR1%'
+
+
+LEFT JOIN (SELECT ID, post_title  FROM wp_posts WHERE post_type='game' ) as post_game
+ON post_game.ID = post_offer_meta_game.meta_value
+
+WHERE post_offer.post_type = 'offer' AND post_offer.post_status = 'publish'
+ORDER BY ID DESC
+
+
+
+
+________________________________
+
+SELECT
+    posts_game.ID AS game_ID,
+    posts_game.post_title AS game_post_title,
+    posts_game.ping_status AS game_ping_status,
+    posts_game.comment_count AS game_comment_count,
+    CONCAT (
+        CONCAT ('<a href=\"?action=delete&id=',
+                CAST( posts_game.ID AS CHAR), '\">�������</a>'),
+        ' ',
+        CONCAT ('<a href=\"?action=clone&id=',
+                CAST( posts_game.ID AS CHAR), '\">�����������</a>'),
+                ' ',
+        CONCAT ('<a href=\"?action=hide&id=',
+                CAST( posts_game.ID AS CHAR), '\">������</a>')
+    ) as actions3
+
+
+FROM wp_posts AS posts_game
+WHERE 1=1
+AND posts_game.post_type = 'game'
+
+
+
+
+_______________________
+
+с коментами
+
+SELECT  comment_id, meta_value FROM `wp_commentmeta`
+WHERE meta_key = 'rating' AND (meta_value = 0 OR meta_value = 1 OR meta_value = 2)

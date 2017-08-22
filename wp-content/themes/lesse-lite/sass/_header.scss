@@ -1,0 +1,98 @@
+/*==============================
+        Site Identity
+===============================*/
+
+.site-branding {
+  padding: rem-calc(15);
+  background: $white;
+  img {
+    max-height: 32px;
+  }
+}
+
+.site-title, .site-description {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.site-title {
+  margin-bottom: rem-calc(5);
+}
+
+.site-description {
+  font-size: rem-calc(14);
+  margin-bottom: 0;
+  padding-left: rem-calc(5);
+  border-left: 1px solid $color__border-light;
+
+  &.lesse-desc-no-bar {
+    border-left: none;
+  }
+}
+
+.logo-link {
+  display: inline-block;
+}
+
+/*==============================
+        Header
+===============================*/
+
+.lesse-sticky-header {
+  width: 100%;
+  z-index: 1001;
+}
+
+.lesse-full-slider-page {
+  .lesse-sticky-header {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.site-header {
+  z-index: 26;
+  position: relative;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.22);
+  background: #fff;
+  width: 100%;
+  max-height:100px;
+}
+
+.is-sticky {
+  .site-header {
+    left: 0;
+    right: 0;
+  }
+}
+
+.lesse-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.22);
+  background: #fff;
+}
+
+.is-sticky .lesse-header {
+  left: 0;
+  right: 0;
+}
+
+.lesse-wide-thumb {
+  position: relative;
+  overflow: hidden;
+  max-height: 500px;
+  img {
+    width: 100%;
+    position: relative;
+  }
+}
+
+.lesse-wide-thumb-content {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+}

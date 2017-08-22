@@ -1,0 +1,39 @@
+== Change Log ==
+
+= 0.8 =
+* Removed: update_option for thumbnail image size and added new image sizes as rock-star-small
+
+= 0.7 =
+* Revert: "Used wp_add_inline_style for custom css" from v0.5 as this is method does not override light.css in light color scheme
+
+= 0.6 =
+* But Fixed: Undefined index issue in about widget
+
+= 0.5 =
+* Bug Fixed: Featured Header Image Link URL not linked to header image
+* Bug Fixed: Header Image not applying via metabox
+* Bug Fixed: Empty div header-image-slider being displayed when slider and header image both disabled
+* Updated: Used wp_add_inline_style for custom css and js scripts for widgets
+* Updated: removed and added inline css for widgets background
+* Updated: Upgrade Button in customizer with respect to trt decision
+* Removed: Unused js files
+* Renamed: fitvids handle to jquery-fitvids
+
+= 0.4 =
+* Added: Upgrade to Pro Button
+* Bug Fixed: Missing output sanitization
+
+= 0.3 =
+* Added: Theme Options
+* Added: Featured Slider Options
+* Added: Featured Content Options
+* Added: News Ticker Options
+* Added: Social Links Options
+* Updated: Code Optimization
+* Updated: Theme Description
+
+= 0.2 =
+* Updated Styles and added scripts
+
+= 0.1 =
+* Submitted to WordPress.org for review

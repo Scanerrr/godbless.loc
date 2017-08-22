@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+    <title>Template</title>
+    <style type="text/css">
+        #hint {
+            background: #CCCCCC;
+            border: 1px solid #000000;
+            display: none;
+            padding: 0px 2px 4px 2px;
+            position: absolute;
+            width: 114px;
+        }
+        .button  {
+            background-color: #5B6A90;
+            border:1px solid #000000;
+            border-right-color: #000000;
+            border-bottom-color: #000000;
+            color:#ffffff;
+            margin:0px;
+            margin-left:0px;
+            font:bold 10px Arial;
+            width: 110px;
+        }  </style>
+
+    <script type="text/javascript">
+        selObj = null;
+        var selTxtRng;
+        var coords = {x:0, y:0};
+        var selTxt = "";
+        function showDiv(sender) {
+            if (window.getSelection) {
+                selObj = {target: sender, start: sender.selectionStart, end: sender.selectionEnd};
+                selTxt = sender.value.slice(selObj.start, selObj.end);
+            } else {
+                selObj = document.selection;
+                if (selObj == null) return true;
+                selTxtRng = selObj.createRange();
+                selTxt = selTxtRng.text;
+            }
+            var hintDiv = document.getElementById("hint");
+            with (hintDiv.style){
+                left = (selTxtRng) ? selTxtRng.offsetLeft + "px" : coords.x + "px";
+                top = (selTxtRng) ? (selTxtRng.offsetTop + 20).toString() + "px" : (coords.y + 20).toString() + "px";
+                display = "block";
+                sender.focus();
+            }
+        }
+        function cutTxt(destInput) {
+            if (selObj.clear) {
+                selObj.clear();
+            } else {
+                selObj.target.value = selObj.target.value.slice(0, selObj.start) + selObj.target.value.slice(selObj.end);
+            }
+            delete selObj;
+            document.getElementById("hint").style.display = "none";
+            document.getElementById(destInput).value += selTxt.charAt(0).toUpperCase() + selTxt.slice(1);
+            selTxt = "";
+        }
+        function storeCoords(evnt) {
+            var ev = (evnt) ? evnt : event;
+            coords.x = ev.clientX;
+            coords.y = ev.clientY;
+        }
+    </script>
+</head>
+<body>
+<form name="form" action="#">
+    Автор: <input type="text" style="width: 200px;" id="selTxtInput1" /><br />
+    Название: <input type="text" style="width: 200px;" id="selTxtInput2" /><br />
+    Ключ. слова: <input type="text" style="width: 200px;" id="selTxtInput3" /><br />
+</form>
+
+<form name="FormPopUp" action="#">
+    <div id="hint"><center>
+        <b>ввести в поле:</b><br />
+        <input type="button" class="button" value="Автор" onclick="cutTxt('selTxtInput1');" onmouseover="style.color='#ffcc00'" onmouseout="style.color='white'" style="cursor:pointer;"/><br />
+        <input type="button" class="button" value="Название" onclick="cutTxt('selTxtInput2');" onmouseover="style.color='#ffcc00'" onmouseout="style.color='white'" style="cursor:pointer;"/><br />
+        <input type="button" class="button" value="Ключевые слова" onclick="cutTxt('selTxtInput3');" onmouseover="style.color='#ffcc00'" onmouseout="style.color='white'" style="cursor:pointer;"/><br />
+    </center></div>
+      
+      <textarea cols="50" rows="15" onselect="showDiv(this);" onmousedown="storeCoords(event);">Василий Петрович Косяков 
+Новости политики
+правила ввода в текстовое поле 
+      </textarea>
+</form>
+
+</body>
+</html>

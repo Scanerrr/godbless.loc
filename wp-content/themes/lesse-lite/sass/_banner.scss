@@ -1,0 +1,179 @@
+.lesse-super-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 100%;
+  transition: 0.3s;
+  opacity:0;
+  .admin-bar & {
+    margin-top: rem-calc(-32);
+  }
+}
+
+.lesse-super-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  li {
+    &:before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+}
+
+html, body, #page {
+  height: 100%;
+}
+
+.lesse-cycle-pager {
+  position: absolute;
+  bottom: 65px;
+  right: 0;
+  z-index: 26;
+  margin-right: rem-calc(10);
+  li {
+    display: inline-block;
+  }
+
+  a {
+    color: $color__primary;
+    display: inline-block;
+    font-size: rem-calc(15);
+    cursor: pointer;
+    line-height: 1;
+    @include fontello("\e821");
+    &:before {
+      width: rem-calc(30);
+      margin: 0;
+      color: $white;
+    }
+    &:hover {
+      opacity: 0.6;
+      transition: 0.3s;
+    }
+  }
+
+  .current-slide {
+    a {
+      @include fontello("\e85b");
+      opacity: 0.6;
+      cursor: auto;
+      &:before {
+        width: rem-calc(30);
+        margin: 0;
+        color: $white;
+      }
+    }
+  }
+
+}
+
+.lesse-progress-bar-wrapper {
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  overflow: hidden;
+  bottom: 61px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  z-index: 5;
+}
+
+.lesse-progress-bar {
+  height: 100%;
+  opacity: 0.7;
+  z-index: 27;
+  position: relative;
+  top: 0;
+}
+
+/*==============================
+          Slider
+===============================*/
+
+.lesse-slide-content {
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 90%;
+  margin: 0 auto;
+  transform: translateY(-50%);
+  color: $white;
+  padding: 10px;
+  text-align: center;
+}
+
+.lesse-slide-title {
+  font-size: rem-calc(40);
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
+  font-weight: 700;
+  margin-bottom: rem-calc(10);
+  letter-spacing: rem-calc(2);
+}
+
+.lesse-slide-description {
+  display: inline-block;
+  font-size: rem-calc(20);
+  font-weight: 400;
+}
+
+.lesse-slide-title, .lesse-slide-description {
+  color: $white;
+  a {
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.lesse-next, .lesse-prev {
+  z-index: 26;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  top: 50%;
+  cursor: pointer;
+  font-size: rem-calc(20);
+  margin-top: rem-calc(-25);
+  color: $white;
+  transition: 0.5s;
+  border-radius: 100%;
+  height: rem-calc(50);
+  width: rem-calc(50);
+  &:hover {
+    background: rgba(0, 0, 0, 0.6);
+    color: $white;
+  }
+  &:before {
+    line-height: 2.5;
+  }
+}
+
+.lesse-prev {
+  left: 15px;
+}
+
+.lesse-next {
+  right: 15px;
+}
+
+.lesse-full-slider-loader{
+  position: absolute;
+  top: 50%;
+  margin: 0 auto;
+  left: 50%;
+  margin-left: -26px;
+  margin-top: -26px;
+}

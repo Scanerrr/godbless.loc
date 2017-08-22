@@ -1,0 +1,78 @@
+//colors
+$color_woodsmoke_approx: #111;
+
+.supersized-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+    text-indent: -999em;
+}
+
+.lesse-super-container{
+    ul{
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        overflow: hidden;
+        z-index: -999;
+        height: 100%;
+        width: 100%;
+    }
+
+    img {
+        width: auto;
+        height: auto;
+        position: relative;
+        display: none;
+        outline: none;
+        border: none;
+        max-width: none;
+    }
+    li {
+        display: block;
+        list-style: none;
+        z-index: -30;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $color_woodsmoke_approx;
+    }
+
+    .prevslide {
+        z-index: -20;
+        img {
+            display: inline;
+        }
+    }
+    .activeslide {
+        z-index: -10;
+        img {
+            display: inline;
+        }
+    }
+    .image-loading {
+        width: 100%;
+        height: 100%;
+        img {
+            visibility: hidden;
+        }
+    }
+
+    a {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    .quality img {
+        image-rendering: optimizeQuality;
+    }
+}

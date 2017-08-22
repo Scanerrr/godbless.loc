@@ -1,0 +1,126 @@
+/*
+Theme Name: Lesse Lite
+Theme URI: http://supernovathemes.com/lesse
+Author: Mahvash Fatima
+Contributors : Sayed Taqui @github.com/sayedwp
+Author URI: http://supernovathemes.com/
+Description: Lesse Lite is a responsive multipurpose theme.
+Version: 1.1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: lesse-lite
+Tags: translation-ready, custom-background, theme-options, custom-menu, two-columns, right-sidebar, custom-colors, editor-style, featured-images, threaded-comments
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Lesse Lite is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Vendor
+# Normalize
+# Common Classes
+# Animations
+# Elements
+# Site Layout
+# Navigation
+# Header
+# Banner
+# Posts and pages
+# Widgets
+# Comments
+# Foooter
+# 404
+# Media Query
+
+--------------------------------------------------------------*/
+
+@import "functions";
+@import "variables";
+@import "mixins";
+@import "placeholders";
+
+/*--------------------------------------------------------------
+# Vendor
+--------------------------------------------------------------*/
+@import "vendor/vendor";
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+@import "normalize";
+@import "typography";
+
+/*--------------------------------------------------------------
+# Common Classes
+--------------------------------------------------------------*/
+
+@import "common-classes";
+@import "wp_css";
+
+/*--------------------------------------------------------------
+# Animations
+--------------------------------------------------------------*/
+@import "animations";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+@import "elements";
+
+/*--------------------------------------------------------------
+# Site Layout
+--------------------------------------------------------------*/
+@import "site_layout";
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+@import "menus";
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+@import "header";
+
+/*--------------------------------------------------------------
+# Banner
+--------------------------------------------------------------*/
+@import "banner";
+
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+@import "posts-and-pages";
+
+/*--------------------------------------------------------------
+## Widgets
+--------------------------------------------------------------*/
+@import "widgets";
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+@import "comments";
+
+/*--------------------------------------------------------------
+## Foooter
+--------------------------------------------------------------*/
+@import "footer";
+
+/*--------------------------------------------------------------
+## 404
+--------------------------------------------------------------*/
+@import "404";
+
+/*--------------------------------------------------------------
+# Media Query
+--------------------------------------------------------------*/
+@import "responsive/responsive";

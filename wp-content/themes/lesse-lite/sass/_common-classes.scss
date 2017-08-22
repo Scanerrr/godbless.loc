@@ -1,0 +1,271 @@
+/*---------------------------
+        Accessiblity
+---------------------------*/
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $color__background-screen;
+    border-radius: 3px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+    clip: auto !important;
+    color: $color__text-screen;
+    display: block;
+
+    @include font-size(0.875);
+
+    font-weight: bold;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+
+    /* Above WP toolbar. */
+  }
+}
+
+/*---------------------------
+        Alignments
+---------------------------*/
+
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+
+.aligncenter {
+  @include center-block;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+/*---------------------------
+        Clearing
+---------------------------*/
+
+.comment-content, .clearfix {
+  @extend %clearfix;
+}
+
+// Clear Both
+.clear-both {
+  clear: both;
+}
+
+// Clear None
+.clear-none {
+  clear: none;
+}
+
+// Clear Left
+.clear-left {
+  clear: left;
+}
+
+// Clear Right
+.clear-right {
+  clear: right;
+}
+
+.overflow {
+  overflow: hidden;
+}
+
+/*---------------------------
+        Others
+---------------------------*/
+
+.fontello:before, .fontello-after:after {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hide {
+  display: none;
+}
+
+.row-container {
+  padding-left: $gutter / 2;
+  padding-right: $gutter / 2;
+  max-width: $row-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mt-10 {
+  margin-top: rem-calc(10);
+}
+
+.mt-20 {
+  margin-top: rem-calc(20);
+}
+
+.mr-10 {
+  margin-right: rem-calc(10);
+}
+
+.mr-20 {
+  margin-right: rem-calc(20);
+}
+
+.mb-10 {
+  margin-bottom: rem-calc(10);
+}
+
+.mb-20 {
+  margin-bottom: rem-calc(20);
+}
+
+.ml-10 {
+  margin-left: rem-calc(10);
+}
+
+.ml-20 {
+  margin-left: rem-calc(20);
+}
+
+/***/
+
+.pt-10 {
+  padding-top: rem-calc(10);
+}
+
+.pt-20 {
+  padding-top: rem-calc(20);
+}
+
+.pr-10 {
+  padding-right: rem-calc(10);
+}
+
+.pr-20 {
+  padding-right: rem-calc(20);
+}
+
+.pb-10 {
+  padding-bottom: rem-calc(10);
+}
+
+.pb-20 {
+  padding-bottom: rem-calc(20);
+}
+
+.pl-10 {
+  padding-left: rem-calc(10);
+}
+
+.pl-20 {
+  padding-left: rem-calc(20);
+}
+
+/***/
+
+.lh-1 {
+  line-height: 1;
+}
+
+/*---------------------------
+        Fontello Icon
+---------------------------*/
+
+.fontello {
+  &:before {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/*---------------------------
+        Fontello Icon
+---------------------------*/
+
+.lesse-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000000;
+  opacity: 0.4;
+  left: 0;
+  top: 0;
+  transition: 0.1s;
+}
+
+.lesse-customize-preview {
+  min-height: 500px;
+  text-align: center;
+  padding: 200px 10px;
+}
+
+.lesse-customizer-preview-message {
+  padding: 10px;
+  text-align: center;
+  background-color: #999;
+  color: $white;
+  width: 90%;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.3s;
+  clear: both;
+  overflow: hidden;
+  a {
+    color: inherit;
+    &:hover {
+      color: inherit;
+    }
+  }
+  &:hover {
+    background: #444444;
+  }
+  @include fontello('\e816');
+}

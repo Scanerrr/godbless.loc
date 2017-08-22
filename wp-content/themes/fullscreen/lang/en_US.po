@@ -1,0 +1,451 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Michael Web <michaelweb@ufothemes.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+
+#. Text in function
+#: search.php:15
+#: archive.php:32
+#: index.php:11
+msgid "% Comments &#187;"
+msgstr ""
+
+#. Text in function
+#: comments.legacy.php:23
+msgid "% Responses"
+msgstr ""
+
+#. Text in function
+#: search.php:25
+#: archive.php:41
+#: page-blog-sidebar.php:27
+#: page-blog.php:26
+msgid "&laquo; Older Entries"
+msgstr ""
+
+#. Text in function
+#: comments.legacy.php:82
+#: comments.legacy.php:85
+msgid "(required)"
+msgstr ""
+
+#. Text in function
+#: search.php:15
+#: archive.php:32
+#: index.php:11
+#: page-blog-sidebar.php:24
+#: page-blog.php:23
+msgid "1 Comment &#187;"
+msgstr ""
+
+#. Text in function
+#: single-sidebar.php:24
+#: single.php:23
+msgid "<span class=\"ui-icon ui-icon-circle-triangle-e\"></span> Next"
+msgstr ""
+
+#. Text in function
+#: single-sidebar.php:23
+#: single.php:22
+msgid "<span class=\"ui-icon ui-icon-circle-triangle-w\"></span> Previous"
+msgstr ""
+
+#. Text in echo
+#: archive.php:15
+#: archive.php:17
+#: archive.php:19
+msgid "Archive for"
+msgstr ""
+
+#. Text in echo
+#: archive.php:21
+msgid "Author Archive"
+msgstr ""
+
+#. Text in echo
+#: page-blog-sidebar.php:10
+#: page-blog.php:9
+msgid "Blog"
+msgstr ""
+
+#. Text in echo
+#: archive.php:23
+msgid "Blog Archives"
+msgstr ""
+
+#. Text in echo
+#: page-blog-sidebar.php:24
+#: page-blog.php:23
+msgid "Categories: "
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:103
+msgid "Close this window."
+msgstr ""
+
+#. Text in function
+#: comments-popup.php:51
+msgid "Comment"
+msgstr ""
+
+#. Text in echo
+#: single-sidebar.php:20
+#: single.php:19
+#: comments-popup.php:28
+#: footer.php:24
+msgid "Comments"
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:59
+#: comments.php:44
+msgid "Comments are closed."
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:9
+msgid "Comments on"
+msgstr ""
+
+#. Text in echo
+#: footer.php:19
+msgid "Credits"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:75
+msgid "E-mail"
+msgstr ""
+
+#. Text in function
+#: search.php:15
+#: archive.php:32
+#: single-sidebar.php:21
+#: image.php:19
+#: index.php:11
+#: single.php:20
+#: page-blog-sidebar.php:24
+#: page-blog.php:23
+msgid "Edit"
+msgstr ""
+
+#. Text in function
+#: page.php:11
+#: page-sidebar.php:21
+msgid "Edit this entry."
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:85
+msgid "Email (will not be published)"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:62
+msgid "HTML"
+msgstr ""
+
+#. Text in function
+#: search.php:15
+#: archive.php:32
+#: index.php:11
+#: page-blog-sidebar.php:24
+#: page-blog.php:23
+msgid "Leave A Comment &#187;"
+msgstr ""
+
+#. Text in function
+#: comments.php:52
+msgid "Leave a Reply"
+msgstr ""
+
+#. Text in function
+#: comments.php:52
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:61
+msgid "Leave a comment"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:62
+msgid "Line and paragraph breaks automatic, e-mail address never displayed,"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:66
+msgid "Log Out"
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:77
+#: comments-popup.php:66
+msgid "Logged in as"
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:77
+msgid "Logout"
+msgstr ""
+
+#. Text in function
+#: page-blog-sidebar.php:24
+#: page-blog.php:23
+msgid "M d, Y"
+msgstr ""
+
+#. Text in function
+#: functions.php:1
+msgid "Main Menu"
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:82
+#: comments-popup.php:70
+msgid "Name"
+msgstr ""
+
+#. Text in function
+#: search.php:26
+#: archive.php:42
+#: page-blog-sidebar.php:28
+#: page-blog.php:27
+msgid "Newer Entries &raquo;"
+msgstr ""
+
+#. Text in function
+#: comments.legacy.php:23
+#: comments.php:22
+msgid "No Responses"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:57
+msgid "No comments yet."
+msgstr ""
+
+#. Text in echo
+#: search.php:31
+msgid "No posts found."
+msgstr ""
+
+#. Text in echo
+#: archive.php:48
+#: single-sidebar.php:39
+#: single.php:38
+msgid "Not Found"
+msgstr ""
+
+#. Text in function
+#: comments.legacy.php:23
+#: comments.php:22
+msgid "One Response"
+msgstr ""
+
+#. Text in function
+#: page.php:7
+#: page-blog-sidebar.php:21
+#: page-sidebar.php:13
+#: page-blog.php:20
+msgid "Pages:"
+msgstr ""
+
+#. Text in function
+#: page-blog-sidebar.php:18
+#: page-blog.php:17
+msgid "Permanent Link to %s"
+msgstr ""
+
+#. Text in function
+#: comments-popup.php:51
+msgid "Pingback"
+msgstr ""
+
+#. Text in echo
+#: archive.php:13
+msgid "Posts Tagged"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:113
+msgid "Powered by"
+msgstr ""
+
+#. Text in echo
+#: footer.php:22
+msgid "Powered by Wordpress"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:30
+msgid "RSS"
+msgstr ""
+
+#. Text in function
+#: image.php:11
+msgid "Read the rest of this entry &raquo;"
+msgstr ""
+
+#. Text in function
+#: page.php:6
+#: page-sidebar.php:12
+msgid "Read the rest of this page &raquo;"
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:67
+msgid "Reply"
+msgstr ""
+
+#. Text in function
+#: comments.php:22
+msgid "Responses (%)"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:93
+msgid "Say it!"
+msgstr ""
+
+#. Text in echo
+#: search.php:7
+msgid "Search Results"
+msgstr ""
+
+#. Text in echo
+#: single-sidebar.php:40
+#: single.php:39
+msgid "Sorry, but you are looking for something that isn't here."
+msgstr ""
+
+#. Text in echo
+#: image.php:24
+#: index.php:15
+#: comments-popup.php:109
+msgid "Sorry, no posts matched your criteria."
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:98
+msgid "Sorry, the comment form is closed at this time."
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:96
+#: comments.php:52
+msgid "Submit Comment"
+msgstr ""
+
+#. Text in echo
+#: footer.php:23
+msgid "Subscribe"
+msgstr ""
+
+#. Text in function
+#: comments.legacy.php:23
+msgid "Subscribe to comments"
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:9
+#: comments.php:12
+msgid "This post is password protected. Enter the password to view comments."
+msgstr ""
+
+#. Text in function
+#: comments-popup.php:51
+msgid "Trackback"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:33
+#: comments-popup.php:80
+msgid "URL"
+msgstr ""
+
+#. Text in echo
+#: search.php:32
+msgid "Use the search tap at top right to start a new search."
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:88
+msgid "Website"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:113
+msgid "Wordpress"
+msgstr ""
+
+#. Text in echo
+#: footer.php:21
+msgid "Wordpress Themes"
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:70
+msgid "You must be"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:85
+msgid "Your Comments"
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:37
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:62
+msgid "allowed:"
+msgstr ""
+
+#. Text in echo
+#: single-sidebar.php:17
+msgid "at"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:51
+#: footer.php:21
+msgid "by"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:30
+msgid "feed for comments on this post."
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:70
+msgid "logged in"
+msgstr ""
+
+#. Text in echo
+#: comments-popup.php:33
+msgid "to TrackBack this entry is:"
+msgstr ""
+
+#. Text in echo
+#: comments.legacy.php:70
+msgid "to post a comment."
+msgstr ""
+
+#. Text in function
+#: page-blog-sidebar.php:24
+#: page-blog.php:23
+msgid "| Tags: "
+msgstr ""
+

@@ -1,0 +1,229 @@
+/*
+Theme Name: Fullscreen
+Theme URI: http://graphpaperpress.com/themes/fullscreen/
+Description: A multimedia theme framework for WordPress by <a href="http://graphpaperpress.com">Graph Paper Press</a>
+Version: 2.7.1
+Tags: one-column, black
+Author: Graph Paper Press
+Author URI: http://graphpaperpress.com/
+License: GPL, V2
+License URI: license.txt
+*/
+
+/* Blueprint CSS Styles */
+@import url( 'css/screen.css' );
+
+/* Menu CSS */
+@import url( 'css/superfish.css' );
+
+/* jQuery UI CSS */
+@import url( 'css/jquery.ui.css' );
+
+/* Override */
+body { background: #0f0f0f; color: #999; }
+.home {overflow:hidden;}
+.container { margin-top:24px }
+h1,h2,h3,h4,h5,h6 { color: #999 }
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a { color: #fff }
+a { color:#428ce7; text-decoration:underline }
+a:hover { color:#fff }
+
+/* Masthead */
+#masthead { padding:0; margin:12px 0 24px 0; height: 30px; position: relative; display:block; clear:both }
+#masthead h2, #branding h2 { float:left; text-transform:uppercase; margin:0; padding:0 }
+#masthead h2 a, #branding h2 a { color:#fff }
+#masthead .description, #branding .description { float:left; color:#999; margin: 10px 12px; padding-left:12px; border-left: 1px solid #999; font-size:11px }
+
+/* Home Thumbs & Nav*/
+.home-thumbs { margin-top: 0; padding: 0; overflow: auto; left: 0; -moz-scrollbars:none; position: absolute; width: 1600px}
+.bottom-thumbs {position: absolute; top: 440px; left:0;}
+.thumbs {  }
+ul.thumbs { width: 1600px; list-style: none; margin: 0; padding: 0; position:relative; top:0; left:0; right:1600px }
+ul.thumbs li { float: left; width: 160px; height:160px; margin:0; overflow:hidden; }
+ul.thumbs li.thumb-big { float: left; width: 320px; height:320px; margin:0; overflow:hidden; }
+ul.thumbs li img.attachment-thumbnail { margin:0 }
+ul.thumbs li.thumb-end {margin-top:144px}
+.go-left { position:absolute; top:17px; right: 90px;display: none}
+.go-right { position:absolute; top:17px; right: 50px; }
+#branding { background: #000; color:#474747; position:absolute; z-index: 4; left: 0px; top:320px; height:40px; padding:40px; zoom:1; width:100%; margin:auto; clear: both; display: block; }
+#branding a, #masthead a { color:#474747; text-decoration:none }
+#branding h1 a, #masthead h1 a { color:#fff; }
+#branding h1, #masthead h1 { text-transform:uppercase; font-weight:bold; margin:0 ;}
+#branding a:hover { color:#fff }
+#branding .description { text-align:left;}
+.brand-wrap { float:left }
+
+/* IE 6 hacks for position fixed */
+* html #branding { position: absolute; padding:45px 40px 35px 50px;width: 1505px;}
+* html .go-left { top:17px; right: 280px; display: none}
+* html .go-right { top:17px; right: 240px; }
+
+/* Footer */
+#footer-wrap { width:100%; background:#000; padding:24px 0 }
+#footer { width: 950px; margin:0 auto;color:#333; text-align: left }
+#footer .icon, #footer a { color:#555 !important}
+#footer a:hover { color:#ccc }
+#footer ul { list-style:none; margin:0; padding:0; border-top:1px solid #111 }
+#footer ul li { border-bottom:1px solid #111 }
+#footer ul li a { text-decoration:none; padding: 4px }
+.post-nav-prev,.post-nav-next, #dialog_link,.icon { float:left; margin:0 10px 0 0; padding: .4em 1em .4em 20px; text-decoration: none; position: relative; color:#999 }
+.icon span.ui-icon,#dialog_link span.ui-icon, .post-nav-prev span.ui-icon, #nav ul li ul li a.icon span.ui-icon { margin: 0 5px 0 0; position: absolute; left: .2em; top: 50%; margin-top: -8px }
+.post-nav-next span.ui-icon { margin: 0 5px 0 0; position: absolute; left: 42px; top: 50%; margin-top: -8px }
+ul#icons { margin: 0; padding: 0 }
+ul#icons li { margin: 2px; position: relative; padding: 4px 0; cursor: pointer; float: left;  list-style: none }
+ul#icons span.ui-icon { float: left; margin: 0 4px }
+#post-nav { float:right }
+
+/* Posts */
+#content { display:block; clear:both; margin:2em 0 }
+.post { display:block; clear:both }
+#content h2, .post h2 { text-align:center; text-transform:uppercase; border-bottom:1px solid #333; border-top:1px solid #333; padding:6px 0 0 0; background: url(images/stripe.png) repeat }
+#content h2 a, .post h2 a { text-decoration:none; }
+.postmetadata { background: #000; margin:0 0 2em 0; padding:1em; color:#999; font-size:11px; -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; display:block; clear:both ;height:25px; font-size: smaller;}
+.postmetadata a { color:#515151; }
+.postmetadata a:hover { color:#eee }
+.sub { text-transform:uppercase }
+.underlined { border-bottom:1px solid #222 }
+.nav { margin:12px 0; font-size:11px}
+.nav a { background:#000; color:#999; padding:8px; text-decoration:none; -moz-border-radius: 5px; -khtml-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;}
+.nav a:hover { color:#eee; background:#333; cursor:pointer }
+
+/* Floats & Images */
+.right { float: right; }
+.left { float: left; }
+.middle {margin: 0 auto;float:left;}
+.clear { clear: both; }
+img.centered{display: block;margin-left: auto;margin-right: auto;max-width:950px}
+img.alignright{padding: 4px 0 4px 4px;margin: 3px 0 2px 10px;display: inline;max-width:950px}
+img.alignleft{padding: 4px 4px 4px 0;margin: 3px 10px 2px 0;display: inline;max-width:950px}
+img.alignnone{padding:4px 4px 4px 0; margin:3px 10px 2px 0;display: block;max-width:950px}
+.alignleft{float: left;}
+.alignright{float: right;}
+.aligncenter,div.aligncenter {display: block;clear:both;margin-left: auto;margin-right: auto;}
+.thumbnail, .attachment-thumbnail {margin:0 1.5em 1.5em 0;float:left}
+.attachment-medium {max-width:950px;overflow:hidden;display: inline}
+.attachment-large {max-width:950px;overflow:hidden;display: inline}
+
+/* Gallery */
+.gallery { margin: auto; }
+.gallery-image { border: 2px solid #cfcfcf; margin-left: 0; }
+.gallery-caption { margin-left: 0; }
+.gallery-item { float: left; text-align: center; margin-left: 0; }
+
+div.gallery-columns-1 { width: 204px; }
+div.gallery-columns-2 { width: 500px; }
+div.gallery-columns-3 { width: 750px; }
+div.gallery-columns-4,
+div.gallery-columns-5,
+div.gallery-columns-6,
+div.gallery-columns-7,
+div.gallery-columns-8,
+div.gallery-columns-9 { width: 950px; }
+
+/* Captions */
+.wp-caption { text-align: center; }
+.wp-caption img { margin: 0; padding: 0; border: 0 none; }
+.wp-caption .wp-caption-text { margin: 0; padding: 5px; }
+
+/* Etc */
+#filters {clear: both;height: 2em;margin-bottom: 1em;}
+#filters li {float: left;margin-right: 2em;}
+:focus {outline: 0;}
+.ad-main, .ad-sidebar {clear:both; display:block; margin: 0 0 1.5em;}
+.hidden {display:none}
+.wp-smiley { max-height: 13px; margin: 0 !important; } /* Prevent the smileys from breaking line-height */
+
+/* Search */
+#search {float:right;margin:55px 12px 0 0; padding:0;}
+#search #s {background: #ddd url('images/search.png') 0px center no-repeat;color: #222;font-size: 1em;margin:0;padding: 4px 0 4px 17px;width: 150px;border:1px solid #333;}
+#search input {border:0}
+#search #s:hover {color: #0066cc;background: #fff url('images/search_blue.png') 0px center no-repeat;}
+.search-excerpt {margin: 0;}
+#searchsubmit {display:none}
+
+/* Comments */
+ol.commentlist { list-style:none; margin:0; padding:0; text-indent:0; }
+ol.commentlist li { border-top:5px solid #ccc; margin:0 0 10px; padding:5px 7px 5px 57px; position:relative; height:1%;}
+ol.commentlist li:hover { }
+ol.commentlist li.comment-author-admin {border-top:5px solid #ccc;}
+ol.commentlist li div.comment-author { padding:0 170px 0 0; }
+ol.commentlist li div.vcard { font-weight: bold; color:#222 }
+ol.commentlist li div.vcard a {color:#222}
+ol.commentlist li div.vcard cite.fn { font-style:normal; }
+ol.commentlist li div.vcard cite.fn a.url { text-decoration:none; }
+ol.commentlist li div.vcard cite.fn a.url:hover { color:#333; }
+ol.commentlist li div.vcard img.avatar {left:0;position:absolute; top:5px; }
+ol.commentlist li div.comment-meta { font:11px helvetica,arial,sans-serif;position:absolute; right:0; text-align:right; top:0;background:#ccc; padding:6px 4px 4px 4px}
+ol.commentlist li div.comment-meta a { color:#fff; text-decoration:none; }
+ol.commentlist li div.comment-meta a:hover { color:#000; }
+ol.commentlist li.comment-author-admin div.comment-meta {background:#ccc; color:#fff}
+ol.commentlist li.comment-author-admin div.comment-meta a:hover {color:#fff}
+ol.commentlist li div.reply { text-align:center; width:36px; }
+ol.commentlist li div.reply a { background:#eee; color:#222; font:bold 9px/1 helvetica,arial,sans-serif; padding:6px 10px 3px;  color:#222; text-decoration:none; text-transform:uppercase; }
+ol.commentlist li div.reply a:hover {color:#fff; background:#222}
+ol.commentlist li ul.children { list-style:none; margin:1em 0 0; text-indent:0; }
+ol.commentlist li ul.children li.depth-2 { margin:0 0 .25em; }
+ol.commentlist li ul.children li.depth-3 { margin:0 0 .25em; }
+ol.commentlist li ul.children li.depth-4 { margin:0 0 .25em; }
+ol.commentlist li.pingback div.vcard { padding:0 170px 0 0; }
+#comments {margin:4px 0}
+#respond {margin:30px 0; padding:10px 0;border-top:5px solid #ccc}
+#commentform{ margin-bottom: 60px;}
+#commentform input {width: 170px;padding: 2px;margin: 5px 5px 1px 0;font-size: 1.2em;}
+#commentform textarea {margin-top:5px;width: 95%;padding: 2px;border:1px #ccc solid;font-size: 1.2em;}
+#commentform textarea:hover {border:1px solid #222;}
+#commentform #submit{margin-top: 5px;padding: 5px;font-weight: bold;font-size: 1.3em;background:#111 none repeat scroll 0 0;border:1px solid #222;color:#BBBBBB;font-size:1.3em;font-weight:bold;margin-top:5px;padding:5px;}
+legend {font-size: 1.2em;font-weight:bold;padding: 2px 10px}
+#commentform #submit:hover{background:#000;color:#fff}
+#wp-submit {font-weight: bold;font-size: 1em;background:#111 none repeat scroll 0 0;border:1px solid #222;color:#BBBBBB;font-weight:bold;padding:5px;}
+#wp-submit:hover {background:#000;color:#fff}
+
+/* Navigation at rest */
+#nav { position: absolute; top: 0; right: 0; padding:0; }
+#branding #nav { position: absolute; top: 42px; left:600px;}
+#masthead .sf-menu li a:hover {color:#fff;}
+
+.page-link { margin: 0 0 1.5em; }
+.nav { float: left; margin-bottom: 25px; width: 100%; }
+.navi { float: left; margin-bottom: 15px; }
+.nav a, .navi a { border-radius: 5px; display: block; font-weight: bold; font-size: 12px; line-height: 1em; -khtml-border-radius: 5px; -moz-border-radius: 5px; padding: 8px 10px 8px; -webkit-border-radius: 5px; }
+.prev a, .next a { text-decoration: none; padding: 4px 10px 4px 10px; font-size: 13px; display: block; -moz-border-radius: 5px;-khtml-border-radius: 5px;-webkit-border-radius: 5px;border-radius: 5px;}
+.prev a { float: left; }
+.next a { float: right; }
+.prev a, .next a,
+.prev a:visited, .next a:visited { background: #222; color: #666; }
+.prev a:hover, .next a:hover,
+.prev a:active, .next a:active,
+.prev a:focus, .next a:focus { background: #222; color: #999; }
+
+.page-template-page-sidebar-php #content,
+.single-sidebar #content,
+.page-template-page-blog-sidebar-php #content { margin: 2em 10px 2em 0; }
+.page-template-page-sidebar-php #sidebar,
+.single-sidebar #sidebar,
+.page-template-page-blog-sidebar-php #sidebar { margin: 2em 0; line-height: 18px; }
+.page-template-page-sidebar-php #sidebar h3,
+.single-sidebar #sidebar h3,
+.page-template-page-blog-sidebar-php h3 { text-transform: uppercase; font-size: 12px; display: block; border-bottom: 1px solid #222; padding-bottom: 11px; margin-bottom: 6px; }
+.page-template-page-sidebar-php div.colborder,
+.single-sidebar div.colborder,
+.page-template-page-blog-sidebar-php div.colborder { border-right: 1px solid #222; }
+.page-template-page-sidebar-php #sidebar .item,
+.single-sidebar #sidebar .item,
+.page-template-page-blog-sidebar-php #sidebar .item { margin-bottom: 2em; }
+.single-sidebar #post-nav,
+.page-template-page-blog-sidebar-php #post-nav { width: 130px; }
+
+.single-sidebar .post-nav-prev,
+.single-sidebar .post-nav-next,
+.single-sidebar #dialog_link, .single-sidebar .icon,
+.page-template-page-blog-sidebar-php .post-nav-prev,
+.page-template-page-blog-sidebar-php .post-nav-next,
+.page-template-page-blog-sidebar-php #dialog_link,
+.page-template-page-blog-sidebar-php .icon { margin: 0 5px 0 0; }
+.page-template-page-blog-sidebar-php h3.sub { border-bottom: none; }
+
+.sticky {}
+.bypostauthor {}
+#logo-image-home {float:left;}
+#logo-image {float:left;}

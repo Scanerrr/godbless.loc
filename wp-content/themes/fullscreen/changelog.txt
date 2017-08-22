@@ -1,0 +1,43 @@
+== Changelog ==
+
+= Version 2.7.1 (Jan. 18, 2015) =
+    * Updated updater script
+    * Sidebar ID notice fix
+
+= Version 2.7 (Dec. 7, 2015) =
+    * Updater script
+
+= Version 2.6.1 (Jan. 10, 2013) =
+    * jQuery conflict
+
+= Version 2.6.0 (Nov. 27, 2012) =
+    * Integration with Settings API
+
+= Version 2.5.2 (Jan. 12, 2012) =
+    * Path issue with nav js
+
+= Version 2.5.1 (December 15, 2011) =
+    * Added Localization
+
+= Version 2.5.0 (October 18, 2011) =
+    * Integration with OptionTree
+    * Ability to upload logo
+    * Ability to set homepage images to static images on Theme Options
+    * HTML & CSS Validation
+    * Added TGM Plugin Activation PHP class
+    * Added Option Tree theme options
+    * Added theme text domain
+    * Fixed faulty video-post.php
+    * Updated comments.php
+
+= Version 2.4.7 (July 5, 2011) =
+    * Validation
+
+= Version 2.4.2 (February 22, 2011) =
+    * Updated instructions
+    * Fixed navigation positioning in IE7 and IE8
+    * Changed homepage to hierarchical display
+    * Fixed faulty search.php page
+
+= Version 1.0 (June 10, 2009) =
+    * Initial release

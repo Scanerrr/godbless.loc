@@ -1,0 +1,207 @@
+html {
+  box-sizing: border-box;
+  -ms-text-size-adjust: 100%;
+
+  /* [5] */
+  -webkit-text-size-adjust: 100%;
+
+  /* [5] */
+  color: $color__primary;
+
+  /* [additional] */
+}
+
+*,
+*:before,
+*:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit;
+}
+
+/**
+ * 1. Fallback for when there is no custom background color defined. [WordPress]
+ * 2. Remove default margin. [normalize.css]
+ * 3. Set the base elements `font-size` to the value of your choosing.
+ * 4. Work out the unitless `line-height` for your project based around your
+ *    desired `line-height` (defined previously in pixels), and your projects
+ *    base font size.
+ */
+
+body {
+  background: $color__background-body;
+
+  /* [1] */
+  background-size: 100% auto;
+  margin: 0;
+
+  /* [2] */
+  font-family: $font__main;
+  color: $color__primary;
+
+  @include font-size($line-height: true);
+
+  /* [3] */
+
+  /* [4] */
+
+  // WP Editor
+  //&.mce-content-body {
+  //  font-family: inherit;
+  //  margin: rem-calc(15);
+  //}
+
+  word-break: break-word;
+}
+
+p {
+  color: $color__primary;
+}
+
+blockquote {
+  border-top: 1px solid #f1f1f1;
+  border-right: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+  border-left: 5px solid $gray;
+  @include fontello("\e818");
+  color: #787875;
+  padding: rem-calc(15);
+  &:before {
+    color: $gray;
+    font-size: rem-calc(25);
+    vertical-align: rem-calc(-5);
+    margin: rem-calc(0 15 0 0);
+  }
+  p {
+    display: inline;
+  }
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* Default Links */
+a {
+  // Self, Active & Visited
+  outline: 0;
+  text-decoration: none;
+  transition: 0.3s;
+
+  // Hover
+  &:hover {
+    outline: 0;
+  }
+}
+
+/*---------------------------
+        Lists & Tables
+---------------------------*/
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5rem 1.5rem;
+}
+
+ul {
+  list-style: disc;
+  margin: 0;
+  padding: 0;
+}
+
+/*---------------------------
+        Buttons
+---------------------------*/
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border: 0;
+  color: $white;
+  line-height: 1;
+  padding: rem-calc(13);
+  font-family: inherit;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  text-transform: uppercase;
+
+  &:active,
+  &:focus {
+    background: $color__background-button-focus;
+    outline: 0;
+  }
+}
+
+/*---------------------------
+        Fields
+---------------------------*/
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+  color: $color__text-input;
+  border: 1px solid $color__border-input;
+  font-family: inherit;
+  line-height: $font__line-height-body;
+  transition: 0.3s;
+  &:focus {
+    color: $color__text-input-focus;
+    border: 1px solid $black;
+    outline: 0;
+  }
+}
+
+textarea {
+  padding: rem-calc(10);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+  padding: rem-calc(10);
+}
+
+select {
+  color: $color__primary;
+  font-size: 1rem;
+  max-width:100%;
+}
+
+.nav-next a, .nav-previous a {
+  color: inherit;
+}
+
+/*---------------------------
+        Post and Pages
+---------------------------*/
+.lesse-lite-pagination {
+  a {
+    color: $black;
+  }
+}
+.lesse-wide-thumb-content {
+  time {
+    @include fontello('\e80f');
+  }
+}
+
+.moretag{
+  display: block;
+}

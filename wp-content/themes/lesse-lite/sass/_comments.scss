@@ -1,0 +1,102 @@
+.comment-content {
+  a {
+    word-wrap: break-word;
+  }
+}
+
+.bypostauthor {
+  display: block;
+}
+
+//Basic Styling
+.comments-area {
+  .comments-title {
+    @include fontello('\e801');
+    color: $black;
+    font-weight: bold;
+  }
+  .fn{
+    text-transform: capitalize;
+  }
+  .comment-list {
+    margin: 0;
+    list-style:none;
+    padding:0;
+  }
+  .comment-author {
+    img {
+      float: left;
+      margin-right: rem-calc(15);
+      border-radius: 100%;
+    }
+    .url {
+      color: $color__primary;
+      text-transform: capitalize;
+    }
+  }
+  li.comment {
+    overflow: hidden;
+    margin-bottom: rem-calc(25);
+  }
+  li.comment:last-child {
+    border-bottom: none;
+  }
+  .comment-body {
+    margin-bottom: rem-calc(20);
+    border-bottom: 1px solid #f4f4f4;
+    p {
+      margin-bottom: rem-calc(5);
+    }
+    .comment-meta, .comment-content, .reply {
+      padding: rem-calc(10);
+    }
+  }
+
+  .comment-content{
+    margin-top: rem-calc(10);
+  }
+
+  .reply {
+    text-align: right;
+  }
+
+  ol.children {
+    margin-bottom: 0;
+    list-style: none;
+  }
+
+}
+
+.comment-metadata {
+  color: $gray;
+    a {
+      font-size: rem-calc(13);
+      color: $gray;
+    }
+    time {
+      @include fontello('\e80f');
+      &:before{
+        margin-left:0;
+      }
+    }
+    .edit-link {
+      @include fontello('\e80d');
+    }
+}
+.comment-respond a {
+  color: $black;
+}
+
+.comment-form-comment {
+  textarea {
+    width: 100%;
+  }
+}
+.comment-reply-title {
+  text-transform: uppercase;
+}
+
+.comment-awaiting-moderation{
+  font-style: italic;
+  font-size: rem-calc( 12 );
+}

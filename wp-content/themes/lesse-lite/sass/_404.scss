@@ -1,0 +1,23 @@
+.error-404 {
+  text-align: center;
+  background: #ffffff;
+  min-height: rem-calc(540);
+  .page-header {
+    padding-top: rem-calc(30);
+  }
+  h1 {
+    border: none;
+    font-size: rem-calc(40);
+  }
+  .lesse-404-description {
+    font-size: rem-calc(25);
+  }
+  .lesse-search-form {
+    margin-bottom: rem-calc(30);
+  }
+  .search-field {
+    min-width: rem-calc(400);
+    margin-bottom: rem-calc(20);
+  }
+
+}

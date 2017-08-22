@@ -1,0 +1,105 @@
+[13-Dec-2016 12:16:40 UTC] База данных WordPress возвратила ошибку You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '= 'success' 
+
+ LIMIT 10' at line 15 в ответ на запрос SELECT wp_unfreeze_payments.id,
+       wp_unfreeze_payments.payment_id,
+       wp_unfreeze_payments.status,
+       wp_unfreeze_payments.err_code,
+       wp_unfreeze_payments.err_description,
+       wp_unfreeze_payments.order_id,
+       wp_unfreeze_payments.description,
+       wp_unfreeze_payments.amount,
+       wp_unfreeze_payments.currency,
+       wp_unfreeze_payments.create_date,
+       wp_unfreeze_payments.code,
+       wp_unfreeze_payments.customer
+FROM wp_unfreeze_payments
+WHERE wp_unfreeze_payments.customer = 1
+AND  wp_unfreeze_payments.status == 'success' 
+
+ LIMIT 10, выполненный do_action('wp_ajax_wdt_save_table'), call_user_func_array, wdt_save_table, wdt_try_generate_table, WPDataTable->queryBasedConstruct
+[02-Feb-2017 12:37:26 UTC] База данных WordPress возвратила ошибку Unknown column 'post_offer' in 'field list' в ответ на запрос SELECT post_offer.ID, post_offer.post_title as offer_title,
+post_offer_meta_server.meta_value as server, post_offer_meta_currency.meta_value as currency,
+post_offer_meta_alliance.meta_value as alliance,  post_offer_meta_price.meta_value as price,
+post_offer_meta_website.meta_value as website,  
+CONCAT ('<a target="_blank" id="popup_block_', post_offer , '" href="/redirect?id=', post_offer.ID, '&url=', post_offer_meta_website.meta_value, '">',  LEFT(post_offer_meta_website.meta_value, 16), '...', '</a>' ) as link,
+post_offer_meta_payment_systems.meta_value as payment_systems,
+post_offer_meta_game.meta_value as game_id, post_game.post_title as game_title, 
+CONCAT ('<a href="/?author=', posts_offer_author.ID, '">', posts_offer_author.user_login , '<a/>') as user_login,
+author_comments_meta.comments_count as comments_count,
+author_comments_meta_pozitive.comments_count as comments_count_pozitive,
+author_comments_meta_negative.comments_count as comments_count_negative,
+
+CONCAT ('<a href="/?author=', posts_offer_author.ID, '">', author_comments_meta_pozitive.comments_count, ' / ', author_comments_meta_negative.comments_count , '<a/>')
+ as comments_summary
+
+
+FROM wp_posts AS post_offer
+
+INNER JOIN wp_users AS posts_offer_author
+ON posts_offer_author.ID = post_offer.post_author
+
+-- все отзывы пользователя
+LEFT JOIN (SELECT comment_author, comment_post_ID, count(comment_ID) as comments_count FROM wp_comments
+INNER JOIN (
+SELECT comment_id as meta_comment_id, meta_value FROM wp_commentmeta
+WHERE meta_key = 'rating' AND (meta_value = 0 OR meta_value = 1 OR meta_value = 2)
+) as comment_meta ON wp_comments.comment_ID = comment_meta.meta_comment_id
+GROUP BY comment_author) as author_comments_meta
+ON  posts_offer_author.user_login = author_comments_meta.comment_author 
+
+-- негативные отзывы пользователя
+LEFT JOIN (SELECT comment_author, comment_post_ID, count(comment_ID) as comments_count FROM wp_comments
+INNER JOIN (
+SELECT comment_id as meta_comment_id, meta_value FROM wp_commentmeta
+WHERE meta_key = 'rating' AND meta_value = 2
+) as comment_meta ON wp_comments.comment_ID = comment_meta.meta_comment_id
+GROUP BY comment_author) as author_comments_meta_negative
+ON  posts_offer_author.user_login = author_comments_meta_negative.comment_author 
+
+-- позитивные отзывы пользователя
+LEFT JOIN (SELECT comment_author, comment_post_ID, count(comment_ID) as comments_count FROM wp_comments
+INNER JOIN (
+SELECT comment_id as meta_comment_id, meta_value FROM wp_commentmeta
+WHERE meta_key = 'rating' AND meta_value = 1
+) as comment_meta ON wp_comments.comment_ID = comment_meta.meta_comment_id
+GROUP BY comment_author) as author_comments_meta_pozitive
+ON  posts_offer_author.user_login = author_comments_meta_pozitive.comment_author 
+
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_server
+ON post_offer.ID = post_offer_meta_server.post_id AND post_offer_meta_server.meta_key = 'server'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_currency
+ON post_offer.ID = post_offer_meta_currency.post_id AND post_offer_meta_currency.meta_key = 'currency'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_alliance
+ON post_offer.ID = post_offer_meta_alliance.post_id AND post_offer_meta_alliance.meta_key = 'alliance'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_price
+ON post_offer.ID = post_offer_meta_price.post_id AND post_offer_meta_price.meta_key = 'price'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_website
+ON post_offer.ID = post_offer_meta_website.post_id AND post_offer_meta_website.meta_key = 'website'
+
+LEFT JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_payment_systems
+ON post_offer.ID = post_offer_meta_payment_systems.post_id AND post_offer_meta_payment_systems.meta_key = 'payment_systems'
+
+
+INNER JOIN (SELECT post_id, meta_key, meta_value FROM wp_postmeta ) as post_offer_meta_game
+ON post_offer.ID = post_offer_meta_game.post_id 
+   AND post_offer_meta_game.meta_key = 'game_id'
+   AND post_offer_meta_game.meta_value='120' 
+
+
+LEFT JOIN (SELECT ID, post_title  FROM wp_posts WHERE post_type='game' ) as post_game
+ON post_game.ID = post_offer_meta_game.meta_value
+
+WHERE post_offer.post_type = 'offer' AND post_offer.post_status = 'publish'
+ORDER BY ID DESC
+ LIMIT 10, выполненный do_action('wp_ajax_wdt_save_table'), call_user_func_array, wdt_save_table, wdt_try_generate_table, WPDataTable->queryBasedConstruct
+[04-Feb-2017 13:40:23 UTC] PHP Parse error:  syntax error, unexpected '$redirect_url' (T_VARIABLE) in /home/godbless/public_html/wp-content/themes/twentysixteen/inc/personalize-login.php on line 453
+[04-Feb-2017 13:40:27 UTC] PHP Parse error:  syntax error, unexpected '$redirect_url' (T_VARIABLE) in /home/godbless/public_html/wp-content/themes/twentysixteen/inc/personalize-login.php on line 453
+[04-Feb-2017 13:42:24 UTC] PHP Parse error:  syntax error, unexpected '$redirect_url' (T_VARIABLE) in /home/godbless/public_html/wp-content/themes/twentysixteen/inc/personalize-login.php on line 453
+[04-Feb-2017 13:42:28 UTC] PHP Parse error:  syntax error, unexpected '$redirect_url' (T_VARIABLE) in /home/godbless/public_html/wp-content/themes/twentysixteen/inc/personalize-login.php on line 453
+[04-Feb-2017 13:44:24 UTC] PHP Parse error:  syntax error, unexpected '$redirect_url' (T_VARIABLE) in /home/godbless/public_html/wp-content/themes/twentysixteen/inc/personalize-login.php on line 454
+[04-Feb-2017 13:44:29 UTC] PHP Parse error:  syntax error, unexpected '$redirect_url' (T_VARIABLE) in /home/godbless/public_html/wp-content/themes/twentysixteen/inc/personalize-login.php on line 454

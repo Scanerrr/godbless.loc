@@ -1,0 +1,33 @@
+
+
+@media only screen and ( min-width: $medium-start-point ) and ( max-width: $medium-end-point )
+{
+
+}
+
+@media only screen and ( max-width: $medium-end-point )
+{
+	.lesse-lfb-thumb{
+		width: 100%;
+		margin: 0;
+		margin-bottom:rem-calc(25);
+	}
+	.lesse-lfb-content{
+		overflow:visible;
+		p{
+			margin-bottom:rem-calc(5);
+		}
+	}
+
+	.lesse-content-wrapper{
+		overflow:visible;
+	}
+
+	//Slider
+	.lesse-slide-title {
+		font-size: rem-calc(32);
+	}
+	.lesse-slide-description {
+		font-size: rem-calc(16);
+	}
+}

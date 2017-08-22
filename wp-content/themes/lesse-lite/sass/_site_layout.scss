@@ -1,0 +1,90 @@
+$padding: rem-calc(15);
+
+.site-content {
+  padding-top: rem-calc(50);
+  padding-bottom: rem-calc(50);
+
+  .page-template-home &{
+    padding-top: 0;
+    padding-bottom:0;
+  }
+}
+
+.lesse-primary {
+  background: $white;
+  padding-top: rem-calc(20);
+  padding-bottom: rem-calc(20);
+}
+
+.site-main {
+  min-height: rem-calc(500);
+}
+
+.custom-background {
+
+  .lesse-article-content {
+    padding-left: $padding;
+    padding-right: $padding;
+  }
+
+  &.lesse-lite-list-view {
+    .site-main {
+      background: transparent;
+    }
+
+    .hentry {
+      background: $white;
+    }
+
+  }
+
+  .page-header {
+    padding: $padding;
+  }
+
+}
+
+.lesse-lite-list-view {
+  .site-main {
+    padding: 0;
+  }
+
+  .lesse-post-thumb {
+    margin-bottom: rem-calc(20);
+  }
+
+  .lesse-article-content {
+    margin-bottom: rem-calc(20);
+  }
+
+  .entry-title{
+    font-size: rem-calc( 26 );
+  }
+
+  .entry-content{
+    h1{
+      font-size: rem-calc( 22 );
+    }
+
+    h2{
+      font-size: rem-calc( 20 );
+    }
+
+    h3{
+      font-size: rem-calc( 18 );
+    }
+
+    h4{
+      font-size: rem-calc( 16 );
+    }
+
+    h5{
+      font-size: rem-calc( 14 );
+    }
+
+    h6{
+      font-size: rem-calc( 12 );
+    }
+  }
+}
+
