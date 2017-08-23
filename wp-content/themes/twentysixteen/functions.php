@@ -492,6 +492,7 @@ function new_contact_methods($contactmethods)
 
     if (current_user_can('manage_options')) {
         $contactmethods['level'] = 'Уровень';
+        $contactmethods['date'] = '';
     }
     return $contactmethods;
 }
@@ -503,6 +504,7 @@ add_filter('user_contactmethods', 'new_contact_methods', 10, 1);
 function new_modify_user_table($column)
 {
     $column['level'] = 'Уровень';
+    $column['date'] = 'Дата Регистрации';
     return $column;
 }
 
@@ -513,6 +515,11 @@ function new_modify_user_table_row($val, $column_name, $user_id)
     switch ($column_name) {
         case 'level' :
             return get_the_author_meta('level', $user_id);
+            break;
+        case 'date' :
+            $udata = get_userdata( $user_id );
+            $registered = $udata->user_registered;
+            return date( get_option('date_format'), strtotime( $registered ) );
             break;
         default:
     }
@@ -820,3 +827,82 @@ function add_loginout_link( $items, $args ) {
 if (!current_user_can('administrator')):
     show_admin_bar(false);
 endif;
+
+/*
+ * ACF Dynamic select for offers
+ * */
+function acf_load_game_field_choices( $field ) {
+    $field['choices'] = array('Выбрать игру');
+    // Query Waiting Lists Products
+    $args = array(
+        'post_type' => 'game',
+        'orderby' => 'title',
+        'order' => 'ASC',
+        'posts_per_page' => -1
+    );
+    $lists_array = get_posts( $args );
+
+    foreach ( $lists_array as $list ) {
+        $field['choices'][$list->ID] = $list->post_title;
+    }
+//    print_pre($field);
+    wp_reset_postdata();
+
+    return $field;
+}
+
+add_filter('acf/load_field/name=game_id', 'acf_load_game_field_choices');
+
+add_action('admin_print_footer_scripts', 'my_action_javascript', 99);
+function my_action_javascript() {
+    ?>
+    <script type="text/javascript" >
+        jQuery(document).ready(function($) {
+            $('#select_game_id').find('select').on('change', function (e) {
+                $('#select_alliance').find('select').empty().append($('<option>', {
+                    value: 0,
+                    text: 'Выбрать alliance'
+                }));
+                $('#select_servers').find('ul').empty();
+                var data = {
+                    action: 'load_game',
+                    game_id: $(this).val()
+                };
+
+                // dynamic append data to select and inputs
+                jQuery.post( ajaxurl, data, function(response) {
+                    if (typeof response.alliance !== "undefined") {
+                        $('#select_alliance').find('select').append($('<option>', {
+                            value: response.alliance,
+                            text: response.alliance
+                        }));
+                    }
+                    if (typeof response.servers !== "undefined") {
+                        $.each(response.servers, function (key, serv) {
+                            var el = '<li><label><input id="acf-field_599d619d7c021-' + serv + '" type="checkbox" name="acf[field_599d619d7c021][]" value="' + serv + '">' + serv + '</label></li>';
+                            $('#select_servers').find('ul').append(el);
+                        });
+                    }
+                }, 'json');
+            });
+        });
+    </script>
+    <?php
+}
+
+add_action('wp_ajax_load_game', 'my_action_callback');
+function my_action_callback() {
+    $game_id = intval( $_POST['game_id'] );
+    $data = [];
+    $alliance = get_post_meta($game_id, '_alliances', true);
+    if ($alliance)
+        $data['alliance'] = $alliance;
+
+    $servers = get_post_meta($game_id, '_servers', true);
+    $servers = explode(',', $servers);
+    if (!empty($servers))
+        $data['servers'] = $servers;
+    echo wp_json_encode($data);
+
+    wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего, только то что возвращает функция
+}

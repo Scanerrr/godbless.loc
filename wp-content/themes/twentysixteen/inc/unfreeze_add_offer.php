@@ -28,7 +28,7 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
 
     if (!is_user_logged_in()) {
 
-        echo "<h3>Добавление предложений доступно тоько для зарегистрированных пользователей</h3>";
+        echo "<h3>Добавление предложений доступно только для зарегистрированных пользователей</h3>";
 
         $args = array(
             'echo' => true,

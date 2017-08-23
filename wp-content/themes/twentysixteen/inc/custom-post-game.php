@@ -15,7 +15,7 @@ function custom_post_game() {
         'singular_name'      => 'Игра',
         'add_new'            => 'Добавить игру',
         'add_new_item'       => 'Добавить новую Игру',
-        'edit_item'          => 'Редактироватьигру',
+        'edit_item'          => 'Редактировать игру',
         'new_item'           => 'Новая игра',
         'all_items'          => 'Все игры',
         'view_item'          => 'Посомтреть игру',

@@ -42,6 +42,4 @@ function custom_post_offer() {
     register_post_type( 'offer', $args );
 }
 add_action( 'init', 'custom_post_offer' );
-
-
 /********* END CUSTOM POST GAME ***************************/
