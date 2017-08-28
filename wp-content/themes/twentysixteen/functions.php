@@ -845,44 +845,154 @@ function acf_load_game_field_choices( $field ) {
     foreach ( $lists_array as $list ) {
         $field['choices'][$list->ID] = $list->post_title;
     }
-//    print_pre($field);
     wp_reset_postdata();
-
     return $field;
 }
 
 add_filter('acf/load_field/name=game_id', 'acf_load_game_field_choices');
 
+function acf_load_alliance_field_choices( $field ) {
+    // Query Waiting Lists Products
+    global $post;
+    $game_id = get_field('game_id');
+    $_alliances_enable = get_post_meta($game_id, '_alliances_enable', true);
+    if ($_alliances_enable === 'on') {
+        $alliances = get_post_meta($game_id, '_alliances', true);
+        $alliances = $alliances ? explode(',', $alliances) : [];
+        $chosed_alliance = get_post_meta($post->ID, 'alliance', true);
+        foreach ( $alliances as $key => $alliance ) {
+            $field['choices'][$alliance] = $alliance;
+            if (empty($chosed_alliance) || !is_array($chosed_alliance)) continue;
+            if (in_array($alliance, $chosed_alliance)) {
+                $field['default_value'][$key] = $alliance;
+                $field['value'][$key] = $alliance;
+            }
+        }
+    }
+    wp_reset_postdata();
+    return $field;
+}
+add_filter('acf/load_field/name=alliance', 'acf_load_alliance_field_choices');
+
+function acf_load_currency_field_choices( $field ) {
+    // Query Waiting Lists Products
+    global $post;
+    $game_id = get_field('game_id');
+    $currencies = get_post_meta($game_id, '_currencies', true);
+    $currencies = $currencies ? explode(',', $currencies) : [];
+    $chosed_currency = get_post_meta($post->ID, 'currency', true);
+    foreach ( $currencies as $key => $currency ) {
+        $field['choices'][$currency] = $currency;
+        if (empty($chosed_currency) || !is_array($chosed_currency)) continue;
+        if (in_array($currency, $chosed_currency)) {
+            $field['default_value'][$key] = $currency;
+            $field['value'][$key] = $currency;
+        }
+    }
+    wp_reset_postdata();
+    return $field;
+}
+add_filter('acf/load_field/name=currency', 'acf_load_currency_field_choices');
+
+function acf_load_servers_field_choices( $field ) {
+    // Query Waiting Lists Products
+    global $post;
+    $game_id = get_field('game_id');
+    $servers = get_post_meta($game_id, '_servers', true);
+    $servers = $servers ? explode(',', $servers) : [];
+    $chosed_server = get_post_meta($post->ID, 'server', true);
+    foreach ( $servers as $key => $server ) {
+        $field['choices'][$server] = $server;
+        if (empty($chosed_server) || !is_array($chosed_server)) continue;
+        if (in_array($server, $chosed_server)) {
+            $field['default_value'][$key] = $server;
+            $field['value'][$key] = $server;
+        }
+    }
+    wp_reset_postdata();
+    return $field;
+}
+add_filter('acf/load_field/name=server', 'acf_load_servers_field_choices');
+
+function acf_load_payment_systems_field_choices( $field ) {
+    // Query Waiting Lists Products
+    global $wpdb;
+    global $post;
+    $table_name = $wpdb->prefix . "unfreeze_merchants";
+    $merchants = $wpdb->get_results("SELECT name FROM $table_name", ARRAY_N);
+    $chosed_payments = get_post_meta($post->ID, 'payment_systems', true);
+    if (!is_array($chosed_payments))
+        $chosed_payments = !empty($chosed_payments) ? explode(',', $chosed_payments) : $chosed_payments;
+    foreach ( $merchants as $key => $merchant ) {
+//        $field['choices'][$merchant[0]] = $merchant[0];
+        if (empty($chosed_payments)) continue;
+        if (in_array($merchant[0], $chosed_payments)) {
+            $field['default_value'][$key] = $merchant[0];
+            $field['value'][$key] = $merchant[0];
+        }
+    }
+    wp_reset_postdata();
+    return $field;
+}
+add_filter('acf/load_field/name=payment_systems', 'acf_load_payment_systems_field_choices');
+
 add_action('admin_print_footer_scripts', 'my_action_javascript', 99);
 function my_action_javascript() {
+    global $post;
     ?>
     <script type="text/javascript" >
         jQuery(document).ready(function($) {
             $('#select_game_id').find('select').on('change', function (e) {
-                $('#select_alliance').find('select').empty().append($('<option>', {
-                    value: 0,
-                    text: 'Выбрать alliance'
-                }));
+                var select_currency = $('#select_currency');
+                var cont = '<ul class="acf-radio-list acf-bl" data-allow_null="0" data-other_choice="0">';
+                if (select_currency.find('div.acf-input ul').length !== 0) {
+                    select_currency.find('ul').remove();
+                }
+                select_currency.find('div.acf-input').append(cont);
+                var select_alliance = $('#select_alliance');
+                if (select_alliance.find('div.acf-input ul').length !== 0) {
+                    select_alliance.find('ul').remove();
+                }
+                select_alliance.find('div.acf-input').append(cont);
                 $('#select_servers').find('ul').empty();
                 var data = {
                     action: 'load_game',
+                    post_id: <?php echo $post->ID ?>,
                     game_id: $(this).val()
                 };
 
                 // dynamic append data to select and inputs
                 jQuery.post( ajaxurl, data, function(response) {
-                    if (typeof response.alliance !== "undefined") {
-                        $('#select_alliance').find('select').append($('<option>', {
-                            value: response.alliance,
-                            text: response.alliance
-                        }));
-                    }
-                    if (typeof response.servers !== "undefined") {
-                        $.each(response.servers, function (key, serv) {
+                    console.log(response);
+                    $.each(response.servers, function (key, serv) {
+                        if ($.inArray(serv, response.checked_server) !== -1)
+                            var el = '<li><label><input id="acf-field_599d619d7c021-' + serv + '" type="checkbox" name="acf[field_599d619d7c021][]" value="' + serv + '" checked>' + serv + '</label></li>';
+                        else
                             var el = '<li><label><input id="acf-field_599d619d7c021-' + serv + '" type="checkbox" name="acf[field_599d619d7c021][]" value="' + serv + '">' + serv + '</label></li>';
-                            $('#select_servers').find('ul').append(el);
-                        });
-                    }
+                        $('#select_servers').find('ul').append(el);
+                    });
+                    $.each(response.currencies, function (key, currency) {
+                        if ($.inArray(currency, response.checked_currency) !== -1 || currency == response.checked_currency || response.currencies.length == 1)
+                            var el = '<li><label><input type="radio" id="acf-field_599d61d07c022-' + currency + '" name="acf[field_599d61d07c022]" value="' + currency + '" checked>' + currency + '</label></li>';
+                        else
+                            var el = '<li><label><input type="radio" id="acf-field_599d61d07c022-' + currency + '" name="acf[field_599d61d07c022]" value="' + currency + '">' + currency + '</label></li>';
+                        $('#select_currency').find('ul').append(el);
+                    });
+                    $.each(response.alliances, function (key, alliance) {
+                        if ($.inArray(alliance, response.checked_alliance) !== -1 || alliance == response.checked_alliance)
+                            var el = '<li><label><input type="radio" id="acf-field_599d615a7c020-' + alliance + '" name="acf[field_599d615a7c020]" value="' + alliance + '" checked>' + alliance + '</label></li>';
+                        else
+                            var el = '<li><label><input type="radio" id="acf-field_599d615a7c020-' + alliance + '" name="acf[field_599d615a7c020]" value="' + alliance + '">' + alliance + '</label></li>';
+                        $('#select_alliance').find('ul').append(el);
+                    });
+                    var payment_systems = $('#payment_systems li input');
+                    $.each(payment_systems, function (system) {
+                        var $this = $(this);
+                        if ($.inArray($this.val(), response.chosed_payment) !== -1)
+                            $this.prop('checked', true);
+                        else
+                            $this.prop('checked', false);
+                    });
                 }, 'json');
             });
         });
@@ -893,15 +1003,43 @@ function my_action_javascript() {
 add_action('wp_ajax_load_game', 'my_action_callback');
 function my_action_callback() {
     $game_id = intval( $_POST['game_id'] );
+    $post_id = intval( $_POST['post_id'] );
     $data = [];
-    $alliance = get_post_meta($game_id, '_alliances', true);
-    if ($alliance)
-        $data['alliance'] = $alliance;
+
+    //Check if alliances is enabled
+    $_alliances_enable = get_post_meta($game_id, '_alliances_enable', true);
+    if ($_alliances_enable === 'on') {
+        $alliances = get_post_meta($game_id, '_alliances', true);
+        if (!empty($alliances)) {
+            $checked_alliances = get_post_meta($post_id, 'alliance', true);
+            $data['checked_alliance'] = $checked_alliances;
+            $alliances = explode(',', $alliances);
+            $data['alliances'] = $alliances;
+        }
+    }
 
     $servers = get_post_meta($game_id, '_servers', true);
-    $servers = explode(',', $servers);
-    if (!empty($servers))
+    $servers = $servers ? explode(',', $servers) : '';
+    if (!empty($servers)) {
         $data['servers'] = $servers;
+        $checked_servers = get_post_meta($post_id,'server',true);
+        $data['checked_server'] = $checked_servers;
+    }
+
+    $currencies = get_post_meta($game_id, '_currencies', true);
+    $currencies = $currencies ? explode(',', $currencies) : '';
+    if (!empty($currencies)) {
+        $data['currencies'] = $currencies;
+        $checked_currencies = get_post_meta($post_id, 'currency', true);
+        $data['checked_currency'] = $checked_currencies;
+    }
+
+    $chosed_payments = get_post_meta($post_id, 'payment_systems', true);
+    if (!empty($chosed_payments)) {
+        $chosed_payments = !is_array($chosed_payments) ? explode(',', $chosed_payments) : $chosed_payments;
+        $data['chosed_payment'] = $chosed_payments;
+    }
+
     echo wp_json_encode($data);
 
     wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего, только то что возвращает функция

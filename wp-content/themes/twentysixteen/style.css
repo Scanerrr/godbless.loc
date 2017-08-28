@@ -606,7 +606,7 @@ input[type="reset"][disabled]:focus,
 input[type="submit"],
 input[type="submit"][disabled]:hover,
 input[type="submit"][disabled]:focus {
-	background: #ff6b00;
+	background: #f7931d;
 	border: 0;
 	border-radius: 2px;
 	color: #fff;
@@ -764,7 +764,7 @@ input[type="search"].search-field {
  */
 
 a {
-	color: #ff6b00;
+	color: #f7931d;
 	text-decoration: none;
 }
 
@@ -1661,7 +1661,7 @@ a.site-title {
 
 .site-branding .site-title a:hover,
 .site-branding .site-title a:focus {
-	color: #ff6b00;;
+	color: #f7931d;;
 }
 
 .wp-custom-logo .site-title {
@@ -2834,14 +2834,14 @@ p > video {
 	padding: 8px;
 }
 .games-site-branding button.menu-toggle:hover {
-	border-color: #ff6b00;
-	color: #ff6b00;
+	border-color: #f7931d;
+	color: #f7931d;
 }
 
 
 
 .games-menu-container {
-	background-color: #ff6b00;
+	background-color: #f7931d;
 	padding: 20px;
 }
 .main-navigation .games-menu,
@@ -2913,7 +2913,7 @@ p > video {
 	margin-bottom: 5px;
 }
 .unfreeze-registration button:hover, .unfreeze-registration button:active {
-	background-color: #ff6b00;
+	background-color: #f7931d;
 }
 .registration-errors span.dashicons{
 	color: red;
@@ -2970,7 +2970,7 @@ p > video {
 }
 
 .unfreeze-details button:hover{
-	background-color:#ff6b00;
+	background-color:#f7931d;
 }
 
 .games-site-branding .menu-toggle {
@@ -4702,7 +4702,7 @@ span.comment_info {
     padding-right: 3%;
 }
 span.comment_author {
-    color: #ff6b00;    padding-left: 5px;
+    color: #f7931d;    padding-left: 5px;
 }
 .review-content {
     color: #888585;
@@ -4796,7 +4796,7 @@ ul#primary-menu li {
     text-align: left;
 }
 .main-navigation .primary-menu li ul a:hover  {
-    color: #ff6b00;
+    color: #f7931d;
 }
 
 .games-menu-container li:hover > ul, .games-menu-container li.focus > ul {
@@ -4833,7 +4833,7 @@ ul#primary-menu li {
 div#toggle_menu_to_list {
     width: 91%;    width: 168px;
     border-radius: 0;
-    background: #ff6b00;
+    background: #f7931d;
     text-align: center;
 }
 div#toggle_menu_to_list button {
@@ -4845,7 +4845,7 @@ div#toggle_menu_to_list button {
 div#toggle_menu_to_alphabet {
     width: 140px;
     border-radius: 0;
-    background: #ff6b00;
+    background: #f7931d;
     text-align: center;
 }
 div#toggle_menu_to_alphabet button {
@@ -4873,7 +4873,7 @@ div#toggle_menu_to_list button:hover {
     background: #b2bfb9 !important;
 }
 #slides a:hover, #slides a:active {
-      background: #ff6b00 !important;
+      background: #f7931d !important;
     border-radius: 50%;
 }
 /*pagin*/
@@ -4936,22 +4936,22 @@ nav#footer-navigation {
 }
 .main-navigation li:hover {
     color: white;
-    background: #ff6b00;    color: #ff6b00;
+    background: #f7931d;    color: #f7931d;
     background: none;
 }
 
 /*.main-navigation li:hover > a,
 	.main-navigation li.focus > a {
 	  color: white;
-    background: #ff6b00;
+    background: #f7931d;
 
 	}*/
 .main-navigation ul.sub-menu li a:hover {
-    color: #ff6b00;
-    background: white;    color: #ff6b00;
+    color: #f7931d;
+    background: white;    color: #f7931d;
     background: none;
 }.main-navigation ul.sub-menu li:hover {
-       color: #ff6b00;
+       color: #f7931d;
     background: white;
 }
 
@@ -5023,12 +5023,12 @@ div#toggle_menu_to_alphabet button:hover{
 
 .main-navigation li a:hover {
     color: white;
-    background: #ff6b00;    color: #ff6b00;
+    background: #f7931d;    color: #f7931d;
     background: none;
 }
 
 .main-navigation .primary-menu li ul a:hover {
-    color: #ff6b00;
+    color: #f7931d;
     background: none;
 }
 .ui-state-active .ui-icon, .ui-button:active .ui-icon {
@@ -5120,7 +5120,7 @@ nav#footer-navigation {
 div#toggle_menu_to_list {
     width: 89%;width: 167px;
     border-radius: 0;
-    background: #ff6b00;
+    background: #f7931d;
     text-align: center;
 }
 .unfreeze-slogan H1 {
@@ -5196,7 +5196,7 @@ nav#footer-navigation {
 div#toggle_menu_to_list {
     width: 95%;    width: 167.5px;
     border-radius: 0;
-    background: #ff6b00;
+    background: #f7931d;
     text-align: center;
 }
 .game-preview img {
@@ -5917,4 +5917,3 @@ section.error-404.not-found {
     min-width: 90%;
 }
 }
-

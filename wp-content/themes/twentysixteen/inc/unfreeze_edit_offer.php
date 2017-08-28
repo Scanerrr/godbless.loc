@@ -80,9 +80,9 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
             else $servers_type = "checkbox";
 
             $servers_list = explode(',', $game_servers);
-            // берем сервер не из POST а из мета оффера
-            $server_ = explode(',', $offer_servers);
 
+            // берем сервер не из POST а из мета оффера
+            $server_ = $offer_servers;
 
             if (is_array($servers_list) && count($servers_list) > 1) {
                 foreach ($servers_list as $s_key => $server) {
@@ -141,9 +141,8 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
                 else $alliances_type = "checkbox";
 
                 $alliances_list = explode(',', $_alliances);
-
                 // берем сервер не из POST а из мета оффера
-                $alliance_ = explode(',', $offer_alliances);
+                $alliance_ = $offer_alliances;
 
                 if (is_array($alliances_list) && count($alliances_list) > 1) {
                     foreach ($alliances_list as $a_key => $alliance) {
@@ -178,7 +177,8 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
         <div class="merchant-toggles">';
 
             $payment_systems = get_post_meta($offer_id, 'payment_systems', true);
-            $arr_payment_systems = explode(',', $payment_systems);
+//            $arr_payment_systems = explode(',', $payment_systems);
+            $arr_payment_systems = $payment_systems;
             if (!count($arr_payment_systems)) $arr_payment_systems = array($payment_systems);
 
             global $wpdb;
