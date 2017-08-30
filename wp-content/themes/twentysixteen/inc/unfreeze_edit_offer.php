@@ -82,11 +82,10 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
             $servers_list = explode(',', $game_servers);
 
             // берем сервер не из POST а из мета оффера
-            $server_ = $offer_servers;
+            $server_ = is_array($offer_servers) ? $offer_servers : explode(',', $offer_servers);
 
             if (is_array($servers_list) && count($servers_list) > 1) {
                 foreach ($servers_list as $s_key => $server) {
-
                     $checked = "";
                     if (is_array($server_) && in_array($server, $server_)) $checked = 'checked="1"';
                     elseif ($_servers_unique == 1 && $server == $server_) $checked = 'checked="1"';
@@ -161,6 +160,10 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
                     <input name="alliance" type="' . $alliances_type . '" id="alliance_0" checked="1" value="' . $_alliances . '" >' . $_alliances . '</label>';
                 } else echo '<label for="alliance_0" class="selectit">
                     <input name="alliance" type="' . $alliances_type . '" id="alliance_0" checked="1" value="Все сервера" >Все альянсы</label>';
+            } else {
+                $disabled_value = 'alliance_disabled';
+                echo "<p style='margin-top: 1.75em'>Выбор альянса для данной игры невозможен.</p>";
+                echo "<input name='alliance' type='hidden' id='alliance_disabled' value='$disabled_value'>";
             }
 
 
@@ -177,8 +180,7 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
         <div class="merchant-toggles">';
 
             $payment_systems = get_post_meta($offer_id, 'payment_systems', true);
-//            $arr_payment_systems = explode(',', $payment_systems);
-            $arr_payment_systems = $payment_systems;
+            $arr_payment_systems = is_array($payment_systems) ?: explode(',', $payment_systems);
             if (!count($arr_payment_systems)) $arr_payment_systems = array($payment_systems);
 
             global $wpdb;
@@ -263,7 +265,6 @@ function edit_offer_validation($server, $currency, $alliance, $price, $payment_s
 {
 
     //echo "<pre>"; echo "</pre>";
-
     global $reg_errors;
     $reg_errors = new WP_Error;
 
@@ -274,7 +275,8 @@ function edit_offer_validation($server, $currency, $alliance, $price, $payment_s
     if (empty($currency)) {
         $reg_errors->add('field', 'Не указана валюта обмена');
     }
-    if (empty($alliance)) {
+
+    if (empty($alliance) && $alliance !== 'alliance_disabled') {
         $reg_errors->add('field', 'Не указан альянс');
     }
 
@@ -335,6 +337,7 @@ function edit_offer_complete()
         $game_title = get_the_title($game_id);
 
         $server_string = is_array($server) ? implode(",", $server) : $server;
+        if ($alliance === 'alliance_disabled') $alliance = '';
         $alliance_string = is_array($alliance) ? implode(",", $alliance) : $alliance;
 
 

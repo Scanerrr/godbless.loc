@@ -158,6 +158,10 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
                     <input name="alliance" type="' . $alliances_type . '" id="alliance_0" checked="1" value="' . $_alliances . '" >' . $_alliances . '</label>';
                 } else echo '<label for="alliance_0" class="selectit">
                     <input name="alliance" type="' . $alliances_type . '" id="alliance_0" checked="1" value="Все сервера" >Все альянсы</label>';
+            } else {
+                $disabled_value = 'alliance_disabled';
+                echo "<p style='margin-top: 1.75em'>Выбор альянса для данной игры невозможен.</p>";
+                echo "<input name='alliance' type='hidden' id='alliance_disabled' value='$disabled_value'>";
             }
 
 
@@ -272,7 +276,7 @@ function add_offer_validation($server, $currency, $alliance, $price, $payment_sy
     if (empty($currency)) {
         $reg_errors->add('field', 'Не указана валюта обмена');
     }
-    if (empty($alliance)) {
+    if (empty($alliance) && $alliance !== 'alliance_disabled') {
         $reg_errors->add('field', 'Не указан альянс');
     }
 
@@ -331,6 +335,7 @@ function add_offer_complete()
         $game_title = get_the_title($_GET['game_id']);
 
         $server_string = is_array($server) ? implode(",", $server) : $server;
+        if ($alliance === 'alliance_disabled') $alliance = '';
         $alliance_string = is_array($alliance) ? implode(",", $alliance) : $alliance;
 
 
