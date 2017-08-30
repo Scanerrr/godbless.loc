@@ -655,7 +655,7 @@ include get_template_directory() . DIRECTORY_SEPARATOR . "extendcomment.php";
 
 
 // * Enqueue Dashicons style for frontend use when enqueuing your theme's style sheet
-add_action('wp_enqueue_scripts', 'unfreeze_dashicons');
+//add_action('wp_enqueue_scripts', 'unfreeze_dashicons');
 function unfreeze_dashicons()
 {
     wp_enqueue_style('unfreeze-dashicons-style', get_stylesheet_uri(), 'dashicons');
@@ -901,6 +901,7 @@ function acf_load_servers_field_choices( $field ) {
     $servers = get_post_meta($game_id, '_servers', true);
     $servers = $servers ? explode(',', $servers) : [];
     $chosed_server = get_post_meta($post->ID, 'server', true);
+    $chosed_server = is_array($chosed_server) ? $chosed_server : explode(',', $chosed_server);
     foreach ( $servers as $key => $server ) {
         $field['choices'][$server] = $server;
         if (empty($chosed_server) || !is_array($chosed_server)) continue;
@@ -1044,3 +1045,17 @@ function my_action_callback() {
 
     wp_die(); // выход нужен для того, чтобы в ответе не было ничего лишнего, только то что возвращает функция
 }
+
+// Convert to string before save to DB
+function my_acf_update_payment_value( $value, $post_id, $field  ) {
+    // override value
+    $value = implode(',', $value);
+    return $value;
+}
+function my_acf_update_servers_value( $value, $post_id, $field  ) {
+    // override value
+    $value = implode(',', $value);
+    return $value;
+}
+add_filter('acf/update_value/name=payment_systems', 'my_acf_update_payment_value', 10, 3);
+add_filter('acf/update_value/name=server', 'my_acf_update_servers_value', 10, 3);
