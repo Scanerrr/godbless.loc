@@ -4831,28 +4831,31 @@ ul#primary-menu li {
     top: 0;
 }
 div#toggle_menu_to_list {
-    width: 91%;    width: 168px;
+    /*width: 91%;    width: 168px;*/
     border-radius: 0;
     background: #f7931d;
     text-align: center;
 }
 div#toggle_menu_to_list button {
-    width: 90%;
+    width: 94%;
     border-radius: 0;
     border: 1px dotted white;
-    margin: 10px;
+	padding: 15px;
+	margin: 5px;
+	text-align: left;
 }
 div#toggle_menu_to_alphabet {
-    width: 140px;
+    /*width: 140px;*/
     border-radius: 0;
     background: #f7931d;
     text-align: center;
 }
 div#toggle_menu_to_alphabet button {
-    width: 86%;
+    width: 83%;
     border-radius: 0;
     border: 1px dotted white;
-    margin: 10px;
+	padding: 15px;
+	margin: 5px;
 }
 .wr-mega-menu > li > a {
     border-bottom: 1px solid;
@@ -5118,7 +5121,7 @@ nav#footer-navigation {
     text-align: center;
 }
 div#toggle_menu_to_list {
-    width: 89%;width: 167px;
+    /*width: 89%;width: 167px;*/
     border-radius: 0;
     background: #f7931d;
     text-align: center;
@@ -5194,7 +5197,7 @@ nav#footer-navigation {
     text-align: center;
 }
 div#toggle_menu_to_list {
-    width: 95%;    width: 167.5px;
+    /*width: 95%;    width: 167.5px;*/
     border-radius: 0;
     background: #f7931d;
     text-align: center;
@@ -5916,4 +5919,25 @@ section.error-404.not-found {
     width: 97%;
     min-width: 90%;
 }
+}
+
+
+.wr-megamenu-container ul.wr-mega-menu li.wr-megamenu-item:hover > a.menu-item-link {
+	background-color: #f7931d !important;
+}
+
+.games-navigation-list {
+	width: 85%;
+}
+.games-navigation {
+	width: 30%;
+}
+
+.vertical ul.wr-mega-menu {
+	width: 100% !important;
+}
+.games-navigation .wr-mega-menu > li > a {
+	padding-left: 0;
+	padding-right: 0;
+	text-align: center;
 }

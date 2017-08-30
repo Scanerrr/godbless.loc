@@ -154,7 +154,7 @@
                         <nav id="site-games-navigation-list" class="games-navigation-list" role="navigation"
                              aria-label="Главное меню игр (список)">
                             <div id="toggle_menu_to_list" class=" " >
-                                <button>По алфавиту</button>
+                                <button><i class="fa fa-sort-alpha-asc" aria-hidden="true"></i></button>
                             </div>
                             <?php
                             wp_nav_menu(array(
@@ -177,7 +177,7 @@
                         <nav id="site-games-navigation" class="games-navigation" role="navigation"
                              aria-label="Главное меню игр (алфавит)">
                             <div id="toggle_menu_to_alphabet" class=" " >
-                                <button>По списку</button>
+                                <button><i class="fa fa-list-ul" aria-hidden="true"></i></button>
                             </div>
                             <?php
                             wp_nav_menu(array(
