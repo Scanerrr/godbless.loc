@@ -74,6 +74,12 @@ function add_review_function()
         </div>
         <div style="clear: both"></div>
         <?php
+        $logedin_user_id = get_current_user_id();
+        // forbid to review user by the same user
+        if ($logedin_user_id === $user->ID) {
+            echo "<h3>Пользователь не может оставить отзыв о себе.</h3>";
+            return;
+        }
 
         if ( $last_offer_id  ) {
             // Выводим формуц комента по данному оферу
