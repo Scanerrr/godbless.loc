@@ -56,7 +56,7 @@ function unfreeze_registration_form($username, $password, $email, $website, $fir
     <input id="keystring" type="text" name="keystring"></p>
     </div>
 
-    <button type="submit" name="submit" value="Register">Регистрация</button>
+    <button type="submit" name="submit" value="Register">Sign Up</button>
     </form>
     </div>
     ';

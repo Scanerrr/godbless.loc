@@ -79,8 +79,8 @@ $attributes['password_updated'] = isset( $_REQUEST['password'] ) && $_REQUEST['p
                 <input type="password" name="pwd" id="user_pass">
             </p>
             <p class="login-submit">
-                <input type="submit" value="Войти<?php //_e( 'Sign In', 'personalize-login' ); ?>">&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="/registration"><button type="button">Регистрация</button></a>
+                <input type="submit" value="Sign In<?php //_e( 'Sign In', 'personalize-login' ); ?>">&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="/registration"><button type="button">Sign Up</button></a>
             </p>
         </form>
     </div>

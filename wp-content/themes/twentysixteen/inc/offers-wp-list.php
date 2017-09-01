@@ -31,12 +31,12 @@ function render_offers_shortcode()
             'label_username' => __('Username'),
             'label_password' => __('Password'),
             'label_remember' => __('Remember Me'),
-            'label_log_in' => __('Log In'),
+            'label_log_in' => __('Sign In'),
             'value_username' => '',
             'value_remember' => false
         );
         wp_login_form($args);
-        echo '<a href="/registration/"><button tybe="button">Регистрация</button></a>';
+        echo '<a href="/registration/"><button tybe="button">Sign Up</button></a>';
         echo '</div>';
         return;
     }
@@ -193,7 +193,7 @@ function render_offers_shortcode()
 
                 <dt>Изменить данные профиля</dt>
                 <dd><a href="<?php echo admin_url('profile.php'); ?>">
-                        <button type="button">Изменить</button>
+                        <button type="button">Edit</button>
                     </a>&nbsp;&nbsp;&nbsp;
                     <!-- <a href='http://godblessgamers.com/payments/'><button >К оплате</button></a> -->
                 </dd>
@@ -210,17 +210,17 @@ function render_offers_shortcode()
         <div class="exchange-buttons">
 
                 <a href="/add_offer">
-                    <button type="button">Создать новое</button>
+                    <button type="button">Create new</button>
                 </a>
 
-                <button name="action" value="hide_all" type="submit">Скрыть все</button>
+                <button name="action" value="hide_all" type="submit">Hide all</button>
 
 
-                <button name="action" value="hide_selected">Скрыть выбранные</button>
+                <button name="action" value="hide_selected">Hide chosen</button>
 
-                <button name="action" value="restore_all" type="submit">Восстановить все</button>
+                <button name="action" value="restore_all" type="submit">Up all hidden</button>
                 <a href="/restore_selected">
-                    <button name="action" value="restore_selected" type="button">Восстановить избранные</button>
+                    <button name="action" value="restore_selected" type="button">Show hidden</button>
                 </a>
         </div>
 

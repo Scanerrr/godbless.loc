@@ -42,7 +42,7 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
             'label_username' => __('Username'),
             'label_password' => __('Password'),
             'label_remember' => __('Remember Me'),
-            'label_log_in' => __('Log In'),
+            'label_log_in' => __('Sign In'),
             'value_username' => '',
             'value_remember' => false
         );
@@ -216,7 +216,7 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
         </div>
 
 
-        <button type="submit" name="submit" value="Register">Регистрация</button>
+        <button type="submit" name="submit" value="Register">Create</button>
         </form>
         </div>
         ';
@@ -248,7 +248,7 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
                     ?>
                 </select>
                 <br><br>
-                <button type="submit" name="submit">Продолжить</button>
+                <button type="submit" name="submit">Next</button>
             </form>
             <?php
         } else {

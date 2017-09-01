@@ -42,7 +42,7 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
             'label_username' => __('Username'),
             'label_password' => __('Password'),
             'label_remember' => __('Remember Me'),
-            'label_log_in' => __('Log In'),
+            'label_log_in' => __('Sign In'),
             'value_username' => '',
             'value_remember' => false
         );
@@ -220,8 +220,8 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
 
 
 
-        <button type="submit" name="submit" value="Register">Обновить</button>
-        <button type="reset" name="reset" value="reset">Сброить</button>
+        <button type="submit" name="submit" value="Register">Update</button>
+        <button type="reset" name="reset" value="reset">Reset</button>
         </form>
         </div>
         ';
@@ -248,7 +248,7 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
                     ?>
                 </select>
                 <br><br>
-                <button type="submit" name="submit">Продолжить</button>
+                <button type="submit" name="submit">Next</button>
             </form>
             <?php
         } else {

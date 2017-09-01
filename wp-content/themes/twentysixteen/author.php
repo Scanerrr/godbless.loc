@@ -76,7 +76,7 @@ get_header();
 
                 </div>
                 <div s  tyle="clear: both"></div>
-                <a href="/add_review?user_id=<?=$cur_author->ID?>"> <button >Оставить отзыв</button></a>
+                <a href="/add_review?user_id=<?=$cur_author->ID?>"> <button >Feedback</button></a>
 
 
 

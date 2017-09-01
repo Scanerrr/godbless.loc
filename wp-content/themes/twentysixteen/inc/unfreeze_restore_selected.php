@@ -30,7 +30,7 @@ function unfreeze_restore_selected()
             'label_username' => __('Username'),
             'label_password' => __('Password'),
             'label_remember' => __('Remember Me'),
-            'label_log_in' => __('Log In'),
+            'label_log_in' => __('Sign In'),
             'value_username' => '',
             'value_remember' => false
         );
@@ -137,12 +137,12 @@ function unfreeze_restore_selected()
 
 
         <a href="/exchange">
-            <button name="action" value="restore_selected" type="button">Вернуться в обмен</button>
+            <button name="action" value="restore_selected" type="button">Show active</button>
         </a>
 
-        <button name="action" value="restore_selected" type="submit"">Восстановить выбранные</button>
+        <button name="action" value="restore_selected" type="submit"">Up chosen</button>
 
-        <button name="action" value="restore_all" type="submit">Восстановить все</button>
+        <button name="action" value="restore_all" type="submit">Up all</button>
 
     </div>
 

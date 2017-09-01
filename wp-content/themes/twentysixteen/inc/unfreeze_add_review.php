@@ -88,7 +88,7 @@ function add_review_function()
                 'title_reply_after'  => '',
                 'logged_in_as'         =>  '',
                 'title_reply'          => 'Оставить отзыв',
-                'label_submit'         => 'Отправить отзыв',
+                'label_submit'         => 'Send',
                 'must_log_in'          => '<p class="must-log-in">' . sprintf( __( 'Вы должны войти <a href="%s">войти</a> чтобы оставить отзыв.' ), wp_login_url( $_SERVER['REQUEST_URI'] ) ) . '</p>',
                 // '<p class="logged-in-as">' . sprintf( __( '<a href="%1$s" aria-label="Logged in as %2$s. Edit your profile.">Logged in as %2$s</a>. <a href="%3$s">Log out?</a>' ), get_edit_user_link(), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
               /*

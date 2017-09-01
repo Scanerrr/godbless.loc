@@ -48,7 +48,7 @@
 
     <p class="lostpassword-submit">
         <input type="submit" name="submit" class="lostpassword-button"
-               value="Сбросить пароль<?php //_e( 'Reset Password', 'personalize-login' ); ?>"/>
+               value="Reset Password<?php //_e( 'Reset Password', 'personalize-login' ); ?>"/>
     </p>
 
 

@@ -25,7 +25,7 @@ function show_payments_page()
             'label_username' => __('Username'),
             'label_password' => __('Password'),
             'label_remember' => __('Remember Me'),
-            'label_log_in' => __('Log In'),
+            'label_log_in' => __('Sign In'),
             'value_username' => '',
             'value_remember' => false
         );

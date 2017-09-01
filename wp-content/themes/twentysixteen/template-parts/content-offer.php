@@ -28,7 +28,7 @@
 		?>
 		<a href="<?php echo get_comments_link( $post->ID ); ?>">
 		<button>
-			Оставить отзыв
+			Feedback
 		</button>
 		</a>
 		<?php

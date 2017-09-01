@@ -819,7 +819,7 @@ function unfreeze_option_page() {
 add_filter( 'wp_nav_menu_items', 'add_loginout_link', 10, 2 );
 function add_loginout_link( $items, $args ) {
     if (is_user_logged_in() && $args->theme_location == 'primary') {
-        $items .= '<li><a href="'. wp_logout_url( home_url() ) .'">Выйти</a></li>';
+        $items .= '<li><a href="'. wp_logout_url( home_url() ) .'">' . __('Sign Out') . '</a></li>';
     }
     return $items;
 }
