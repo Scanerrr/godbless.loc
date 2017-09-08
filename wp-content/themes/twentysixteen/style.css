@@ -4985,6 +4985,7 @@ div#toggle_menu_to_alphabet button:hover{
     font-family: "Open-Sans", sans-serif;
     font-size: 14px;
     line-height: 17px;
+	position: relative;
 }
 .games-top-header {
     width: 87%;
@@ -5940,4 +5941,132 @@ section.error-404.not-found {
 	padding-left: 0;
 	padding-right: 0;
 	text-align: center;
+}
+
+.wpDataTable tbody .table-action > a {
+	text-transform: uppercase;
+}
+
+.entry-content .forgot-password {
+	box-shadow: none;
+	text-transform: uppercase;
+}
+
+.validation-error {
+	color: red;
+}
+.validation-error a {
+	box-shadow: none;
+}
+
+.unfreeze-registration label {
+	text-transform: uppercase;
+}
+
+.entry-content .entry-title {
+	font-size: 20px;
+}
+
+.dropdown ul {
+	margin: -1px 0 0 0;
+}
+
+.dropdown dd {
+	position: relative;
+}
+
+.dropdown a,
+.dropdown a:visited {
+	color: #fff;
+}
+
+.dropdown dt a {
+	position: relative;
+	background-color: #fff;
+	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+	display: block;
+	overflow: hidden;
+	border: 1px solid #d1d1d1;
+	border-radius: 5px;
+	padding: 0.625em 0.4375em;
+	min-height: 40px;
+}
+
+.dropdown dt a span,
+.multiSel span {
+	cursor: pointer;
+	display: inline-block;
+	padding: 0 7px 0px 0;
+	color: #1a1a1a;
+}
+
+.dropdown dd ul {
+	background-color: #fff;
+	display: none;
+	padding: 2px 15px 2px 20px;
+	position: absolute;
+	width: 80%;
+	list-style: none;
+	border: 1px solid #d1d1d1;
+	max-height: 100px;
+	overflow: auto;
+	z-index: 1;
+}
+
+.dropdown span.value {
+	display: none;
+}
+
+.dropdown dd ul li a {
+	padding: 5px;
+	display: block;
+}
+
+.dropdown dd ul li a:hover {
+	background-color: #fff;
+}
+.dropdown dt a:hover {
+	text-decoration: none;
+}
+
+.dropdown dt .is-active{
+	border-color: #007acc;
+}
+
+.dropdown .multiSel {
+	margin: 0;
+}
+
+.dropdown dt a > span {
+	padding: 0;
+}
+
+.dropdown dt a:after {
+	content: "\f0dd";
+	font-family: FontAwesome;
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: 7px;
+	color: black;
+}
+
+.dataTables_info {
+	display: none;
+}
+
+.dataTables_empty {
+	/*text-indent: -9999px;                 !* sends the text off-screen *!*/
+	white-space: nowrap;            /* because only the first line is indented */
+	color: transparent;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.dataTables_empty:after {
+	content: 'nothing';
+	color: black;
+	position: absolute;
+	right: 50%;
 }

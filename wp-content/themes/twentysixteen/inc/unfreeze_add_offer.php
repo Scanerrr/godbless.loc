@@ -29,8 +29,9 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
     if (!is_user_logged_in()) {
 
         echo "<h3>Добавление предложений доступно только для зарегистрированных пользователей</h3>";
-
-        $args = array(
+        $redirect_url = (is_ssl()? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        echo do_shortcode("[custom-login-form redirect=" . $redirect_url . "]");
+        /*$args = array(
             'echo' => true,
             'remember' => true,
             'redirect' => (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
@@ -46,10 +47,12 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
             'value_username' => '',
             'value_remember' => false
         );
-        wp_login_form($args);
+        wp_login_form($args);*/
         return;
     }
-
+    echo '<header class="entry-header">
+        <h1 class="entry-title">ADD OFFER</h1>
+    </header>';
 
     $current_user = wp_get_current_user();
     $cur_user_id = $current_user->ID;
@@ -75,12 +78,12 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
         if ($post instanceof WP_Post) {
 
             $post_title = $post->post_title;
-            echo "<h3>Игра: $post_title </h3>";
+            echo "<h3 style='margin-top: 0'>GAME: $post_title </h3>";
             echo '
             <div class="unfreeze-registration">
             <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">';
             /***************** ВЫБОР СЕРВЕРА ****************/
-            echo "<strong>Сервер: </strong>";
+            echo "<strong>SERVER: </strong>";
             $_servers = get_post_meta($game_id, '_servers', true);
             $_servers_unique = get_post_meta($game_id, '_servers_unique', true);
 
@@ -89,6 +92,28 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
 
             $servers_list = explode(',', $_servers);
             if (is_array($servers_list) && count($servers_list) > 1) {
+
+                ?>
+                <dl class="dropdown" id="dropdown_server">
+                    <dt>
+                        <a href="#" onclick="return false;">
+                            <?php if (!empty($server_)): ?>
+                              <p class="multiSel">
+                                  <?php foreach ($server_ as $item): ?>
+                                      <span title="<?php echo $item ?>"><?php echo $item ?>,</span>
+                                  <?php endforeach; ?>
+                              </p>
+                            <?php else: ?>
+                                <span class="hida">Select server</span>
+                                <p class="multiSel"></p>
+                            <?php endif; ?>
+                        </a>
+                    </dt>
+
+                    <dd>
+                        <div class="mutliSelect">
+                            <ul>
+                <?php
                 foreach ($servers_list as $s_key => $server) {
 
                     $checked = "";
@@ -97,9 +122,18 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
                     if ($_servers_unique == 1) $server_input_name = 'server';
                     else $server_input_name = 'server[' . ($s_key + 1) . ']';
 
+                    echo  '<li>';
                     echo ' <label for="server_' . ($s_key + 1) . '" class="selectit">
                     <input name="' . $server_input_name . '" type="' . $servers_type . '" id="server_' . ($s_key + 1) . '" value="' . $server . '" ' . $checked . ' >' . $server . ' </label>&nbsp;&nbsp;&nbsp;';
+                    echo  '</li>';
+
                 }
+                ?>
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+                <?php
             } elseif ($_servers) {
 
                 echo '<label for="server_0" class="selectit">
@@ -109,19 +143,48 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
 
             /***************** ВЫБОР ВАЛЮТЫ ****************/
 
-            echo "<br><strong>Валюта: </strong>";
+            echo "<br><strong>CURRENCY: </strong>";
             $_currencies = get_post_meta($game_id, '_currencies', true);
 
 
             $currencies_list = explode(',', $_currencies);
             if (is_array($currencies_list) && count($currencies_list) > 1) {
-                foreach ($currencies_list as $c_key => $currency) {
-                    if ($currency == $currency_) $checked = 'checked="1"';
-                    else $checked = "";
+                ?>
+                <dl class="dropdown" id="dropdown_currency">
+                    <dt>
+                        <a href="#" onclick="return false;">
+                            <?php if (!empty($currency_)):
+                                $currency_ = [$currency_] ?>
+                              <p class="multiSel">
+                                  <?php foreach ($currency_ as $item): ?>
+                                      <span title="<?php echo $item ?>"><?php echo $item ?></span>
+                                  <?php endforeach; ?>
+                              </p>
+                            <?php else: ?>
+                                <span class="hida">Select currency</span>
+                                <p class="multiSel"></p>
+                            <?php endif; ?>
+                        </a>
+                    </dt>
 
-                    echo '<label for="currency_' . ($c_key + 1) . '" class="selectit">
-                    <input name="currency" type="radio" id="currency_' . ($c_key + 1) . '" value="' . $currency . '" ' . $checked . ' >' . $currency . ' </label>&nbsp;&nbsp;&nbsp; ';
+                    <dd>
+                        <div class="mutliSelect">
+                            <ul>
+                <?php
+                foreach ($currencies_list as $c_key => $currency) {
+                    if ($currency == $currency_[0]) $checked = 'checked="1"';
+                    else $checked = "";
+                    echo  '<li>';
+                    echo "<label for='currency_" . ($c_key + 1) . "' class='selectit'>
+                    <input name='currency' type='radio' id='currency_" . ($c_key + 1) . "' value='$currency' $checked>$currency</label>";
+                    echo  '</li>';
                 }
+                ?>
+                            </ul>
+                        </div>
+                    </dd>
+                </dl>
+                <?php
             } elseif ($_currencies) {
                 echo '<label for="currency_0" class="selectit">
                     <input name="currency" type="radio" id="currency_0" checked="1" value="' . $_currencies . '" >' . $_currencies . '</label>';
@@ -132,7 +195,7 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
             /***************** ВЫБОР АЛЬЯНСА ****************/
             $_alliances_enable = get_post_meta($game_id, '_alliances_enable', true);
             if ($_alliances_enable) {
-                echo "<br><strong>Альянс: </strong>";
+                echo "<br><strong>FRACTION: </strong>";
                 $_alliances = get_post_meta($game_id, '_alliances', true);
 
                 $_alliances_unique = get_post_meta($game_id, '_alliances_unique', true);
@@ -142,6 +205,28 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
 
                 $alliances_list = explode(',', $_alliances);
                 if (is_array($alliances_list) && count($alliances_list) > 1) {
+                    ?>
+                    <dl class="dropdown" id="dropdown_alliance">
+                        <dt>
+                            <a href="#" onclick="return false;">
+                                <?php if (!empty($alliance_)):
+                                    $alliance_ = [$alliance_]; ?>
+                                  <p class="multiSel">
+                                      <?php foreach ($alliance_ as $item): ?>
+                                          <span title="<?php echo $item ?>"><?php echo $item ?></span>
+                                      <?php endforeach; ?>
+                                  </p>
+                                <?php else: ?>
+                                    <span class="hida">Select fraction</span>
+                                    <p class="multiSel"></p>
+                                <?php endif; ?>
+                            </a>
+                        </dt>
+
+                        <dd>
+                            <div class="mutliSelect">
+                                <ul>
+                    <?php
                     foreach ($alliances_list as $a_key => $alliance) {
 
                         $checked = "";
@@ -149,10 +234,17 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
                         elseif ($_alliances_unique == 1 && $alliance == $alliance_) $checked = 'checked="1"';
                         if ($_alliances_unique == 1) $alliance_input_name = 'alliance';
                         else $alliance_input_name = 'alliance[' . ($a_key + 1) . ']';
-
+                        echo  '<li>';
                         echo '<label for="alliance_' . ($a_key + 1) . '" class="selectit">
-                    <input name=' . $alliance_input_name . '  type="' . $alliances_type . '" id="alliance_' . ($a_key + 1) . '" value="' . $alliance . '" ' . $checked . ' >' . $alliance . ' </label>&nbsp;&nbsp;&nbsp; ';
+                            <input name=' . $alliance_input_name . '  type="' . $alliances_type . '" id="alliance_' . ($a_key + 1) . '" value="' . $alliance . '" ' . $checked . ' >' . $alliance . ' </label>';
+                        echo  '</li>';
                     }
+                    ?>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                    <?php
                 } elseif ($_alliances) {
                     echo '<label for="alliance_0" class="selectit">
                     <input name="alliance" type="' . $alliances_type . '" id="alliance_0" checked="1" value="' . $_alliances . '" >' . $_alliances . '</label>';
@@ -160,49 +252,72 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
                     <input name="alliance" type="' . $alliances_type . '" id="alliance_0" checked="1" value="Все сервера" >Все альянсы</label>';
             } else {
                 $disabled_value = 'alliance_disabled';
-                echo "<p style='margin-top: 1.75em'>Выбор альянса для данной игры невозможен.</p>";
                 echo "<input name='alliance' type='hidden' id='alliance_disabled' value='$disabled_value'>";
             }
 
 
             echo '<div>
-        <label for="price">Цена за 1 $</label>
+        <label for="price">AMOUNT FOR 1 $</label>
         <input type="text" name="price" value="' . (isset($_POST['price']) ? $price : null) . '">
         </div>
 
     <div>
-        <label for="payment_systems">Системы оплаты </label>
-
-    <div class="merchant-toggle-wrap">
-        <div class="merchant-toggles">';
-
+        <label for="payment_systems">PAYMENT METHOD </label>';
 
             global $wpdb;
             $table_name = $wpdb->prefix . "unfreeze_merchants";
             $merchants = $wpdb->get_results("SELECT * FROM $table_name");
+            ?>
+            <dl class="dropdown" id="dropdown_payment">
+                <dt>
+                    <a href="#" onclick="return false;">
+                        <?php if (!empty($payment_systems)):
+                            $payment_systems = explode(',', $payment_systems);
+                            ?>
+                          <p class="multiSel">
+                              <?php foreach ($payment_systems as $item): ?>
+                                  <span title="<?php echo $item ?>"><?php echo $item ?>,</span>
+                              <?php endforeach; ?>
+                          </p>
+                        <?php else: ?>
+                            <span class="hida">Select payment method</span>
+                            <p class="multiSel"></p>
+                        <?php endif; ?>
+                    </a>
+                </dt>
 
+                <dd>
+                    <div class="mutliSelect">
+                        <ul>
+            <?php
             foreach ($merchants as $m_key => $merchant) {
                 $merchant_id = $merchant->id;
                 $merchant_name = $merchant->name;
                 $checked = isset($_POST['merchant-toggle']) && in_array($merchant_name, $_POST['merchant-toggle']) ? " checked=1" : "";
-                echo "<label for=\"merchant-toggle-$merchant_id\">$merchant_name </label>
-            <input class=\"merchant-toggle\" type=\"checkbox\" name=\"merchant-toggle[$merchant_id]\" $checked id=\"merchant-toggle-$merchant_id\" value=\"$merchant_name\">";
-
+                echo  '<li>';
+                echo "<label for='merchant-toggle-$merchant_id' class='selectit'>
+                            <input name='merchant-toggle[$merchant_id]'  type='checkbox' id='merchant-toggle-$merchant_id' value='$merchant_name' $checked >$merchant_name</label>";
+                 echo  '</li>';
             }
+            ?>
+                        </ul>
+                    </div>
+                </dd>
+            </dl>
+            <?php
 
             echo '
-        </div>
-        </div>
+
     </div>
 
 
  <div>
-         <label for="website">Вебсайт</label>
+         <label for="website">LINK</label>
         <input type="text" name="website" value="' . (isset($_POST['website']) ? $website : null) . '">
         </div>
 
         <div>
-        <label for="dopinfo">Дополнительная инфомрация</label>
+        <label for="dopinfo">OTHER INFORMATION</label>
         <textarea name="dopinfo">' . (isset($_POST['dopinfo']) ? $dopinfo : null) . '</textarea>
         </div>
 
@@ -210,8 +325,8 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
         <p><br>
         <img id=_captcha src="/captcha/?' . session_name() . '=' . session_id() . '"><br>
         <a href="./" onclick="document.getElementById(\'_captcha\').src = \'/captcha/?<?=session_name()?>=<?=session_id()?>&\'+Math.random(99999999999999999); return false;">
-Обновить код</a><br>
-        <label for="bio">Проверочный код (captcha) *</label>
+REFRESH</a><br>
+        <label for="bio">CAPTCHA *</label>
         <input id="keystring" type="text" name="keystring"></p>
         </div>
 
@@ -228,13 +343,15 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
         }
     } else {
         // игра не выбрана
-        echo "<h3>Игра не выбрана.</h3>";
+        if (!isset($_GET)) {
+            echo "<h3>Игра не выбрана.</h3>";
+        }
         $games_query = new WP_Query(array('post_type' => 'game', 'post_status' => 'publish', 'nopaging' => true));
 
         if ($games_query->have_posts()) {
             ?>
             <form name="select_games" method="get">
-                <label for="game_id">Выберие игру из списка</label>
+                <label for="game_id">SELECT GAME</label>
                 <select id="game_id" name="game_id">
 
 
@@ -271,26 +388,26 @@ function add_offer_validation($server, $currency, $alliance, $price, $payment_sy
 
     // Проверяем что был выбран хотя бы 1 сервер, затем валюта и альянс
     if (empty($server)) {
-        $reg_errors->add('field', 'Не указан сервер для обмена');
+        $reg_errors->add('field', 'PLEASE ADD SERVER');
     }
     if (empty($currency)) {
-        $reg_errors->add('field', 'Не указана валюта обмена');
+        $reg_errors->add('field', 'PLEASE SELECT CURRENCY');
     }
     if (empty($alliance) && $alliance !== 'alliance_disabled') {
-        $reg_errors->add('field', 'Не указан альянс');
+        $reg_errors->add('field', 'PLEASE ADD FRACTION');
     }
 
     if (empty($price)) {
-        $reg_errors->add('field', 'Не указан курс обмена!');
+        $reg_errors->add('field', 'PLEASE ADD CURRENCY');
     }
 
 
     if (empty($payment_systems)) {
-        $reg_errors->add('field', 'Не указаны платежные системы');
+        $reg_errors->add('field', 'PLEASE ADD PAYMENT SYSTEM');
     }
 
     if (empty($website)) {
-        $reg_errors->add('field', 'Не указан адрес сайта');
+        $reg_errors->add('field', 'PLEASE ADD WEBSITE');
     }
 
 
@@ -304,7 +421,7 @@ function add_offer_validation($server, $currency, $alliance, $price, $payment_sy
     if (isset($_SESSION['captcha_keystring']) && $_SESSION['captcha_keystring'] === $_POST['keystring']) {
         //echo "Капача правильная";
     } else {
-        $reg_errors->add('captcha', 'Неверно введен проверочный код (captcha)');
+        $reg_errors->add('captcha', 'WRONG CAPTCHA');
     }
     unset($_SESSION['captcha_keystring']);
 
@@ -316,8 +433,7 @@ function add_offer_validation($server, $currency, $alliance, $price, $payment_sy
         foreach ($reg_errors->get_error_messages() as $error) {
 
             echo '<div>';
-            echo '<span class="dashicons dashicons-warning"></span>';
-            echo $error . '<br/>';
+            echo '<span class="validation-error">' . $error . '</span>';
             echo '</div>';
 
         }

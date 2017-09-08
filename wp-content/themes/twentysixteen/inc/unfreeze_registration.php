@@ -13,12 +13,12 @@ function unfreeze_registration_form($username, $password, $email, $website, $fir
     <div class="unfreeze-registration">
     <form action="' . $_SERVER['REQUEST_URI'] . '" method="post">
     <div>
-    <label for="username">Имя пользователя <strong>*</strong></label>
+    <label for="username">LOGIN <strong>*</strong></label>
     <input type="text" name="username" value="' . (isset($_POST['username']) ? $username : null) . '">
     </div>
 
     <div>
-    <label for="password">Пароль <strong>*</strong></label>
+    <label for="password">PASSWORD <strong>*</strong></label>
     <input type="password" name="password" value="' . (isset($_POST['password']) ? $password : null) . '">
     </div>
 
@@ -33,17 +33,17 @@ function unfreeze_registration_form($username, $password, $email, $website, $fir
     </div>
 
     <div>
-    <label for="firstname">Имя</label>
+    <label for="firstname">NAME</label>
     <input type="text" name="fname" value="' . (isset($_POST['fname']) ? $first_name : null) . '">
     </div>
 
-    <div>
+    <!--<div>
     <label for="website">Фамилия</label>
     <input type="text" name="lname" value="' . (isset($_POST['lname']) ? $last_name : null) . '">
-    </div>
+    </div> -->
 
     <div>
-    <label for="bio">Дополнительная инфомрация</label>
+    <label for="bio">OTHER INFORMATION</label>
     <textarea name="bio">' . (isset($_POST['bio']) ? $bio : null) . '</textarea>
     </div>
 
@@ -51,8 +51,8 @@ function unfreeze_registration_form($username, $password, $email, $website, $fir
     <p><br>
       <img id=_captcha src="/captcha/?' . session_name() . '=' . session_id() . '"><br>
         <a href="./" onclick="document.getElementById(\'_captcha\').src = \'/captcha/?<?=session_name()?>=<?=session_id()?>&\'+Math.random(99999999999999999); return false;">
-Обновить код</a><br>
-    <label for="bio">Проверочный код (captcha) *</label>
+REFRESH</a><br>
+    <label for="bio">CAPTCHA <strong>*</strong></label>
     <input id="keystring" type="text" name="keystring"></p>
     </div>
 
@@ -71,7 +71,7 @@ function registration_validation($username, $password, $email, $website, $first_
     $reg_errors = new WP_Error;
 
     if (empty($username) || empty($password) || empty($email)) {
-        $reg_errors->add('field', 'Не заполнены не все обязательные поля, отмеченные звездочкой *');
+        $reg_errors->add('field', 'FILL IN ALL FIELDS WITH *');
     }
 
     if (4 > strlen($username)) {
@@ -79,7 +79,7 @@ function registration_validation($username, $password, $email, $website, $first_
     }
 
     if (username_exists($username))
-        $reg_errors->add('user_name', 'Извините, но имя '.$username.' уже занято!');
+        $reg_errors->add('user_name', 'SORRY THIS NAME '.$username.' ALREADY TAKEN');
 
     if (!validate_username($username)) {
         $reg_errors->add('username_invalid', 'Неверный формат имени пользователя');
@@ -89,7 +89,7 @@ function registration_validation($username, $password, $email, $website, $first_
     }
 
     if (!is_email($email)) {
-        $reg_errors->add('email_invalid', 'Неправльный формат Email');
+        $reg_errors->add('email_invalid', 'WRONG FORMAT OF EMAIL');
     }
 
     if (email_exists($email)) {
@@ -105,7 +105,7 @@ function registration_validation($username, $password, $email, $website, $first_
     if(isset($_SESSION['captcha_keystring']) && $_SESSION['captcha_keystring'] === $_POST['keystring']){
         //echo "Капача правильная";
     }else{
-        $reg_errors->add('captcha', 'Неверно введен проверочный код (captcha)');
+        $reg_errors->add('captcha', 'WRONG CAPTCHA');
     }
     unset($_SESSION['captcha_keystring']);
 
@@ -117,8 +117,7 @@ function registration_validation($username, $password, $email, $website, $first_
         foreach ($reg_errors->get_error_messages() as $error) {
 
             echo '<div>';
-            echo '<span class="dashicons dashicons-warning"></span>';
-            echo $error . '<br/>';
+            echo '<span class="validation-error">' . $error . '</span>';
             echo '</div>';
 
         }

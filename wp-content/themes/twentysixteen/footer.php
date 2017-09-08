@@ -22,7 +22,7 @@
                                             rel="home">UNFREEZE</a>
 
                     </span>
-                    Unfreeze your power
+                    BLESS URSELF
 
                 <!-- Всего курсов: <span>114479</span> Обменников: <span>264/284</span> <span>Обновление: 09:31:27</span>
                     <span>+1 059 868 895 89</span> -->

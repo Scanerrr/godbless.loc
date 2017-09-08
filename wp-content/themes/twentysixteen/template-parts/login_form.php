@@ -25,7 +25,7 @@ $attributes['logged_out'] = isset( $_REQUEST['logged_out'] ) && $_REQUEST['logge
 // Check if user just updated password
 $attributes['password_updated'] = isset( $_REQUEST['password'] ) && $_REQUEST['password'] == 'changed';
 
-
+$current_url = rtrim($_SERVER["REQUEST_URI"], '/');
 ?>
 
 
@@ -41,7 +41,7 @@ $attributes['password_updated'] = isset( $_REQUEST['password'] ) && $_REQUEST['p
         <p class="login-error">
         <?php foreach ( $attributes['errors'] as $error ) : ?>
 
-                <br><span class="dashicons dashicons-warning"></span><?php echo $error; ?>
+                <br><span class="validation-error"><?php echo $error; ?></span>
 
         <?php endforeach; ?>
         </p>
@@ -57,13 +57,13 @@ $attributes['password_updated'] = isset( $_REQUEST['password'] ) && $_REQUEST['p
 
     <?php if ( $attributes['lost_password_sent'] ) : ?>
         <p class="login-info">
-            <span class="dashicons dashicons-warning"></span> На вашу почту отправлена ссылка для сброса пароля. Проверьте Email
+            <span class="validation-error">На вашу почту отправлена ссылка для сброса пароля. Проверьте Email</span>
         </p>
     <?php endif; ?>
 
     <?php if ( $attributes['password_updated'] ) : ?>
         <p class="login-info">
-            <span class="dashicons dashicons-warning"></span> Ваш пароль изменён. Вы можете войти.
+            <span class="validation-error">Ваш пароль изменён. Вы можете войти.</span>
         </p>
     <?php endif; ?>
 
@@ -71,16 +71,21 @@ $attributes['password_updated'] = isset( $_REQUEST['password'] ) && $_REQUEST['p
     <div class="login-form-container">
         <form method="post" action="<?php echo wp_login_url(); ?>">
             <p class="login-username">
-                <label for="user_login"><?php _e( 'Email', 'personalize-login' ); ?></label>
+                <label for="user_login"><?php _e( 'EMAIL OR LOGIN', 'personalize-login' ); ?></label>
                 <input type="text" name="log" id="user_login">
             </p>
             <p class="login-password">
-                <label for="user_pass">Пароль<?php // _e( 'Password', 'personalize-login' ); ?></label>
+                <label for="user_pass">PASSWORD<?php // _e( 'Password', 'personalize-login' ); ?></label>
                 <input type="password" name="pwd" id="user_pass">
             </p>
             <p class="login-submit">
                 <input type="submit" value="Sign In<?php //_e( 'Sign In', 'personalize-login' ); ?>">&nbsp;&nbsp;&nbsp;&nbsp;
                 <a href="/registration"><button type="button">Sign Up</button></a>
+                <?php
+                /* ADD REDIRECT FIELD IF NOT DEFAULT LOGIN PAGE */
+                if (get_page_uri() != 'member-login'): ?>
+                    <input type="hidden" name="redirect_to" value="<?php echo home_url() . $current_url ?>">
+                <?php endif; ?>
             </p>
         </form>
     </div>
@@ -101,7 +106,7 @@ wp_login_form(
 ?>
 
 <a class="forgot-password" href="<?php echo wp_lostpassword_url(); ?>">
-    Забыли пароль?<?php // _e( 'Forgot your password?', 'personalize-login' ); ?>
+    Forgot your password?<?php // _e( 'Forgot your password?', 'personalize-login' ); ?>
 </a>
 
 </div>

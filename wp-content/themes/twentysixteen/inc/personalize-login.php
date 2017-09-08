@@ -154,7 +154,7 @@ class Personalize_Login_Plugin {
                 wp_redirect( admin_url() );
             }
         } else {
-            wp_redirect( home_url( 'exchange' ) );
+            wp_redirect( home_url( 'myoffers' ) );
         }
     }
 
@@ -195,27 +195,27 @@ class Personalize_Login_Plugin {
     private function get_error_message( $error_code ) {
         switch ( $error_code ) {
             case 'empty_username':
-                return __( 'Вы ввели пустое имя пользователя!', 'personalize-login' );
+                return __( 'INVALID EMAIL', 'personalize-login' );
 
             case 'empty_password':
-                return __( 'Вы ввели пустой пароль!', 'personalize-login' );
+                return __( 'WRONG PASSWORD, <a href=\'%s\'>FORGOT YOUR PASSWORD?</a>', 'personalize-login' );
 
             case 'invalid_username':
                 return __(
-                    "Пользователь с таки логином не найден, проверьте корректность.",
+                    "INVALID EMAIL",
                     'personalize-login'
                 );
 
             case 'incorrect_password':
                 $err = __(
-                    "Неверный пароль. <a href='%s'>Забыли пароль?</a>?",
+                    "WRONG PASSWORD, <a href='%s'>FORGOT YOUR PASSWORD?</a>",
                     'personalize-login'
                 );
                 return sprintf( $err, wp_lostpassword_url() );
 
             case 'invalid_email':
             case 'invalidcombo':
-                return "Нет пользователя с таким Email";
+                return "INVALID EMAIL";
 
             // Reset password
 
@@ -230,7 +230,7 @@ class Personalize_Login_Plugin {
                 return "Пустой пароль!";//__( "Sorry, we don't accept empty passwords.", 'personalize-login' );
 
             case 'invalid-captcha':
-                return "Неверно введен проверочный код (captcha)!";//__( "Sorry, we don't accept empty passwords.", 'personalize-login' );
+                return "WRONG CAPTCHA";//__( "Sorry, we don't accept empty passwords.", 'personalize-login' );
 
 
 
@@ -276,7 +276,7 @@ class Personalize_Login_Plugin {
             }
         } else {
             // Non-admin users always go to their account page after login
-            $redirect_url = home_url( 'exchange' );
+            $redirect_url = home_url( 'myoffers' );
         }
 
         return wp_validate_redirect( $redirect_url, home_url() );

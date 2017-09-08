@@ -12,8 +12,9 @@ function show_payments_page()
     if (!is_user_logged_in()) {
 
         echo "<h3>Статистика доступна только для зарегистрированных пользователей</h3>";
-
-        $args = array(
+        $redirect_url = (is_ssl()? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        echo do_shortcode("[custom-login-form redirect=" . $redirect_url . "]");
+        /*$args = array(
             'echo' => true,
             'remember' => true,
             'redirect' => (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
@@ -29,7 +30,7 @@ function show_payments_page()
             'value_username' => '',
             'value_remember' => false
         );
-        wp_login_form($args);
+        wp_login_form($args);*/
         return;
     }
 

@@ -16,10 +16,10 @@ function render_offers_shortcode()
 
     if (!is_user_logged_in()) {
 
-        echo "<h3>Обмен доступна только для зарегистрированных пользователей</h3>
-            <div class='login-form-wrapper'>";
-
-        $args = array(
+        echo "<h3>Обмен доступна только для зарегистрированных пользователей</h3>";
+        $redirect_url = (is_ssl()? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        echo do_shortcode("[custom-login-form redirect=" . $redirect_url . "]");
+        /*$args = array(
             'echo' => true,
             'remember' => true,
             'redirect' => (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
@@ -28,16 +28,16 @@ function render_offers_shortcode()
             'id_password' => 'user_pass',
             'id_remember' => 'rememberme',
             'id_submit' => 'wp-submit',
-            'label_username' => __('Username'),
-            'label_password' => __('Password'),
-            'label_remember' => __('Remember Me'),
+            'label_username' => __('EMAIL OR LOGIN'),
+            'label_password' => __('PASSWORD'),
+            'label_remember' => __('Forgot your password?'),
             'label_log_in' => __('Sign In'),
             'value_username' => '',
             'value_remember' => false
         );
         wp_login_form($args);
         echo '<a href="/registration/"><button tybe="button">Sign Up</button></a>';
-        echo '</div>';
+        echo '</div>';*/
         return;
     }
 
@@ -186,12 +186,12 @@ function render_offers_shortcode()
         </div>
         <div class="user_info-column-2">
             <dl>
-                <dt>Сайт</dt>
+                <!--<dt>Сайт</dt>-->
                 <dd><a href="<?php echo $cur_author->user_url; ?>"><?php echo $cur_author->user_url; ?></a></dd>
 
 
 
-                <dt>Изменить данные профиля</dt>
+                <!--<dt>Изменить данные профиля</dt>-->
                 <dd><a href="<?php echo admin_url('profile.php'); ?>">
                         <button type="button">Edit</button>
                     </a>&nbsp;&nbsp;&nbsp;
@@ -202,8 +202,8 @@ function render_offers_shortcode()
         </div>
         <div class="user_info-column-3">
             <dl>
-                <dt>Описание</dt>
-                <dd><hr><?php echo $cur_author->user_description; ?></dd>
+                <!--<dt>Описание</dt>-->
+                <dd><!--<hr>--><?php echo $cur_author->user_description; ?></dd>
             </dl>
         </div>
         <div class="clear"></div>

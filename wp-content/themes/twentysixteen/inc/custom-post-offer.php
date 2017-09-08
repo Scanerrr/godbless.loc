@@ -13,7 +13,7 @@ function custom_post_offer() {
     $labels = array(
         'name'               => 'Предложения',
         'singular_name'      => 'Предложение',
-        'add_new'            => 'Добавить предложение',
+        'add_new'            => 'ADD OFFER',
         'add_new_item'       => 'Добавить новое Предложение',
         'edit_item'          => 'Редактировать предложение',
         'new_item'           => 'Новое предложение',

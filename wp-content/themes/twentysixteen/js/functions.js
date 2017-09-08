@@ -328,4 +328,59 @@
 		belowEntryMetaClass( 'img.size-full' );
 		belowEntryMetaClass( 'blockquote.alignleft, blockquote.alignright' );
 	} );
+
+	function dropDownCheckList(id) {
+        $(id + " dt a").on('click', function() {
+            $(this).toggleClass('is-active');
+            $(id + " dd ul").slideToggle('fast');
+        });
+
+        $(id + " dd ul li a").on('click', function() {
+            $(id + " dt a").removeClass('is-active');
+            $(id + " dd ul").hide();
+        });
+
+        $(document).bind('click', function(e) {
+            var $clicked = $(e.target);
+            if (!$clicked.parents().hasClass("dropdown")) {
+                $(id + " dt a").removeClass('is-active');
+                $(id + " dd ul").hide();
+            }
+        });
+
+        $(id + ' .mutliSelect input[type="checkbox"]').on('click', function() {
+
+            var title = $(this).closest('.mutliSelect').find('input[type="checkbox"]').val(),
+                title = $(this).val() + ",";
+
+            if ($(this).is(':checked')) {
+                var html = '<span title="' + title + '">' + title + '</span>';
+                $(id + ' .multiSel').append(html);
+                $(id + " .hida").hide();
+            } else {
+                $(id + ' span[title="' + title + '"]').remove();
+                var ret = $(id + " .hida");
+                $(id + ' dt a').append(ret);
+
+            }
+        });
+        $(id + ' .mutliSelect input[type="radio"]').on('click', function() {
+            var title = $(this).val();
+            if ($(this).is(':checked')) {
+                var html = '<span title="' + title + '">' + title + '</span>';
+                $(id + ' .multiSel').html(html);
+                $(id + " .hida").hide();
+            } else {
+                $(id + ' span[title="' + title + '"]').remove();
+                var ret = $(id + " .hida");
+                $(id + ' dt a').append(ret);
+
+            }
+        });
+	}
+    dropDownCheckList('#dropdown_server');
+    dropDownCheckList('#dropdown_alliance');
+    dropDownCheckList('#dropdown_currency');
+    dropDownCheckList('#dropdown_payment');
+
 } )( jQuery );

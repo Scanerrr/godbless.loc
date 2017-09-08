@@ -17,8 +17,9 @@ function unfreeze_restore_selected()
     if (!is_user_logged_in()) {
 
         echo "<h3>Страницы доступна только для зарегистрированных пользователей</h3>";
-
-        $args = array(
+        $redirect_url = (is_ssl()? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        echo do_shortcode("[custom-login-form redirect=" . $redirect_url . "]");
+        /*$args = array(
             'echo' => true,
             'remember' => true,
             'redirect' => (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
@@ -34,7 +35,7 @@ function unfreeze_restore_selected()
             'value_username' => '',
             'value_remember' => false
         );
-        wp_login_form($args);
+        wp_login_form($args);*/
         return;
     }
 
@@ -136,7 +137,7 @@ function unfreeze_restore_selected()
     <div class="exchange-buttons">
 
 
-        <a href="/exchange">
+        <a href="/myoffers">
             <button name="action" value="restore_selected" type="button">Show active</button>
         </a>
 

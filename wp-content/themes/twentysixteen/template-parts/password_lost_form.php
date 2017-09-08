@@ -11,8 +11,8 @@
     <div class="password-lost-errors"><div>
     <?php foreach ( $attributes['errors'] as $error ) :  ?>
         <p>
-
-            <br><span class="dashicons dashicons-warning"></span><?php echo $error; ?>
+            <br>
+            <span class="validation-error"><?php echo $error; ?></span>
         </p>
     <?php endforeach; ?>
 <?php endif; ?>
@@ -41,8 +41,8 @@
         <p>
         <?php echo '<img id=_captcha src="/captcha/?' . session_name() . '=' . session_id() . '"><br>
         <a href="./" onclick="document.getElementById(\'_captcha\').src = \'/captcha/?<?=session_name()?>=<?=session_id()?>&\'+Math.random(99999999999999999); return false;">
-            Обновить код</a><br><br>
-        <label for="bio">Проверочный код (captcha) *</label>
+            REFRESH</a><br><br>
+        <label for="bio">CAPTCHA *</label>
         <input id="keystring" type="text" name="keystring">'; ?>
     </p>
 
