@@ -226,6 +226,7 @@ function render_offers_shortcode()
 
 
     </div>
+    <div class="clear"></div>
     <?php
     // строим таблицу с оферами
 

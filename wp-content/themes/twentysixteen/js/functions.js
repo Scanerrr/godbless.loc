@@ -383,4 +383,63 @@
     dropDownCheckList('#dropdown_currency');
     dropDownCheckList('#dropdown_payment');
 
+// Events for Menu Button
+    $('#menu-button').on('click', function(e) {
+        var $body = $('#page');
+        var $menuBar = $('#main-menu');
+
+        e.preventDefault();
+        $body.toggleClass('menu-open');
+        $body.removeClass('menu-close');
+        $menuBar.toggleClass('menu-open');
+        removeLinkOpenClass();
+    });
+
+    // Prevent hidden anchors from being `tabable` initially on mobile
+    $('.menu-wrapper').find('a').attr('tabindex', -1);
+
+    var $menuBar = $('#main-menu');
+    var $menuItems = $menuBar.find('li > a[rel="menuitem"]');
+    // Events for menu links
+    $menuItems.on('click', function(e) {
+
+        var $body = $('#page');
+        e.preventDefault();
+        var $target = $(e.target);
+        if ($target.hasClass('is-open')) {
+            $target.removeClass('is-open');
+            $target.attr('aria-expanded', 'false');
+            $target.next('.menu-wrapper').removeClass('open');
+            $target.next('.menu-wrapper').find('a').attr('tabindex', -1);
+        } else {
+            removeLinkOpenClass();
+            $target.addClass('is-open');
+            $target.attr('aria-expanded', 'true');
+            $target.next('.menu-wrapper').addClass('open');
+            $target.next('.menu-wrapper').find('a').attr('tabindex', 0);
+        }
+
+        if (
+            $target.parent().parent().find('.menu-wrapper.open').length &&
+            $target.hasClass('is-open')
+        ) {
+            $body.addClass('menu-open');
+            $body.removeClass('menu-close');
+        } else {
+            $body.addClass('menu-close');
+            $body.removeClass('menu-open');
+        }
+    });
+    /**
+     * removeLinkOpenClass
+     * Remove is-open class of Links
+     *
+     **/
+    function removeLinkOpenClass() {
+        var $menuBar = $('#main-menu');
+        var $menuItems = $menuBar.find('li > a[rel="menuitem"]');
+        $.each($menuItems, function(idx, itemLink) {
+            $(itemLink).removeClass('is-open');
+        });
+    }
 } )( jQuery );

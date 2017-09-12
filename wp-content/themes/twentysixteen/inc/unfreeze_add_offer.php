@@ -50,9 +50,6 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
         wp_login_form($args);*/
         return;
     }
-    echo '<header class="entry-header">
-        <h1 class="entry-title">ADD OFFER</h1>
-    </header>';
 
     $current_user = wp_get_current_user();
     $cur_user_id = $current_user->ID;
@@ -73,6 +70,10 @@ function add_offer_form($server_, $currency_, $alliance_, $price, $payment_syste
 
     if (isset ($_GET['game_id']) && $_GET['game_id'] > 0) {
         $game_id = $_GET['game_id'];
+        echo '<header class="entry-header">
+                <h1 class="entry-title">ADD OFFER</h1>
+            </header>';
+
         $post = get_post($game_id);
 
         if ($post instanceof WP_Post) {
@@ -398,7 +399,7 @@ function add_offer_validation($server, $currency, $alliance, $price, $payment_sy
     }
 
     if (empty($price)) {
-        $reg_errors->add('field', 'PLEASE ADD CURRENCY');
+        $reg_errors->add('field', 'PLEASE ADD PRICE');
     }
 
 

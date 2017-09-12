@@ -396,7 +396,7 @@ function edit_offer_validation($server, $currency, $alliance, $price, $payment_s
     }
 
     if (empty($price)) {
-        $reg_errors->add('field', 'PLEASE ADD CURRENCY');
+        $reg_errors->add('field', 'PLEASE ADD PRICE');
     }
 
     if (empty($payment_systems)) {

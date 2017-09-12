@@ -26,14 +26,39 @@
 <div id="page" class="site">
     <div class="site-inner">
         <a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'twentysixteen'); ?></a>
-        <header id="masthead" class="site-header" role="banner">
-
+        <header id="masthead" class="site-header header-menu" role="banner">
             <div class="site-header-main">
+                <div class="containerCentered is-mobile">
+                    <a href="#Menu" id="menu-button" role="button">Menu</a>
+                    <?php twentysixteen_the_custom_logo(); ?>
+                    <?php if (has_nav_menu('primary') || has_nav_menu('social')) : ?>
+                        <?php if (has_nav_menu('primary')) : ?>
+                            <nav id="main-menu" class="main-menu" role="navigation"
+                                 aria-label="<?php esc_attr_e('Primary Menu', 'twentysixteen'); ?>">
+                                <?php
+                                wp_nav_menu(array(
+                                    'theme_location' => 'primary',
+                                    'menu_class' => 'primary-menu',
+                                    'container_class' => 'primary-menu-container',
+                                    'container_id' => 'primary-menu-container',
+                                    'menu_id' => 'primary-menu'
+                                ));
+                                ?>
+                            </nav><!-- .main-navigation -->
 
-
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <div id="header-buttons" class="header-buttons">
+                        <?php if(is_user_logged_in()): ?>
+                            <a href="<?php echo wp_logout_url(home_url()) ?>" id="ul-btn" class="btn btn-small btn-secondary">Sign Out</a>
+                        <?php else: ?>
+                            <a href="<?php echo wp_login_url(get_site_url()); ?>" id="ul-btn" class="btn btn-small btn-secondary">Sign In</a>
+                        <?php endif; ?>
+                    </div>
+                </div>
                 <div class="games-site-branding">
 
-                    <div class="games-top-header">
+                    <div class="games-top-header is-default">
                         <div class="site-branding">
                             <div class="unfreeze-logo">
 
@@ -55,8 +80,6 @@
                             </a>
                         </div>
                         <!-- .site-branding -->
-
-
                     <?php
                     if (has_nav_menu('primary') || has_nav_menu('social')) : ?>
                         <button id="menu-toggle" class="menu-toggle"><?php _e('Menu', 'twentysixteen'); ?></button>
@@ -84,8 +107,7 @@
 
 
                         </div><!-- .site-header-menu -->
-                    <?php endif;
-                    ?>
+                    <?php endif;?>
 
                     </div>
                     <!-- .game-top-header -->
@@ -96,7 +118,13 @@
 
                 </div>
 
-                    <?php echo do_shortcode('[URIS id=383]'); ?>
+                <?php
+                if(wp_is_mobile())
+                    echo do_shortcode('[URIS id=553]');
+                else
+                    echo do_shortcode('[URIS id=383]');
+                ?>
+
                 
 
                 <div class="headerslider2" style="background-color: #000000; height: 50%;">
@@ -141,12 +169,11 @@
                 </div><!-- .header-image -->
             <?php endif; // End header image check. ?>
         </header>
-
         <!-- .site-header -->
 
         <div id="content" class="site-content">
 
-            <div class="games-nav-branding">
+            <div class="games-nav-branding is-default">
                 <div id="site-games-list-menu" class="site-games-menu-list">
                     <?php
 
