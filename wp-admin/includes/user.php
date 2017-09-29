@@ -90,11 +90,13 @@ function edit_user( $user_id = 0 ) {
 			$user->$method = sanitize_text_field( $_POST[$method] );
 	}
 
-	if ( $update ) {
-		$user->rich_editing = isset( $_POST['rich_editing'] ) && 'false' == $_POST['rich_editing'] ? 'false' : 'true';
-		$user->admin_color = isset( $_POST['admin_color'] ) ? sanitize_text_field( $_POST['admin_color'] ) : 'fresh';
-		$user->show_admin_bar_front = isset( $_POST['admin_bar_front'] ) ? 'true' : 'false';
-	}
+	if (!isset($_POST['is_frontend'])) {
+        if ($update) {
+            $user->rich_editing = isset($_POST['rich_editing']) && 'false' == $_POST['rich_editing'] ? 'false' : 'true';
+            $user->admin_color = isset($_POST['admin_color']) ? sanitize_text_field($_POST['admin_color']) : 'fresh';
+            $user->show_admin_bar_front = isset($_POST['admin_bar_front']) ? 'true' : 'false';
+        }
+    }
 
 	$user->comment_shortcuts = isset( $_POST['comment_shortcuts'] ) && 'true' == $_POST['comment_shortcuts'] ? 'true' : '';
 
@@ -103,6 +105,16 @@ function edit_user( $user_id = 0 ) {
 		$user->use_ssl = 1;
 
 	$errors = new WP_Error();
+
+    //check captcha on frontend
+    if (isset($_POST['is_frontend'])) {
+        if (isset($_SESSION['captcha_keystring']) && $_SESSION['captcha_keystring'] === $_POST['keystring']) {
+            //echo "Капача правильная";
+        } else {
+            $errors->add('captcha', 'WRONG CAPTCHA');
+        }
+        unset($_SESSION['captcha_keystring']);
+    }
 
 	/* checking that username has been typed */
 	if ( $user->user_login == '' )

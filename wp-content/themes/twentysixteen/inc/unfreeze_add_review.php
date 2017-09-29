@@ -46,17 +46,17 @@ function add_review_function()
         ));
 
         ?>
-        <div class="user_info">
+        <div class="user_info" style="border-bottom: none">
             <div class="user_info-column-1">
                 <img src="<?= $avatar_url ?>" height="64px" width="64px"/>
             </div>
             <div class="user_info-column-2">
                 <dl>
-                    <dt>Обменник</dt>
-                    <dd><b><?php echo $user->user_login; ?></b></dd>
-                    <dt>Website</dt>
+                    <!--<dt>Обменник</dt>-->
+                    <dd style="font-size: 20px"><b><?php echo $user->user_login; ?></b></dd>
+                    <!--<dt>Website</dt>-->
                     <dd><a href="<?php echo $user->user_url; ?>"><?php echo $user->user_url; ?></a></dd>
-                    <dt>Profile</dt>
+                    <!--<dt>Profile</dt>-->
                     <dd><?php echo $user->user_description; ?></dd>
                 </dl>
             </div>
@@ -77,7 +77,7 @@ function add_review_function()
         $logedin_user_id = get_current_user_id();
         // forbid to review user by the same user
         if ($logedin_user_id === $user->ID) {
-            echo "<h3>Пользователь не может оставить отзыв о себе.</h3>";
+            echo "<h3>The user cannot leave a feedback about yourself.</h3>";
             return;
         }
 
@@ -87,7 +87,7 @@ function add_review_function()
                 'title_reply_before' => '',
                 'title_reply_after'  => '',
                 'logged_in_as'         =>  '',
-                'title_reply'          => 'Оставить отзыв',
+                'title_reply'          => 'LEAVE FEEDBACK',
                 'label_submit'         => 'Send',
                 'must_log_in'          => '<p class="must-log-in">' . sprintf( __( 'Вы должны войти <a href="%s">войти</a> чтобы оставить отзыв.' ), wp_login_url( $_SERVER['REQUEST_URI'] ) ) . '</p>',
                 // '<p class="logged-in-as">' . sprintf( __( '<a href="%1$s" aria-label="Logged in as %2$s. Edit your profile.">Logged in as %2$s</a>. <a href="%3$s">Log out?</a>' ), get_edit_user_link(), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',

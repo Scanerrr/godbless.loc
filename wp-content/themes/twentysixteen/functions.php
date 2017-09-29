@@ -31,9 +31,9 @@
 
 global $review_ratings;
 $review_ratings = array(
-    '0' => 'Нейтральный',
-    '1' => 'Положительный',
-    '2' => 'Отрицательный'
+    '0' => 'NEUTRAL',
+    '1' => 'POSITIVE',
+    '2' => 'NEGATIVE'
 );
 
 global $game_templates;
@@ -602,6 +602,22 @@ function my_rewrite_flush()
     // Создать таблицу.
     dbDelta($sql);
 
+
+    $table_name = $wpdb->get_blog_prefix() . 'unfreeze_comments_count';
+    $charset_collate = "DEFAULT CHARACTER SET {$wpdb->charset} COLLATE {$wpdb->collate}";
+    $sql = "CREATE TABLE {$table_name} (
+          ID bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+          offer_ID bigint(20) UNSIGNED NOT NULL,
+          description varchar(10) NOT NULL DEFAULT 'rating',
+          comments bigint(20) UNSIGNED DEFAULT NULL COMMENT 'Amount of comments',
+          comments_positive bigint(20) UNSIGNED DEFAULT NULL COMMENT 'Amount of positive comments',
+          comments_negative bigint(20) UNSIGNED DEFAULT NULL COMMENT 'Amount of negative comments',
+          comments_neutral bigint(20) UNSIGNED DEFAULT NULL COMMENT 'Amount of neutral comments',
+          PRIMARY KEY (`ID`)
+    ) ENGINE=InnoDB DEFAULT {$charset_collate};";
+
+    // Создать таблицу.
+    dbDelta($sql);
 }
 
 add_action('after_switch_theme', 'my_rewrite_flush');
@@ -616,6 +632,10 @@ function my_creating_custom_pages () {
         'member-password-reset' => array(
             'title' => __( 'Сброс парорля', 'personalize-login' ),
             'content' => '[custom-password-reset-form]'
+        ),
+        'edit-profile' => array(
+            'title' => __( 'Edit', 'personalize-login' ),
+            'content' => '[edit-profile]'
         )
     );
 
@@ -651,6 +671,7 @@ include get_template_directory() . DIRECTORY_SEPARATOR . "inc" . DIRECTORY_SEPAR
 include get_template_directory() . DIRECTORY_SEPARATOR . "inc" . DIRECTORY_SEPARATOR . "unfreeze_add_review.php";
 include get_template_directory() . DIRECTORY_SEPARATOR . "inc" . DIRECTORY_SEPARATOR . "unfreeze_restore_selected.php";
 include get_template_directory() . DIRECTORY_SEPARATOR . "inc" . DIRECTORY_SEPARATOR . "personalize-login.php";
+include get_template_directory() . DIRECTORY_SEPARATOR . "inc" . DIRECTORY_SEPARATOR . "edit-profile.php";
 include get_template_directory() . DIRECTORY_SEPARATOR . "extendcomment.php";
 
 
@@ -676,7 +697,7 @@ function script_ui_accordion() {
     wp_enqueue_style('plugin_name-admin-ui-css',
         'http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css',
         false,
-        PLUGIN_VERSION,
+        false,
         false);
 
 

@@ -224,10 +224,10 @@ class Personalize_Login_Plugin {
                 return "Данная ссылка для сброса пароля уже не актуальная.";
 
             case 'password_reset_mismatch':
-                return "Пароли, которые вы ввели не совпадают."; //__( "The two passwords you entered don't match.", 'personalize-login' );
+                return "PASSWORDS NOT MATCH."; //__( "The two passwords you entered don't match.", 'personalize-login' );
 
             case 'password_reset_empty':
-                return "Пустой пароль!";//__( "Sorry, we don't accept empty passwords.", 'personalize-login' );
+                return "EMPTY PASSWORD!";//__( "Sorry, we don't accept empty passwords.", 'personalize-login' );
 
             case 'invalid-captcha':
                 return "WRONG CAPTCHA";//__( "Sorry, we don't accept empty passwords.", 'personalize-login' );
@@ -238,7 +238,7 @@ class Personalize_Login_Plugin {
                 break;
         }
 
-        return "Неизвестная ошибка. Попробуйте позже.";
+        return "UNKNOWN ERROR. TRY LATER.";
     }
 
     /**

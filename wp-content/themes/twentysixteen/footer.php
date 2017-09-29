@@ -18,11 +18,11 @@
 
         <div class="site-info">
             <div class="games-footer-statistic">
-                <p> <span class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>"
-                                            rel="home">UNFREEZE</a>
+                <p> <span class="site-title">
+                        <a href="<?php echo esc_url(home_url('/')); ?>"
+                                            rel="home">BLESS URSELF</a>
 
                     </span>
-                    BLESS URSELF
 
                 <!-- Всего курсов: <span>114479</span> Обменников: <span>264/284</span> <span>Обновление: 09:31:27</span>
                     <span>+1 059 868 895 89</span> -->

@@ -28,7 +28,7 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
 
     if (!is_user_logged_in()) {
 
-        echo "<h3>Добавление предложений доступно тоько для зарегистрированных пользователей</h3>";
+//        echo "<h3>Добавление предложений доступно тоько для зарегистрированных пользователей</h3>";
         $redirect_url = (is_ssl()? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         echo do_shortcode("[custom-login-form redirect=" . $redirect_url . "]");
         /*$args = array(
@@ -134,7 +134,7 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
                     <input name="server" type="' . $servers_type . '" id="server_0" checked="1" disable value="Все сервера" >Все сервера</label>';
 
             /***************** ВЫБОР ВАЛЮТЫ ****************/
-            echo "<br><strong>CURRENCY: </strong>";
+            echo "<br><strong>CURRENCY, ITEM OR SERVICE: </strong>";
             $_currencies = get_post_meta($game_id, '_currencies', true);
             $offer_currency = get_post_meta($offer_id, 'currency', true);
 
@@ -227,6 +227,8 @@ function edit_offer_form($server_, $currency_, $alliance_, $price, $payment_syst
                             <div class="mutliSelect">
                                 <ul>
                     <?php
+                    $alliance_ = explode(',', $alliance_[0]);
+
                     foreach ($alliances_list as $a_key => $alliance) {
 
                         $checked = "";
@@ -388,7 +390,7 @@ function edit_offer_validation($server, $currency, $alliance, $price, $payment_s
         $reg_errors->add('field', 'PLEASE ADD SERVER');
     }
     if (empty($currency)) {
-        $reg_errors->add('field', 'PLEASE SELECT CURRENCY');
+        $reg_errors->add('field', 'PLEASE ADD CURRENCY');
     }
 
     if (empty($alliance) && $alliance !== 'alliance_disabled') {
@@ -400,7 +402,7 @@ function edit_offer_validation($server, $currency, $alliance, $price, $payment_s
     }
 
     if (empty($payment_systems)) {
-        $reg_errors->add('field', 'PLEASE ADD PAYMENT SYSTEM');
+        $reg_errors->add('field', 'PLEASE ADD PAYMENT METHOD');
     }
 
     if (empty($website)) {
@@ -411,7 +413,7 @@ function edit_offer_validation($server, $currency, $alliance, $price, $payment_s
     if (!empty($website)) {
 
         if (!filter_var($website, FILTER_VALIDATE_URL)) {
-            $reg_errors->add('website', 'Неправильный адрес сайта');
+            $reg_errors->add('website', 'INVALID LINK');
         }
     }
 
@@ -456,7 +458,7 @@ function edit_offer_complete()
 
 
         $post_data = array(
-            'post_title' => "Обмен $game_title. Курс: $price ( $server_string | $currency | $alliance_string )",
+            'post_title' => "Game $game_title. Price: $price ( Server: $server_string | Currency: $currency | Fraction: $alliance_string )",
             'post_content' => $dopinfo,
             'post_status' => 'publish',
             'post_author' => get_current_user_id(),

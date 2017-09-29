@@ -38,9 +38,9 @@ foreach ($offers_for_popup as $offer) {
     $offer_id = $offer->ID;
     $offer_dop_info = get_post_meta($offer_id, 'dopinfo', true);
     $offer_website = get_post_meta($offer_id, 'website', true);
-    if (!strlen($offer_dop_info)) $offer_dop_info = "Нет";
+    if (!strlen($offer_dop_info)) $offer_dop_info = "None";
 
-    $offer_message = "<p>Предложение: <br/>$offer_title<br/><br/>Website:<br>$offer_website<br><br> Дополнительная информаци: <br>$offer_dop_info </p>";
+    $offer_message = "<p>Offer: <br/>$offer_title<br/><br/>URL:<br>$offer_website<br><br> OTHER INFORMATION: <br>$offer_dop_info </p>";
     echo 'popup_data["popup_block_'.$offer_id.'"] = "'.$offer_message.'" '; echo "\n";
 
     //echo '<div class="game_popup_block popup_block_' . $offer_id . '"><p>' . $offer_message . '</p></div>';

@@ -16,7 +16,7 @@ function render_offers_shortcode()
 
     if (!is_user_logged_in()) {
 
-        echo "<h3>Обмен доступна только для зарегистрированных пользователей</h3>";
+//        echo "<h3>Обмен доступна только для зарегистрированных пользователей</h3>";
         $redirect_url = (is_ssl()? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         echo do_shortcode("[custom-login-form redirect=" . $redirect_url . "]");
         /*$args = array(
@@ -192,7 +192,7 @@ function render_offers_shortcode()
 
 
                 <!--<dt>Изменить данные профиля</dt>-->
-                <dd><a href="<?php echo admin_url('profile.php'); ?>">
+                <dd><a href="/edit-profile">
                         <button type="button">Edit</button>
                     </a>&nbsp;&nbsp;&nbsp;
                     <!-- <a href='http://godblessgamers.com/payments/'><button >К оплате</button></a> -->

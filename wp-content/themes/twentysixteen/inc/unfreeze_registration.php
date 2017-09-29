@@ -33,7 +33,7 @@ function unfreeze_registration_form($username, $password, $email, $website, $fir
     </div>
 
     <div>
-    <label for="firstname">NAME</label>
+    <label for="firstname">nickname</label>
     <input type="text" name="fname" value="' . (isset($_POST['fname']) ? $first_name : null) . '">
     </div>
 
@@ -75,17 +75,17 @@ function registration_validation($username, $password, $email, $website, $first_
     }
 
     if (4 > strlen($username)) {
-        $reg_errors->add('username_length', 'Имя пользователя слишком короткое. Необходимо минимум 4 символа.');
+        $reg_errors->add('username_length', 'LOGIN MUST BE AT LEAST 4 CHARACTERS LONG.'/*'Имя пользователя слишком короткое. Необходимо минимум 4 символа.'*/);
     }
 
     if (username_exists($username))
         $reg_errors->add('user_name', 'SORRY THIS NAME '.$username.' ALREADY TAKEN');
 
     if (!validate_username($username)) {
-        $reg_errors->add('username_invalid', 'Неверный формат имени пользователя');
+        $reg_errors->add('username_invalid', 'INVALID USERNAME FORMAT.'/*'Неверный формат имени пользователя'*/);
     }
     if (5 > strlen($password)) {
-        $reg_errors->add('password', 'Пароль должен быть больше 5 символов');
+        $reg_errors->add('password', 'PASSWORD MUST BE AT LEAST 5 CHARACTERS LONG.'/*'Пароль должен быть больше 5 символов'*/);
     }
 
     if (!is_email($email)) {
@@ -93,12 +93,12 @@ function registration_validation($username, $password, $email, $website, $first_
     }
 
     if (email_exists($email)) {
-        $reg_errors->add('email', 'Email '.$email. ' уже занят!');
+        $reg_errors->add('email', 'Email '.$email. ' already taken!');
     }
 
     if (!empty($website)) {
         if (!filter_var($website, FILTER_VALIDATE_URL)) {
-            $reg_errors->add('website', 'Неправильный адрес сайта');
+            $reg_errors->add('website', 'INVALID WEBSITE LINK.');
         }
     }
 
@@ -145,10 +145,6 @@ function complete_registration() {
 }
 
 function custom_registration_function() {
-
-
-
-
 
     if ( isset($_POST['submit'] ) ) {
         registration_validation(

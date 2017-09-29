@@ -10,7 +10,7 @@ function showUserStatistic()
 {
     if (!is_user_logged_in()) {
 
-        echo "<h3>Статистика доступна только для зарегистрированных пользователей</h3>";
+//        echo "<h3>Статистика доступна только для зарегистрированных пользователей</h3>";
         $redirect_url = (is_ssl()? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
         echo do_shortcode("[custom-login-form redirect=" . $redirect_url . "]");
         /*$args = array(

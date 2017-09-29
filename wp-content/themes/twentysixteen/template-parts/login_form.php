@@ -51,13 +51,13 @@ $current_url = rtrim($_SERVER["REQUEST_URI"], '/');
     <!-- Show logged out message if user just logged out -->
     <?php if ( $attributes['logged_out'] ) : ?>
         <p class="login-info">
-           Вы успешно вышли с сайта. Можете авторизироваться повторно.
+            You have just log out but you can log in again.
         </p>
     <?php endif; ?>
 
     <?php if ( $attributes['lost_password_sent'] ) : ?>
         <p class="login-info">
-            <span class="validation-error">На вашу почту отправлена ссылка для сброса пароля. Проверьте Email</span>
+            <span class="validation-error" style="color: inherit">Please check your email, the email was sent.</span>
         </p>
     <?php endif; ?>
 

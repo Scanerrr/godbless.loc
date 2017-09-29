@@ -26,7 +26,7 @@
 <p>
     <?php
     _e(
-        "Введите ваш Email и мы отправим вам ссылку для сброса пароля",
+        "Enter your email for password recovery",
         'personalize_login'
     );
     ?>

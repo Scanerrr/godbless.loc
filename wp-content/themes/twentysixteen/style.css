@@ -315,6 +315,11 @@ textarea {
 	font-size: 16px;
 	font-size: 0.9rem;
 	line-height: 1.5;
+	font-feature-settings: 'lnum';
+	-moz-font-feature-settings: 'lnum=1';
+	-ms-font-feature-settings: 'lnum';
+	-webkit-font-feature-settings: 'lnum';
+	-o-font-feature-settings: 'lnum';
 }
 
 h1,
@@ -470,7 +475,7 @@ html {
 }
 
 body {
-	background: #1a1a1a;
+	background: #f8f8f8;
 	/* Fallback for when there is no custom background color defined. */
 }
 
@@ -2492,14 +2497,14 @@ body.search-no-results .page-header {
 	font-size: inherit;
 	font-weight: 400;
 }
-
+/*
 .site-footer .site-title:after {
 	content: "\002f";
 	display: inline-block;
 	font-family: Montserrat, "Raleway-SemiBold";
 	opacity: 0.7;
 	padding: 0 0.307692308em 0 0.538461538em;
-}
+}*/
 
 
 /**
@@ -3613,7 +3618,8 @@ p > video {
 	margin-top: 15px;
 }
 .site-content {
-    padding: 0 2%;
+    /*padding: 0 2%;*/
+    padding: 3% 2% 0;
     margin: 1em auto 0 auto;
 }
 .game-preview {
@@ -4587,7 +4593,8 @@ p > video {
     width: 84%;
 }
 .site-content {
-    padding: 0 2%;
+    /*padding: 0 2%;*/
+	padding: 50px 2% 0;
     margin: 0em auto 0 auto;
 }
 .unfreeze-logo {
@@ -5959,6 +5966,10 @@ section.error-404.not-found {
 	box-shadow: none;
 }
 
+.validation-success {
+	color: green;
+}
+
 .unfreeze-registration label {
 	text-transform: uppercase;
 }
@@ -6320,9 +6331,38 @@ a:hover {
 	.main-menu {
 		top: -50px;
 	}
+	.site-content {
+		padding: 0 2%;
+	}
 }
-@media screen and (min-width: 720px) {
-	.main-menu {
-		top: -50px;
+
+.left-thump {
+	color: green;
+	margin: 0 5px 0 0;
+}
+
+.right-thump {
+	color: red;
+	margin: 0 5px 0 15px;
+}
+
+/* footer */
+html, body, #page {
+	height: 100%;
+}
+.site-inner {
+	min-height: 100%;
+	padding-bottom: 8rem;
+}
+footer.site-footer {
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 0;
+}
+
+@media screen and (max-width: 920px) {
+	.site-inner {
+		padding-bottom: 13rem;
 	}
 }

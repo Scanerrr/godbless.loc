@@ -61,7 +61,7 @@ function additional_fields()
     echo '
         <input type="hidden" name="redirect_to" value="'.$redirect_url.'"/>
         <p class="comment-form-rating">' .
-        '<label for="rating">Рейтинг<span class="required">*</span></label>
+        '<label for="rating">Rating<span class="required">*</span></label>
   <span class="commentratingbox">';
 
     global $review_ratings;
@@ -81,9 +81,11 @@ add_action('comment_post', 'save_comment_meta_data');
 
 function save_comment_meta_data($comment_id)
 {
+    $offer_id = !isset($_POST['comment_post_ID']) ?: $_POST['comment_post_ID'];
     if ((isset($_POST['rating'])) && ($_POST['rating'] != '')) {
         $rating = wp_filter_nohtml_kses($_POST['rating']);
         add_comment_meta($comment_id, 'rating', $rating);
+        add_comment_counter($offer_id, $rating);
     }
 }
 
@@ -156,4 +158,48 @@ function extend_comment_edit_metafields( $comment_id ) {
         delete_comment_meta( $comment_id, 'rating');
     endif;
 
+}
+
+function add_comment_counter($offer_id, $rating = 0) {
+    global $wpdb;
+    $table_name = $wpdb->get_blog_prefix() . 'unfreeze_comments_count';
+    $data = $wpdb->get_results($wpdb->prepare(
+        "SELECT ID, offer_ID, comments, comments_positive, 
+                    comments_negative, comments_neutral
+               FROM {$table_name} WHERE offer_ID = %s", $offer_id));
+    switch ($rating){
+        case 0:
+            $rating = 'neutral';
+            break;
+        case 1:
+            $rating = 'positive';
+            break;
+        case 2:
+            $rating = 'negative';
+            break;
+    }
+    if ($data) {
+        $data = $data[0];
+        $data->comments = intval($data->comments);
+        $data->comments_positive = intval($data->comments_positive);
+        $data->comments_negative = intval($data->comments_negative);
+        $data->comments_neutral = intval($data->comments_neutral);
+        $res = $wpdb->update($table_name, [
+            'offer_ID' => $offer_id,
+            'comments' => ++$data->comments,
+            'comments_positive' => ($rating == 'positive') ? ++$data->comments_positive : $data->comments_positive,
+            'comments_negative' => ($rating == 'negative') ? ++$data->comments_negative : $data->comments_negative,
+            'comments_neutral' => ($rating == 'neutral') ? ++$data->comments_neutral : $data->comments_neutral
+        ], ['ID' => $data->ID]);
+    } else {
+        $counter = 0;
+        $res = $wpdb->insert($table_name, [
+            'offer_ID' => $offer_id,
+            'comments' => 1,
+            'comments_positive' => ($rating == 'positive') ? 1 : $counter,
+            'comments_negative' => ($rating == 'negative') ? 1 : $counter,
+            'comments_neutral' => ($rating == 'neutral') ? 1 : $counter
+        ]);
+    }
+    return $res;
 }
